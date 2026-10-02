@@ -1,0 +1,26 @@
+[
+  {
+    "id": "tet",
+    "name_vi": "Tết",
+    "remix_cap": 1,
+    "suggested_sets": []
+  },
+  {
+    "id": "ky-yeu",
+    "name_vi": "Kỷ yếu",
+    "remix_cap": 2,
+    "suggested_sets": []
+  },
+  {
+    "id": "le-hoi",
+    "name_vi": "Lễ hội",
+    "remix_cap": 1,
+    "suggested_sets": []
+  },
+  {
+    "id": "doi-thuong",
+    "name_vi": "Đời thường",
+    "remix_cap": 2,
+    "suggested_sets": []
+  }
+]
