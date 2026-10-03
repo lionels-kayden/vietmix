@@ -1,1 +1,148 @@
-[]
+[
+  {
+    "id": "R_DUP_TOP",
+    "level": "block",
+    "type": "duplicate_slot",
+    "slot": "top",
+    "message_key": "duplicate_top",
+    "message_vi": "Không thể mặc cùng lúc từ hai áo trở lên.",
+    "needs_review": true
+  },
+  {
+    "id": "R_DUP_BOTTOM",
+    "level": "block",
+    "type": "duplicate_slot",
+    "slot": "bottom",
+    "message_key": "duplicate_bottom",
+    "message_vi": "Không thể mặc cùng lúc từ hai quần hoặc váy trở lên.",
+    "needs_review": true
+  },
+  {
+    "id": "R_NECKLACE_STAND_COLLAR",
+    "level": "block",
+    "type": "combo",
+    "all": [
+      {
+        "kind": "vong_co_bac"
+      },
+      {
+        "attr": "stand_collar"
+      }
+    ],
+    "message_key": "necklace_stand_collar",
+    "message_vi": "Vòng cổ kim loại không đeo ra ngoài trang phục có cổ đứng.",
+    "needs_review": true
+  },
+  {
+    "id": "R_HAT_HAIRPIN",
+    "level": "block",
+    "type": "combo",
+    "all": [
+      {
+        "kind": "non_la"
+      },
+      {
+        "kind": "tram_cai"
+      }
+    ],
+    "message_key": "hat_hairpin",
+    "message_vi": "Nón lá và trâm cài tóc không kết hợp cùng lúc.",
+    "needs_review": true
+  },
+  {
+    "id": "R_HAT_CEREMONIAL",
+    "level": "warn",
+    "type": "combo",
+    "all": [
+      {
+        "kind": "non_la"
+      },
+      {
+        "attr": "ceremonial"
+      }
+    ],
+    "message_key": "hat_ceremonial",
+    "message_vi": "Nón lá bình dân ít khi phối cùng lễ phục trang trọng.",
+    "needs_review": true
+  },
+  {
+    "id": "R_SNEAKER_SET_C",
+    "level": "warn",
+    "type": "combo",
+    "all": [
+      {
+        "kind": "giay_sneaker"
+      },
+      {
+        "set": "C"
+      }
+    ],
+    "message_key": "sneaker_set_c",
+    "message_vi": "Giày sneaker hiện đại làm giảm tính trang nghiêm của lễ phục triều đình (Set C).",
+    "needs_review": true
+  },
+  {
+    "id": "R_BEIGE_NHAT_BINH",
+    "level": "warn",
+    "type": "combo",
+    "all": [
+      {
+        "kind": "quan_hien_dai"
+      },
+      {
+        "kind": "ao_nhat_binh"
+      }
+    ],
+    "message_key": "beige_nhat_binh",
+    "message_vi": "Quần ống rộng màu be hiện đại lệch phong cách so với áo nhật bình cung đình.",
+    "needs_review": true
+  },
+  {
+    "id": "R_SKIRT_NGU_THAN",
+    "level": "warn",
+    "type": "combo",
+    "all": [
+      {
+        "kind": "vay_dai"
+      },
+      {
+        "kind": "ao_ngu_than"
+      }
+    ],
+    "message_key": "skirt_ngu_than",
+    "message_vi": "Áo ngũ thân truyền thống thời Nguyễn thường đi kèm quần hai ống thay vì váy dài.",
+    "needs_review": true
+  },
+  {
+    "id": "R_GIAO_LINH_SKIRT",
+    "level": "suggest",
+    "type": "combo",
+    "all": [
+      {
+        "kind": "ao_giao_linh"
+      },
+      {
+        "kind": "vay_dai"
+      }
+    ],
+    "message_key": "giao_linh_skirt",
+    "message_vi": "Áo giao lĩnh phối cùng váy dài đen là nét phục dựng đặc trưng thời Lê - Trịnh.",
+    "needs_review": true
+  },
+  {
+    "id": "R_NGU_THAN_WHITE",
+    "level": "suggest",
+    "type": "combo",
+    "all": [
+      {
+        "kind": "ao_ngu_than"
+      },
+      {
+        "kind": "quan_lua_trang"
+      }
+    ],
+    "message_key": "ngu_than_white",
+    "message_vi": "Áo ngũ thân đi cùng quần lụa trắng là sự kết hợp chuẩn mực thanh lịch truyền thống.",
+    "needs_review": true
+  }
+]
