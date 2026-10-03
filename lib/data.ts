@@ -243,6 +243,14 @@ export function validateScenes(scenes: unknown): string[] {
 
     if (!Array.isArray(suggested_sets)) {
       errors.push(`Scene ${id || index} suggested_sets must be an array`);
+    } else {
+      suggested_sets.forEach((setCode, setIdx) => {
+        if (typeof setCode !== 'string' || !VALID_SETS.has(setCode)) {
+          errors.push(
+            `Scene ${id || index} has invalid suggested_set at index ${setIdx}: ${String(setCode)}`
+          );
+        }
+      });
     }
   });
 
