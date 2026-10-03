@@ -166,6 +166,34 @@ describe('T2: Types and loader', () => {
       expect(errors.some((e) => e.includes('non-negative number'))).toBe(true);
       expect(errors.some((e) => e.includes('missing or empty id'))).toBe(true);
     });
+
+    it('accepts empty suggested_sets and valid set codes', () => {
+      const sceneEmpty = { ...validScene, suggested_sets: [] };
+      const sceneAllValid = {
+        ...validScene,
+        suggested_sets: ['A', 'B', 'C', 'MIX', 'COMMON'],
+      };
+      expect(validateScenes([sceneEmpty])).toHaveLength(0);
+      expect(validateScenes([sceneAllValid])).toHaveLength(0);
+    });
+
+    it('rejects invalid suggested_sets entries', () => {
+      const sceneInvalid = { ...validScene, suggested_sets: ['INVALID'] };
+      const errorsInvalid = validateScenes([sceneInvalid]);
+      expect(errorsInvalid.some((e) => e.includes('INVALID'))).toBe(true);
+
+      const sceneMixed = { ...validScene, suggested_sets: ['A', 'INVALID'] };
+      const errorsMixed = validateScenes([sceneMixed]);
+      expect(errorsMixed.some((e) => e.includes('INVALID'))).toBe(true);
+    });
+
+    it('rejects non-string entries such as null and 123 without throwing', () => {
+      expect(() => {
+        const sceneNonString = { ...validScene, suggested_sets: [null, 123] };
+        const errors = validateScenes([sceneNonString]);
+        expect(errors.length).toBeGreaterThanOrEqual(2);
+      }).not.toThrow();
+    });
   });
 
   describe('validateRules', () => {
@@ -230,6 +258,21 @@ describe('T2: Types and loader', () => {
       expect(() => {
         loadAll({
           items: [{ invalid: 'item' }],
+        });
+      }).toThrow(/Data validation failed/);
+    });
+
+    it('throws when loadAll receives a scene with invalid suggested_sets', () => {
+      expect(() => {
+        loadAll({
+          scenes: [
+            {
+              id: 'tet',
+              name_vi: 'Tết',
+              remix_cap: 1,
+              suggested_sets: ['INVALID'],
+            },
+          ],
         });
       }).toThrow(/Data validation failed/);
     });
