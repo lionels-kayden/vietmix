@@ -12,10 +12,10 @@ npm run check, open files) instead of trusting them.
 
 ## USER PREFERENCES
 - The user is the relay: they paste controller prompts into Antigravity and paste
-  executor reports back here. EXECUTOR=antigravity; the controller verifies the repo.
+  executor reports back here. Default EXECUTOR=antigravity; P3a uses EXECUTOR=self.
 - When a report arrives and the executor is idle, automatically save it verbatim in
   docs/reports/, keep controller verification separate, update CURRENT STATE, and
-  commit the docs changes. Do not edit app code, data, or assets.
+  commit the docs changes. App code, data and assets are editable only in the authorized P3a self-execution scope.
 - Only when the user says "đạt", create p<N>-ok for the accepted phase after recording
   acceptance in docs. Do not infer acceptance from an executor PASS report. Never move
   an existing tag silently.
@@ -34,10 +34,14 @@ npm run check, open files) instead of trusting them.
 - Do not change a decision listed below without asking the user.
 
 ## REPO ACCESS
-- While the executor is running a phase, do not edit or commit anything in the repo.
-- You may edit only docs/ (DECISIONS.md, prompts/, reports/), and only when the executor
-  is idle. Never touch app code, data/ or assets/ yourself unless the user says
-  "EXECUTOR=self".
+- Only one executor may run at a time. While Antigravity runs, the controller must not edit or commit; while the controller executes P3a, Antigravity must be idle.
+- When Antigravity is idle, the controller may edit docs/ and PROJECT.md. Record every
+  documentation revision in docs/DECISIONS.md. Never change this file's DECIDED section
+  without first asking the user.
+- The user has authorized EXECUTOR=self for P3a once real images are ready and that phase
+  is selected. Limit implementation to its agreed pipeline and migration scope; include
+  automated tests and a visual inspection checklist. All other app implementation stays
+  with Antigravity unless separately authorized.
 - The cultural facts below came from web search results that are not saved. When you write
   story cards or rules, research again and record URLs in sources[].
 
@@ -154,17 +158,39 @@ P1 Data and rules: items.json (20 items), presets.json (10), types and loader, r
    docs/RULES.md.
 P2 Core dress-up: choose character, layered render, tabs and put on / take off, slot rules,
    presets, apply fit.json offsets.
-P3 Image pipeline and hidden /fit: ingest and normalize, flood-fill background removal,
-   crop from sprite sheets, scan dominant color and derive kind from the file name,
-   fit_auto with PASS/WARN/FAIL report, manifest, /fit tool, learn_defaults, tests. Needs
-   real images: ask the user for them at this point and agree how to filter and name them.
+Post-P2 Vercel milestone: first deployment immediately after accepted P2, with basic
+   Open Graph metadata and a real-link sharing smoke test. User connects GitHub to
+   Vercel; controller prepares the handoff and verifies the deployed result; Antigravity
+   implements any app/config changes. Full sharing remains P8. See docs/ROADMAP.md.
+P3a Image pipeline (EXECUTOR=self): T1 real-image inventory, canonical filename/ID
+   migration and color-free PROJECT.md catalog; T2 ingest, sprite crop, flood-fill
+   background removal and normalization; T3 kind parsing, pixel colors and manifest;
+   T4 anchor-based fit, PASS/WARN/FAIL reports and learn_defaults. Include automated
+   pipeline/ tests, integration checks and a user visual checklist. No /fit page here.
+P3b Hidden /fit (EXECUTOR=antigravity): build on the verified P3a file formats; internal
+   alignment UI, ENABLE_FIT gate, local fit-data handoff and tests. Production routes
+   never write files. Handoff back to the controller for verification.
 P4 Scenes and slider: scene page with simple SVG backgrounds, slider, caps, set suggestions.
 P5 Story cards: stories.json content, check script, flip cards, needs_review badge.
+Post-P5 variants (conditional): after P5 and P3a, if multiple real image variants exist,
+   Antigravity builds a same-kind image selector for color choice; no recolor filter.
 P6 Confirm outfit: "Chot bo", whole-outfit rules, summary assembly, result page.
 P7 Export and Lookbook: canvas PNG export, download, save, view, delete.
 P8 Sharing: verify platform docs first, then three layers, Open Graph tags.
 P9 Polish and deploy prep: responsive layout, empty states, accessibility, README, verify
    the production build (/fit is 404, no route writes files, works offline after load).
+
+## SCHEDULING AND HANDOFF
+- Phase numbers are labels, not a mandatory numerical sequence. Before selecting the
+  next phase, ask the user about drawing progress and real-image/variant availability.
+  Do not infer image readiness. If images are pending, P4-P6 may use placeholders.
+- Schedule P3a then P3b when images are ready; both must finish before P7 starts.
+  If images are still unavailable at that boundary, stop P7 scheduling and ask for progress.
+- Preserve the "đạt" acceptance and "tiếp" advancement gates. P3a and P3b each get their
+  own report and acceptance (p3a-ok / p3b-ok only after the user's "đạt").
+- Before switching executors, the current executor stops, commits its scoped work and
+  supplies its report; the controller verifies it. Never run both executors concurrently.
+- The compact task roadmap and user hand-tests are maintained in docs/ROADMAP.md.
 
 ## IMAGE WORKFLOW (the user draws garments in Gemini; you advise, you do not draw)
 - Base characters are fixed. Rules in short: garments drawn empty (ghost mannequin), sleeves
@@ -182,12 +208,12 @@ P9 Polish and deploy prep: responsive layout, empty states, accessibility, READM
   docs/reports/P0.md; original executor report unavailable. No p0-ok tag exists locally.
 - P1: executor-reported PASS at a52cbbb; verbatim report: docs/reports/P1.md.
   Controller check on 2026-10-03: npm run check passed (build + 63 tests / 8 files).
-  Review status: PARTIAL, scene suggested_sets accepts invalid set codes (T2 validation
-  gap). Details: docs/reports/P1-verification.md. Waiting for correction/review and
+  Review status: PARTIAL from the original review; fix commits 5338de5 and 9119d96 now
+  exist but have not yet been verified by the controller. Waiting for the fix report and
   user acceptance "đạt". No p1-ok tag exists locally.
 - P2: not started. No next-phase prompt until the user says "tiếp".
-- Pending: executor to align PROJECT.md ITEM CATALOG with the existing color-free
-  decision in an authorized scope. P3 already includes color scanning; proposed legacy
+- Pending: controller to align PROJECT.md ITEM CATALOG with the existing color-free
+  decision during P3a. P3a includes color scanning; proposed legacy
   filename migration is documented in P1-verification.md, not implemented.
 - Cultural review: all 20 items and 10 rules remain needs_review=true; no human approval
   recorded. docs/RULES.md messages are drafts, not verified cultural facts.

@@ -127,3 +127,23 @@ returns 404 otherwise, never linked from the UI.
   the user's reduced-motion preference.
 - Vietnamese copy must be friendly and polite. Do not state unverified claims as facts.
 - Keep each step simple: show only the controls relevant to that step.
+
+## DELIVERY AND EXECUTOR HANDOFF
+- Follow docs/CONTROLLER.md and docs/ROADMAP.md for scheduling. Phase numbers do not
+  require numerical execution order. Ask the user about drawing progress before choosing
+  the next phase. Complete P3a and P3b before starting P7.
+- P3a uses EXECUTOR=self (controller) once real images are ready: pipeline T1-T4,
+  automated tests in pipeline/, migration checks, preview images and a visual checklist.
+  Update this document's ITEM CATALOG to remove fixed color assumptions during P3a;
+  migrate legacy filenames and references together. Keep canonical kind identifiers.
+- P3b uses EXECUTOR=antigravity: the hidden /fit page and its integration/tests.
+  Only one executor works at a time; stop, commit, report and verify before handoff.
+- Deploy a first Vercel version immediately after accepted P2. The user connects GitHub
+  to Vercel. The controller prepares instructions and verifies the real URL; Antigravity
+  implements deployment-related app/config changes and basic Open Graph metadata.
+  Check link sharing and previews there; complete the full sharing flow in P8.
+- After P5 and P3a, add a same-kind image variant selector if multiple real variants are
+  available. Color choice selects an existing image, never applies a recolor filter.
+  Use default variants for presets as already decided.
+- The controller may edit PROJECT.md and docs/, logging each revision in
+  docs/DECISIONS.md. Changes to CONTROLLER.md's DECIDED section require asking the user.
