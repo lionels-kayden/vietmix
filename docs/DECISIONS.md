@@ -29,3 +29,9 @@
   revision is logged here. Preserve CONTROLLER.md DECIDED verbatim and ask before any
   change there. Current-state note now acknowledges unverified P1 fix commits
   5338de5/9119d96; no acceptance or tag is inferred.
+
+- 2026-10-03: Add docs/image/FIT_NOTES.md verbatim from the user's manual compositing
+  observations. Measurements are visual estimates, not fixed pipeline constants; during
+  P3a remeasure landmarks and scale in code from the real canonical base images and each
+  sheet's reference character. Reason: preserve useful observations without hardcoding
+  unverified measurements. No change to CONTROLLER.md DECIDED.
