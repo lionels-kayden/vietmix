@@ -35,3 +35,8 @@
   P3a remeasure landmarks and scale in code from the real canonical base images and each
   sheet's reference character. Reason: preserve useful observations without hardcoding
   unverified measurements. No change to CONTROLLER.md DECIDED.
+
+- 2026-10-03: Archive the P1 scoped-fix report verbatim in P1-fix.md, append the
+  verification resolution to P1-verification.md and update CONTROLLER.md CURRENT STATE
+  to controller-verified PASS. Reason: fix inspected and build + 67 tests passed.
+  User acceptance remains pending; no tag or next-phase prompt. DECIDED unchanged.

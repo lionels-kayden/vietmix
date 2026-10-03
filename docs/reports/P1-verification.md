@@ -2,7 +2,7 @@
 
 Executor: antigravity. Implementation reviewed: a52cbbb.
 Executor report is preserved verbatim in P1.md; this review does not alter its PASS claim.
-Controller verdict: PARTIAL pending the T2 validation gap below and user acceptance.
+Original verdict: PARTIAL. Current verdict: PASS after the scoped fix; see resolution below. User acceptance remains pending.
 
 ## Checks actually run
 - npm run check: exit 0; production build succeeded; 63 tests passed across 8 files.
@@ -60,3 +60,16 @@ Controller verdict: PARTIAL pending the T2 validation gap below and user accepta
 - P1 has no dress-up UI; visual outfit acceptance belongs to later phases.
 - Fix/review the validator gap before P1 acceptance. The controller creates p1-ok only
   after the user says "đạt"; a P2 prompt requires a separate "tiếp" instruction.
+## Scoped-fix resolution — 2026-10-03
+- Read the verbatim fix report (P1-fix.md) and inspected commits 5338de5 and 9119d96.
+- The fix touches only lib/data.ts and lib/data.test.ts. validateScenes reuses VALID_SETS
+  and checks each suggested set's type and value; errors include scene, index and value.
+  loadAll rejects those errors through its existing aggregation.
+- Regression coverage includes INVALID, mixed valid/invalid entries, null/123, empty
+  arrays, all five valid codes, loadAll rejection, and real repository data acceptance.
+- Controller ran npm run check: exit 0; production build and all 67 tests / 8 files pass.
+- The earlier T2 gap is resolved. Original findings above are retained as review history;
+  filename migration remains P3a and cultural content remains needs_review=true.
+- No browser/visual check is needed for this validator-only fix; no visual claim is made.
+- No new blocking issue found in this scoped review. Ready for the user's "đạt";
+  no acceptance tag or next-phase prompt is issued from the question "ok chưa nhỉ".

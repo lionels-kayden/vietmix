@@ -206,11 +206,11 @@ P9 Polish and deploy prep: responsive layout, empty states, accessibility, READM
 ## CURRENT STATE (the controller updates this block)
 - P0: user-reported PASS, implementation commit dd7f391. Minimal record:
   docs/reports/P0.md; original executor report unavailable. No p0-ok tag exists locally.
-- P1: executor-reported PASS at a52cbbb; verbatim report: docs/reports/P1.md.
-  Controller check on 2026-10-03: npm run check passed (build + 63 tests / 8 files).
-  Review status: PARTIAL from the original review; fix commits 5338de5 and 9119d96 now
-  exist but have not yet been verified by the controller. Waiting for the fix report and
-  user acceptance "đạt". No p1-ok tag exists locally.
+- P1: controller-verified PASS on 2026-10-03, including scoped fix at 9119d96
+  (regression tests at 5338de5). npm run check passed: build + 67 tests / 8 files.
+  Original report: docs/reports/P1.md; verbatim fix report: docs/reports/P1-fix.md;
+  review and resolution: docs/reports/P1-verification.md.
+  Waiting for explicit user acceptance "đạt"; no p1-ok tag created.
 - P2: not started. No next-phase prompt until the user says "tiếp".
 - Pending: controller to align PROJECT.md ITEM CATALOG with the existing color-free
   decision during P3a. P3a includes color scanning; proposed legacy
