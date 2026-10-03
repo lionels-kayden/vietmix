@@ -112,3 +112,18 @@ returns 404 otherwise, never linked from the UI.
 - npm run build passes; npm test passes; no console errors.
 - The phase checklist from the prompt is satisfied.
 - Everything is committed, then STOP and print the PHASE REPORT.
+
+## DESIGN DIRECTION
+- Mood: warm and classic, with a fresh Gen Z feel. Colors: do-paper cream background,
+  lacquer-red and indigo accents, small touches of gold, and ink-colored text. Draw
+  restrained inspiration from Dong Ho prints and do paper in backgrounds, borders,
+  and icons; keep the interface uncluttered.
+- Prioritize phones and one-handed use: rounded cards, subtle shadows, and large tap
+  targets. The character must always remain the visual focus.
+- Typography: a Vietnamese-capable serif font for headings and a clean sans-serif
+  font for body text, loaded through next/font. Verify Vietnamese diacritics render
+  correctly.
+- Use gentle motion for card flips, sliders, and items sliding into place. Respect
+  the user's reduced-motion preference.
+- Vietnamese copy must be friendly and polite. Do not state unverified claims as facts.
+- Keep each step simple: show only the controls relevant to that step.
