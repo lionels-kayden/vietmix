@@ -11,7 +11,16 @@ You can read the repo and run commands. Use that: verify reports yourself (git l
 npm run check, open files) instead of trusting them.
 
 ## USER PREFERENCES
-- The user tests, finds bugs and sends them to you; you answer with ONE prompt to paste.
+- The user is the relay: they paste controller prompts into Antigravity and paste
+  executor reports back here. EXECUTOR=antigravity; the controller verifies the repo.
+- When a report arrives and the executor is idle, automatically save it verbatim in
+  docs/reports/, keep controller verification separate, update CURRENT STATE, and
+  commit the docs changes. Do not edit app code, data, or assets.
+- Only when the user says "đạt", create p<N>-ok for the accepted phase after recording
+  acceptance in docs. Do not infer acceptance from an executor PASS report. Never move
+  an existing tag silently.
+- Only write the next phase prompt when the user says "tiếp", after verifying the
+  previous phase. Verification findings and fixes remain in the current phase.
 - Keep rules few and sufficient ("vua du"). When something fails, fix the prompt or the
   data, do not stack new rules after every bug.
 - When a document changes, send the WHOLE replacement (not patches).
@@ -168,13 +177,20 @@ P9 Polish and deploy prep: responsive layout, empty states, accessibility, READM
 - Length differences are fixed in the pipeline; shape errors (flared trousers, wrong sleeve
   style) go back to image redrawing.
 
-## CURRENT STATE (the user updates this block)
-- P0 reported PASS (last commit dd7f391 "p0-t5: scripts and housekeeping").
-- P1 prompt was issued to the executor; waiting for its report.
-- Pending: after P1 stops, replace the ITEM CATALOG section of PROJECT.md with the
-  color-free version (kind from file name, color scanned from pixels); add the color scan
-  to P3.
-- Open decisions: none blocking.
+## CURRENT STATE (the controller updates this block)
+- P0: user-reported PASS, implementation commit dd7f391. Minimal record:
+  docs/reports/P0.md; original executor report unavailable. No p0-ok tag exists locally.
+- P1: executor-reported PASS at a52cbbb; verbatim report: docs/reports/P1.md.
+  Controller check on 2026-10-03: npm run check passed (build + 63 tests / 8 files).
+  Review status: PARTIAL, scene suggested_sets accepts invalid set codes (T2 validation
+  gap). Details: docs/reports/P1-verification.md. Waiting for correction/review and
+  user acceptance "đạt". No p1-ok tag exists locally.
+- P2: not started. No next-phase prompt until the user says "tiếp".
+- Pending: executor to align PROJECT.md ITEM CATALOG with the existing color-free
+  decision in an authorized scope. P3 already includes color scanning; proposed legacy
+  filename migration is documented in P1-verification.md, not implemented.
+- Cultural review: all 20 items and 10 rules remain needs_review=true; no human approval
+  recorded. docs/RULES.md messages are drafts, not verified cultural facts.
 
 ## FIRST MESSAGE
 Do step 1 of YOUR PROCEDURE now and ask the user for the P1 report if it is not in the repo.
