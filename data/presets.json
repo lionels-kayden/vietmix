@@ -1,0 +1,114 @@
+[
+  {
+    "id": "set-a-male",
+    "name_vi": "Set A - Áo ngũ thân",
+    "gender": "male",
+    "type": "set",
+    "item_ids": [
+      "M_A_TOP_ao_ngu_than",
+      "M_A_BOTTOM_white_silk_trousers",
+      "M_A_SHOES_cloth_shoes"
+    ]
+  },
+  {
+    "id": "set-a-female",
+    "name_vi": "Set A - Áo ngũ thân",
+    "gender": "female",
+    "type": "set",
+    "item_ids": [
+      "F_A_TOP_ao_ngu_than",
+      "F_A_BOTTOM_white_silk_trousers",
+      "F_A_SHOES_cloth_shoes"
+    ]
+  },
+  {
+    "id": "set-b-male",
+    "name_vi": "Set B - Áo giao lĩnh",
+    "gender": "male",
+    "type": "set",
+    "item_ids": [
+      "M_B_TOP_ao_giao_linh",
+      "M_A_BOTTOM_white_silk_trousers",
+      "M_A_SHOES_cloth_shoes"
+    ]
+  },
+  {
+    "id": "set-b-female",
+    "name_vi": "Set B - Áo giao lĩnh",
+    "gender": "female",
+    "type": "set",
+    "item_ids": [
+      "F_B_TOP_ao_giao_linh",
+      "F_B_BOTTOM_black_skirt",
+      "F_A_SHOES_cloth_shoes"
+    ]
+  },
+  {
+    "id": "set-c-male",
+    "name_vi": "Set C - Áo tấc",
+    "gender": "male",
+    "type": "set",
+    "item_ids": [
+      "M_C_TOP_ao_tac",
+      "M_A_BOTTOM_white_silk_trousers",
+      "M_A_SHOES_cloth_shoes"
+    ]
+  },
+  {
+    "id": "set-c-female",
+    "name_vi": "Set C - Áo nhật bình",
+    "gender": "female",
+    "type": "set",
+    "item_ids": [
+      "F_C_TOP_ao_nhat_binh",
+      "F_A_BOTTOM_white_silk_trousers",
+      "F_A_SHOES_cloth_shoes"
+    ]
+  },
+  {
+    "id": "rx-01-male",
+    "name_vi": "RX-01 - Ngũ thân hiện đại",
+    "gender": "male",
+    "type": "remix",
+    "item_ids": [
+      "M_A_TOP_ao_ngu_than",
+      "M_MIX_BOTTOM_beige_trousers",
+      "M_MIX_SHOES_sneakers"
+    ]
+  },
+  {
+    "id": "rx-01-female",
+    "name_vi": "RX-01 - Ngũ thân hiện đại",
+    "gender": "female",
+    "type": "remix",
+    "item_ids": [
+      "F_A_TOP_ao_ngu_than",
+      "F_MIX_BOTTOM_beige_trousers",
+      "F_MIX_SHOES_sneakers"
+    ]
+  },
+  {
+    "id": "rx-02-male",
+    "name_vi": "RX-02 - Giao lĩnh phá cách",
+    "gender": "male",
+    "type": "remix",
+    "item_ids": [
+      "M_B_TOP_ao_giao_linh",
+      "M_MIX_BOTTOM_beige_trousers",
+      "M_MIX_SHOES_sneakers",
+      "M_A_NECK_silver_necklace"
+    ]
+  },
+  {
+    "id": "rx-02-female",
+    "name_vi": "RX-02 - Giao lĩnh phá cách",
+    "gender": "female",
+    "type": "remix",
+    "item_ids": [
+      "F_B_TOP_ao_giao_linh",
+      "F_MIX_BOTTOM_beige_trousers",
+      "F_MIX_SHOES_sneakers",
+      "F_A_NECK_silver_necklace"
+    ]
+  }
+]
