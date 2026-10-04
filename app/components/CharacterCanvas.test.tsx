@@ -178,6 +178,60 @@ describe("T3: CharacterCanvas Layered Renderer", () => {
     expect(screen.getByTestId("layer-head")).toHaveStyle({ zIndex: 50 });
   });
 
+  it("animates inner visual element with garment-enter class while preserving outer fit layer transform", () => {
+    const customFit = {
+      M_A_TOP_ao_ngu_than: { x: 54, y: 96, scale: 1.15 },
+    };
+
+    render(
+      <CharacterCanvas
+        gender="male"
+        itemIds={["M_A_TOP_ao_ngu_than"]}
+        fitData={customFit}
+      />
+    );
+
+    const outerLayer = screen.getByTestId("layer-top");
+    // Outer fit layer preserves its exact transform and origin
+    expect(outerLayer).toHaveStyle({
+      transform: "translate(5%, 5%) scale(1.15)",
+      transformOrigin: "top left",
+    });
+
+    // Inner element has garment-enter class for gentle entry motion
+    const innerElement = screen.getByTestId("inner-top");
+    expect(innerElement).toBeInTheDocument();
+    expect(innerElement).toHaveClass("garment-enter");
+  });
+
+  it("avoids replaying entry animation for equipped garments when an unrelated item is changed", () => {
+    const { rerender } = render(
+      <CharacterCanvas
+        gender="male"
+        itemIds={["M_A_TOP_ao_ngu_than"]}
+      />
+    );
+
+    const initialTopInner = screen.getByTestId("inner-top");
+    expect(initialTopInner).toBeInTheDocument();
+
+    // Re-render adding an unrelated item (shoes)
+    rerender(
+      <CharacterCanvas
+        gender="male"
+        itemIds={["M_A_TOP_ao_ngu_than", "M_A_SHOES_cloth_shoes"]}
+      />
+    );
+
+    const updatedTopInner = screen.getByTestId("inner-top");
+    const shoesInner = screen.getByTestId("inner-shoes");
+
+    // The top inner element node is identical (not re-mounted/replayed)
+    expect(updatedTopInner).toBe(initialTopInner);
+    // Newly equipped shoes has garment-enter class
+    expect(shoesInner).toHaveClass("garment-enter");
+  });
+
   it("verifies all 22 expected PNG files exist in public/assets/", async () => {
     const fs = await import("fs");
     const path = await import("path");

@@ -44,6 +44,22 @@ h1, h2, h3, h4, .font-serif {
   font-family: var(--font-serif), ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
 }
 
+/* Gentle garment entry motion on inner layer element */
+@keyframes garment-entry {
+  from {
+    opacity: 0;
+    transform: translateY(6px) scale(0.99);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.garment-enter {
+  animation: garment-entry 280ms cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
@@ -52,5 +68,10 @@ h1, h2, h3, h4, .font-serif {
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
+  }
+
+  .garment-enter {
+    animation: none !important;
+    transform: none !important;
   }
 }

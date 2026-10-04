@@ -123,13 +123,19 @@ export function CharacterCanvas({
                 <span>[Lỗi ảnh: {item.name_vi}]</span>
               </div>
             ) : (
-              <img
-                src={itemSrc}
-                alt={item.name_vi}
-                className="w-full h-full object-contain pointer-events-none"
-                onError={() => handleImageError(layerKey)}
-                draggable={false}
-              />
+              <div
+                key={item.id}
+                data-testid={`inner-${slot}`}
+                className="w-full h-full garment-enter pointer-events-none"
+              >
+                <img
+                  src={itemSrc}
+                  alt={item.name_vi}
+                  className="w-full h-full object-contain pointer-events-none"
+                  onError={() => handleImageError(layerKey)}
+                  draggable={false}
+                />
+              </div>
             )}
           </div>
         );
