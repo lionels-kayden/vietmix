@@ -214,8 +214,11 @@ P9 Polish and deploy prep: responsive layout, empty states, accessibility, READM
   Acceptance tag: p1-ok (acceptance-docs commit).
 - P2: scoped fixes 3c9182b/a041156 verified 2026-10-04: code/build/tests PASS
   (103 tests / 15 files). Reports: docs/reports/P2.md and P2-fix.md.
-  Review: docs/reports/P2-verification.md. Browser visual checks and user acceptance
-  remain pending; no p2-ok tag.
+  Review: docs/reports/P2-verification.md. User hand-tested and requested advancement
+  on 2026-10-04; P2 accepted, p2-ok at acceptance-docs commit. Controller browser
+  visual checks remain unperformed (not claimed).
+- Post-P2 Vercel: preparation prompt docs/prompts/VERCEL.md; guide docs/VERCEL.md.
+  Awaiting GitHub destination/account connection and executor OG preparation report.
   Uses current placeholders. User has 2D base characters and garment images with scale
   mismatch; source paths/files and suitability have not yet been inspected. Plan P3a
   after P2 and the first Vercel milestone, subject to image intake and phase handoff.

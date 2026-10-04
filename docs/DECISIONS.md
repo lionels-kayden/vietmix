@@ -60,3 +60,8 @@
   CONTROLLER.md: T6-T7 code fixes verified; build + 103 tests pass. Browser visual
   verification and user acceptance remain pending. Record the pasted log's untracked
   instruction-file deletion as unverified context; no code changes or acceptance tag.
+
+- 2026-10-04: User requests the post-P2 Vercel milestone after hand-testing P2.
+  Record P2 acceptance and tag p2-ok; add VERCEL guide and executor preparation prompt.
+  Repo has no remote/project URL and lacks OG metadata/image. Controller prepares and
+  verifies; Antigravity implements; user connects accounts. No deployment claimed.
