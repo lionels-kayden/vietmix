@@ -9,6 +9,7 @@ import {
   outfitReducer,
   getEquippedItem,
 } from "@/lib/outfit";
+import { CharacterCanvas } from "@/app/components/CharacterCanvas";
 
 export default function DressUpPage() {
   const [outfitState, dispatch] = useReducer(
@@ -137,23 +138,22 @@ export default function DressUpPage() {
               {/* Left Column: Canvas Preview area */}
               <div
                 data-testid="character-canvas-container"
-                className="bg-[var(--bg-paper)] rounded-2xl border border-[var(--border-paper)] p-4 flex flex-col items-center justify-center min-h-[300px]"
+                className="bg-[var(--bg-paper)] rounded-2xl border border-[var(--border-paper)] p-4 flex flex-col items-center justify-center"
               >
-                <div className="text-center space-y-2">
-                  <div className="font-serif text-sm font-semibold text-[var(--ink-muted)]">
-                    Hình mẫu nhân vật ({gender === "male" ? "Nam" : "Nữ"})
-                  </div>
-                  <div
-                    data-testid="worn-items-summary"
-                    className="text-xs text-[var(--ink-muted)]"
-                  >
-                    {outfitState.itemIds.length === 0
-                      ? "Chưa chọn món đồ nào"
-                      : `Đang mặc: ${outfitState.itemIds
-                          .map((id) => getItem(id)?.name_vi)
-                          .filter(Boolean)
-                          .join(", ")}`}
-                  </div>
+                <CharacterCanvas
+                  gender={gender}
+                  itemIds={outfitState.itemIds}
+                />
+                <div
+                  data-testid="worn-items-summary"
+                  className="text-xs text-[var(--ink-muted)] text-center mt-3"
+                >
+                  {outfitState.itemIds.length === 0
+                    ? "Chưa chọn món đồ nào"
+                    : `Đang mặc: ${outfitState.itemIds
+                        .map((id) => getItem(id)?.name_vi)
+                        .filter(Boolean)
+                        .join(", ")}`}
                 </div>
               </div>
 

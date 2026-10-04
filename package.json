@@ -3,9 +3,12 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
+    "predev": "node scripts/sync_assets.mjs",
     "dev": "next dev",
+    "prebuild": "node scripts/sync_assets.mjs",
     "build": "next build",
     "start": "next start",
+    "sync:assets": "node scripts/sync_assets.mjs",
     "lint": "eslint",
     "test": "vitest run",
     "check": "npm run build && npm test",

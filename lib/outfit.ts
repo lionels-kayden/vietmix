@@ -93,6 +93,13 @@ export function getEquippedItem(
 
 export function outfitReducer(
   state: OutfitState,
+  action: OutfitAction
+): OutfitState {
+  return applyOutfitAction(state, action, getItem);
+}
+
+export function applyOutfitAction(
+  state: OutfitState,
   action: OutfitAction,
   itemLookup: (id: string) => Item | undefined = getItem
 ): OutfitState {
