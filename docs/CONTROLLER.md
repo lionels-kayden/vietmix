@@ -210,8 +210,10 @@ P9 Polish and deploy prep: responsive layout, empty states, accessibility, READM
   (regression tests at 5338de5). npm run check passed: build + 67 tests / 8 files.
   Original report: docs/reports/P1.md; verbatim fix report: docs/reports/P1-fix.md;
   review and resolution: docs/reports/P1-verification.md.
-  Waiting for explicit user acceptance "đạt"; no p1-ok tag created.
-- P2: not started. No next-phase prompt until the user says "tiếp".
+  Rechecked 2026-10-04: build + 67 tests passed. User accepted P1 and requested P2.
+  Acceptance tag: p1-ok (acceptance-docs commit).
+- P2: authorized 2026-10-04; prompt: docs/prompts/P2.md. Awaiting executor report.
+  Uses current placeholders; drawing-progress question pending for P3 scheduling.
 - Pending: controller to align PROJECT.md ITEM CATALOG with the existing color-free
   decision during P3a. P3a includes color scanning; proposed legacy
   filename migration is documented in P1-verification.md, not implemented.

@@ -40,3 +40,9 @@
   verification resolution to P1-verification.md and update CONTROLLER.md CURRENT STATE
   to controller-verified PASS. Reason: fix inspected and build + 67 tests passed.
   User acceptance remains pending; no tag or next-phase prompt. DECIDED unchanged.
+
+- 2026-10-04: User accepted P1 and requested P2 in natural language. Record acceptance
+  in CONTROLLER.md and create p1-ok at this documentation commit; latest verified P1
+  implementation is 9119d96, with build + 67 tests rechecked today. Add the P2 prompt
+  for Antigravity using existing placeholders; ask drawing progress to schedule P3.
+  No DECIDED changes; no application implementation in this controller turn.
