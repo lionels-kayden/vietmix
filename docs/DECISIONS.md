@@ -46,3 +46,7 @@
   implementation is 9119d96, with build + 67 tests rechecked today. Add the P2 prompt
   for Antigravity using existing placeholders; ask drawing progress to schedule P3.
   No DECIDED changes; no application implementation in this controller turn.
+
+- 2026-10-04: User reports real 2D characters and garment images exist but need scale
+  alignment. Update CURRENT STATE; P2 still uses placeholders. Plan P3a image intake
+  after P2 and first Vercel deployment; image paths and actual fit remain unverified.

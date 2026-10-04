@@ -213,7 +213,9 @@ P9 Polish and deploy prep: responsive layout, empty states, accessibility, READM
   Rechecked 2026-10-04: build + 67 tests passed. User accepted P1 and requested P2.
   Acceptance tag: p1-ok (acceptance-docs commit).
 - P2: authorized 2026-10-04; prompt: docs/prompts/P2.md. Awaiting executor report.
-  Uses current placeholders; drawing-progress question pending for P3 scheduling.
+  Uses current placeholders. User has 2D base characters and garment images with scale
+  mismatch; source paths/files and suitability have not yet been inspected. Plan P3a
+  after P2 and the first Vercel milestone, subject to image intake and phase handoff.
 - Pending: controller to align PROJECT.md ITEM CATALOG with the existing color-free
   decision during P3a. P3a includes color scanning; proposed legacy
   filename migration is documented in P1-verification.md, not implemented.
