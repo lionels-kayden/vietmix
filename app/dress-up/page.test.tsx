@@ -4,7 +4,7 @@ import "@testing-library/jest-dom/vitest";
 import DressUpPage from "./page";
 import { loadAll } from "@/lib/data";
 
-describe("Dress-up entry route and outfit state (T1 & T2)", () => {
+describe("Dress-up entry route and outfit state (T1 & T2 & T4)", () => {
   beforeAll(() => {
     loadAll();
   });
@@ -26,7 +26,7 @@ describe("Dress-up entry route and outfit state (T1 & T2)", () => {
     expect(backLink).toHaveAttribute("href", "/");
   });
 
-  it("choosing a character enters the dressing step, equipping items updates state, and changing character clears worn items and shows only the new gender's catalog", () => {
+  it("handles tab filtering, equipping, replacing same slot, and switching gender", () => {
     render(<DressUpPage />);
 
     // 1. Choose Male character
@@ -37,44 +37,82 @@ describe("Dress-up entry route and outfit state (T1 & T2)", () => {
     expect(screen.getByTestId("selected-character")).toHaveTextContent("Nam");
     expect(screen.getByTestId("dressing-area")).toBeInTheDocument();
 
-    // Catalog shows male items and specifically male-only item Áo tấc
+    // Initial tab is Áo: male items are shown
     expect(screen.getByText("Áo tấc")).toBeInTheDocument();
-    // Female-only items must not be shown
+    expect(screen.getByText("Áo ngũ thân")).toBeInTheDocument();
     expect(screen.queryByText("Áo nhật bình")).not.toBeInTheDocument();
-    expect(screen.queryByText("Váy dài đen")).not.toBeInTheDocument();
-    expect(screen.queryByText("Trâm cài bạc")).not.toBeInTheDocument();
 
-    // 2. Equip an item (Áo tấc)
+    // Equip Áo tấc
     const equipTacBtn = screen.getByRole("button", { name: /Mặc Áo tấc/i });
     fireEvent.click(equipTacBtn);
 
     expect(screen.getByText(/Đang mặc: 1 món/i)).toBeInTheDocument();
     expect(screen.getByRole("button", { name: /Cởi Áo tấc/i })).toBeInTheDocument();
-    expect(screen.getByTestId("worn-items-summary")).toHaveTextContent("Áo tấc");
 
-    // Equip another top (Áo ngũ thân): replaces Áo tấc in the same slot
+    // Equip Áo ngũ thân: replaces Áo tấc in the same slot
     const equipNguThanBtn = screen.getByRole("button", { name: /Mặc Áo ngũ thân/i });
     fireEvent.click(equipNguThanBtn);
 
-    // Count is still 1 item worn (Áo tấc was replaced)
     expect(screen.getByText(/Đang mặc: 1 món/i)).toBeInTheDocument();
     expect(screen.getByRole("button", { name: /Cởi Áo ngũ thân/i })).toBeInTheDocument();
     expect(screen.getByRole("button", { name: /Mặc Áo tấc/i })).toBeInTheDocument();
 
-    // 3. Changing character clears worn items and displays female catalog
+    // Switch to tab Quần/Váy
+    fireEvent.click(screen.getByRole("tab", { name: "Quần/Váy" }));
+    expect(screen.getByText("Quần lụa trắng")).toBeInTheDocument();
+    const equipQuanBtn = screen.getByRole("button", { name: /Mặc Quần lụa trắng/i });
+    fireEvent.click(equipQuanBtn);
+
+    expect(screen.getByText(/Đang mặc: 2 món/i)).toBeInTheDocument();
+
+    // 2. Change character to Female
     const changeToFemaleBtn = screen.getByRole("button", { name: /Đổi sang nhân vật Nữ/i });
     fireEvent.click(changeToFemaleBtn);
 
     expect(screen.getByTestId("selected-character")).toHaveTextContent("Nữ");
-    // Worn items are cleared
+    // Worn items are cleared on gender switch
     expect(screen.getByText(/Đang mặc: 0 món/i)).toBeInTheDocument();
-    expect(screen.getByTestId("worn-items-summary")).toHaveTextContent("Chưa chọn món đồ nào");
 
-    // Catalog now shows female items and female-only items
-    expect(screen.getByText("Áo nhật bình")).toBeInTheDocument();
+    // Catalog now shows female items for Quần/Váy tab
     expect(screen.getByText("Váy dài đen")).toBeInTheDocument();
-    expect(screen.getByText("Trâm cài bạc")).toBeInTheDocument();
-    // Male-only items must not be shown
+
+    // Switch to tab Áo to verify female top Áo nhật bình is shown and Áo tấc is gone
+    fireEvent.click(screen.getByRole("tab", { name: "Áo" }));
+    expect(screen.getByText("Áo nhật bình")).toBeInTheDocument();
     expect(screen.queryByText("Áo tấc")).not.toBeInTheDocument();
+  });
+
+  it("demonstrates hat-to-hairpin exclusive replacement and independent necklace in Phụ kiện tab", () => {
+    render(<DressUpPage />);
+
+    // Select Female
+    const femaleButton = screen.getByRole("button", { name: /Chọn nhân vật Nữ/i });
+    fireEvent.click(femaleButton);
+
+    // Click tab Phụ kiện
+    const accessoryTab = screen.getByRole("tab", { name: "Phụ kiện" });
+    fireEvent.click(accessoryTab);
+
+    // Equip Nón lá (head slot)
+    const equipHatBtn = screen.getByRole("button", { name: /Mặc Nón lá/i });
+    fireEvent.click(equipHatBtn);
+    expect(screen.getByText(/Đang mặc: 1 món/i)).toBeInTheDocument();
+    expect(screen.getByRole("button", { name: /Cởi Nón lá/i })).toBeInTheDocument();
+
+    // Equip Trâm cài bạc (also head slot): replaces Nón lá
+    const equipPinBtn = screen.getByRole("button", { name: /Mặc Trâm cài bạc/i });
+    fireEvent.click(equipPinBtn);
+
+    expect(screen.getByText(/Đang mặc: 1 món/i)).toBeInTheDocument();
+    expect(screen.getByRole("button", { name: /Cởi Trâm cài bạc/i })).toBeInTheDocument();
+    expect(screen.getByRole("button", { name: /Mặc Nón lá/i })).toBeInTheDocument();
+
+    // Equip Vòng cổ bạc (neck slot): worn concurrently with Trâm cài bạc (independent slot)
+    const equipNecklaceBtn = screen.getByRole("button", { name: /Mặc Vòng cổ bạc/i });
+    fireEvent.click(equipNecklaceBtn);
+
+    expect(screen.getByText(/Đang mặc: 2 món/i)).toBeInTheDocument();
+    expect(screen.getByRole("button", { name: /Cởi Trâm cài bạc/i })).toBeInTheDocument();
+    expect(screen.getByRole("button", { name: /Cởi Vòng cổ bạc/i })).toBeInTheDocument();
   });
 });

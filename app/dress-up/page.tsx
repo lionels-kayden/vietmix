@@ -10,6 +10,7 @@ import {
   getEquippedItem,
 } from "@/lib/outfit";
 import { CharacterCanvas } from "@/app/components/CharacterCanvas";
+import { Wardrobe } from "@/app/components/Wardrobe";
 
 export default function DressUpPage() {
   const [outfitState, dispatch] = useReducer(
@@ -157,79 +158,15 @@ export default function DressUpPage() {
                 </div>
               </div>
 
-              {/* Right Column: Wardrobe Catalog list */}
-              <div
-                data-testid="wardrobe-catalog"
-                className="bg-white rounded-2xl border border-[var(--border-paper)] p-4 shadow-sm flex flex-col gap-3"
-              >
-                <div className="flex items-center justify-between pb-2 border-b border-[var(--border-paper)]">
-                  <h3 className="font-serif font-semibold text-base text-[var(--ink-text)]">
-                    Tủ đồ ({currentCatalog.length} món)
-                  </h3>
-                  {outfitState.itemIds.length > 0 && (
-                    <button
-                      type="button"
-                      onClick={() => dispatch({ type: "CLEAR_OUTFIT" })}
-                      className="text-xs text-[var(--red-lacquer)] hover:underline min-h-[44px] px-2 flex items-center"
-                    >
-                      Bỏ hết trang phục
-                    </button>
-                  )}
-                </div>
-
-                <div
-                  role="list"
-                  aria-label="Danh sách trang phục"
-                  className="flex flex-col gap-2 max-h-[400px] overflow-y-auto pr-1"
-                >
-                  {currentCatalog.map((item) => {
-                    const isWorn = outfitState.itemIds.includes(item.id);
-                    return (
-                      <div
-                        key={item.id}
-                        role="listitem"
-                        data-testid={`catalog-item-${item.id}`}
-                        className={`flex items-center justify-between p-3 rounded-xl border transition-all ${
-                          isWorn
-                            ? "bg-[var(--gold-light)]/40 border-[var(--gold-accent)]"
-                            : "bg-[var(--bg-paper)]/50 border-[var(--border-paper)] hover:border-[var(--indigo-deep)]/40"
-                        }`}
-                      >
-                        <div className="flex flex-col">
-                          <span className="font-medium text-sm text-[var(--ink-text)]">
-                            {item.name_vi}
-                          </span>
-                          <span className="text-xs text-[var(--ink-muted)]">
-                            {item.slot} • {item.set}
-                          </span>
-                        </div>
-
-                        <button
-                          type="button"
-                          onClick={() => {
-                            if (isWorn) {
-                              dispatch({ type: "REMOVE_ITEM", itemId: item.id });
-                            } else {
-                              dispatch({ type: "EQUIP_ITEM", itemId: item.id });
-                            }
-                          }}
-                          className={`min-h-[44px] min-w-[72px] px-3 py-1.5 text-xs font-semibold rounded-lg transition-colors cursor-pointer ${
-                            isWorn
-                              ? "bg-[var(--red-lacquer)] text-white hover:bg-[var(--red-lacquer-hover)]"
-                              : "bg-[var(--indigo-deep)] text-white hover:bg-[var(--indigo-deep-hover)]"
-                          }`}
-                          aria-label={
-                            isWorn
-                              ? `Cởi ${item.name_vi}`
-                              : `Mặc ${item.name_vi}`
-                          }
-                        >
-                          {isWorn ? "Cởi ra" : "Mặc vào"}
-                        </button>
-                      </div>
-                    );
-                  })}
-                </div>
+              {/* Right Column: Wardrobe Tabs & Items */}
+              <div data-testid="wardrobe-catalog" className="w-full">
+                <Wardrobe
+                  gender={gender}
+                  itemIds={outfitState.itemIds}
+                  onEquip={(itemId) => dispatch({ type: "EQUIP_ITEM", itemId })}
+                  onRemove={(itemId) => dispatch({ type: "REMOVE_ITEM", itemId })}
+                  onClear={() => dispatch({ type: "CLEAR_OUTFIT" })}
+                />
               </div>
             </div>
           </section>
