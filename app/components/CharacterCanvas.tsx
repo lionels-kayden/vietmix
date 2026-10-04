@@ -21,6 +21,15 @@ const LAYER_ORDER: { slot: Slot; zIndex: number }[] = [
   { slot: "head", zIndex: 50 },
 ];
 
+// Bounded fallback positioning per slot so a failed layer never covers the canvas
+const SLOT_FALLBACK_POSITIONS: Record<Slot, { top: string; left: string }> = {
+  head: { top: "6%", left: "50%" },
+  neck: { top: "22%", left: "50%" },
+  top: { top: "38%", left: "50%" },
+  bottom: { top: "64%", left: "50%" },
+  shoes: { top: "88%", left: "50%" },
+};
+
 export function CharacterCanvas({
   gender,
   itemIds,
@@ -87,6 +96,7 @@ export function CharacterCanvas({
         const fit: FitEntry = getFitEntry(item.id, fitData);
         const transformStyle = getFitLayerStyle(fit);
         const itemSrc = `/assets/${gender}/${item.image_file}`;
+        const fallbackPos = SLOT_FALLBACK_POSITIONS[slot];
 
         return (
           <div
@@ -100,11 +110,17 @@ export function CharacterCanvas({
             {isBroken ? (
               <div
                 data-testid={`fallback-${slot}`}
-                className="absolute inset-0 flex items-center justify-center bg-zinc-200/85 text-zinc-700 text-xs font-semibold p-2 text-center border border-zinc-400/50 rounded"
+                style={{
+                  top: fallbackPos.top,
+                  left: fallbackPos.left,
+                  transform: "translateX(-50%)",
+                }}
+                className="absolute max-w-[85%] w-auto px-3 py-1.5 flex items-center justify-center gap-1.5 bg-zinc-200/90 text-zinc-800 text-[11px] md:text-xs font-semibold text-center border border-zinc-400/80 rounded-lg shadow-sm pointer-events-auto"
                 role="alert"
                 aria-label={`Không tải được ảnh ${item.name_vi}`}
               >
-                [Lỗi ảnh: {item.name_vi}]
+                <span aria-hidden="true" className="text-zinc-500">⚠</span>
+                <span>[Lỗi ảnh: {item.name_vi}]</span>
               </div>
             ) : (
               <img

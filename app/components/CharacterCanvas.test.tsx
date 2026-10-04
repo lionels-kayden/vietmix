@@ -111,10 +111,71 @@ describe("T3: CharacterCanvas Layered Renderer", () => {
     const fallback = screen.getByTestId("fallback-top");
     expect(fallback).toBeInTheDocument();
     expect(fallback).toHaveTextContent(/Lỗi ảnh: Áo ngũ thân/i);
+    // Bounded positioning, not covering entire canvas
+    expect(fallback.className).not.toContain("inset-0");
+    expect(fallback).toHaveStyle({
+      top: "38%",
+      left: "50%",
+      transform: "translateX(-50%)",
+    });
 
     // Other layers remain intact and functional
     expect(screen.getByRole("img", { name: "Quần lụa trắng" })).toBeInTheDocument();
     expect(screen.getByRole("img", { name: /Hình mẫu nhân vật Nam/i })).toBeInTheDocument();
+  });
+
+  it("prevents a failed head image from obscuring lower layers (shoes, bottom, top, body)", () => {
+    render(
+      <CharacterCanvas
+        gender="male"
+        itemIds={[
+          "M_A_HEAD_conical_hat",
+          "M_A_TOP_ao_ngu_than",
+          "M_A_BOTTOM_white_silk_trousers",
+          "M_A_SHOES_cloth_shoes",
+        ]}
+      />
+    );
+
+    const headImg = screen.getByRole("img", { name: "Nón lá" });
+    const topImg = screen.getByRole("img", { name: "Áo ngũ thân" });
+    const bottomImg = screen.getByRole("img", { name: "Quần lụa trắng" });
+    const shoesImg = screen.getByRole("img", { name: /Giày vải đen/i });
+    const bodyImg = screen.getByRole("img", { name: /Hình mẫu nhân vật Nam/i });
+
+    // Trigger image loading failure ONLY on head layer (zIndex 50)
+    fireEvent.error(headImg);
+
+    // Head fallback appears as bounded indicator
+    const headFallback = screen.getByTestId("fallback-head");
+    expect(headFallback).toBeInTheDocument();
+    expect(headFallback).toHaveTextContent(/Lỗi ảnh: Nón lá/i);
+
+    // Verify head fallback is bounded and not full-bleed inset-0
+    expect(headFallback.className).not.toContain("inset-0");
+    expect(headFallback).toHaveStyle({
+      top: "6%",
+      left: "50%",
+      transform: "translateX(-50%)",
+    });
+
+    // Verify all lower layers remain intact, rendered as img elements, and have no fallback indicators
+    expect(topImg).toBeInTheDocument();
+    expect(bottomImg).toBeInTheDocument();
+    expect(shoesImg).toBeInTheDocument();
+    expect(bodyImg).toBeInTheDocument();
+
+    expect(screen.queryByTestId("fallback-top")).not.toBeInTheDocument();
+    expect(screen.queryByTestId("fallback-bottom")).not.toBeInTheDocument();
+    expect(screen.queryByTestId("fallback-shoes")).not.toBeInTheDocument();
+    expect(screen.queryByTestId("fallback-body")).not.toBeInTheDocument();
+
+    // Verify layer order and zIndex are preserved
+    expect(screen.getByTestId("layer-body")).toHaveClass("z-0");
+    expect(screen.getByTestId("layer-shoes")).toHaveStyle({ zIndex: 10 });
+    expect(screen.getByTestId("layer-bottom")).toHaveStyle({ zIndex: 20 });
+    expect(screen.getByTestId("layer-top")).toHaveStyle({ zIndex: 30 });
+    expect(screen.getByTestId("layer-head")).toHaveStyle({ zIndex: 50 });
   });
 
   it("verifies all 22 expected PNG files exist in public/assets/", async () => {
