@@ -412,3 +412,11 @@ export function itemsByGender(g: Gender): Item[] {
 export function itemsBySlot(g: Gender, slot: Slot): Item[] {
   return loadedItems.filter((item) => item.gender === g && item.slot === slot);
 }
+
+export function getPreset(id: string): Preset | undefined {
+  return loadedPresets.find((preset) => preset.id === id);
+}
+
+export function presetsByGender(g: Gender): Preset[] {
+  return loadedPresets.filter((preset) => preset.gender === g);
+}

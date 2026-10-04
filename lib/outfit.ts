@@ -1,4 +1,4 @@
-import { Gender, Slot, Item } from './types';
+import { Gender, Slot, Item, Preset } from './types';
 import { getItem } from './data';
 
 export interface OutfitState {
@@ -77,6 +77,46 @@ export function clearOutfit(state: OutfitState): OutfitState {
   };
 }
 
+export function applyPreset(
+  state: OutfitState,
+  itemIds: string[],
+  itemLookup: (id: string) => Item | undefined = getItem
+): OutfitState {
+  if (!state.gender) return state;
+
+  // Filter preset items to ensure they exist and match gender, keeping one per slot
+  const validIds: string[] = [];
+  const seenSlots = new Set<Slot>();
+
+  for (const id of itemIds) {
+    const item = itemLookup(id);
+    if (item && item.gender === state.gender && !seenSlots.has(item.slot)) {
+      validIds.push(item.id);
+      seenSlots.add(item.slot);
+    }
+  }
+
+  return {
+    ...state,
+    itemIds: validIds,
+  };
+}
+
+export function getMatchingPreset(
+  state: OutfitState,
+  presets: Preset[]
+): Preset | undefined {
+  if (!state.gender || state.itemIds.length === 0) return undefined;
+
+  const currentSet = new Set(state.itemIds);
+  return presets.find(
+    (preset) =>
+      preset.gender === state.gender &&
+      preset.item_ids.length === currentSet.size &&
+      preset.item_ids.every((id) => currentSet.has(id))
+  );
+}
+
 export function getEquippedItem(
   state: OutfitState,
   slot: Slot,
@@ -116,25 +156,8 @@ export function applyOutfitAction(
     case 'CLEAR_OUTFIT':
       return clearOutfit(state);
 
-    case 'APPLY_PRESET': {
-      if (!state.gender) return state;
-      // Filter preset items to ensure they exist and match gender, keeping one per slot
-      const validIds: string[] = [];
-      const seenSlots = new Set<Slot>();
-
-      for (const id of action.itemIds) {
-        const item = itemLookup(id);
-        if (item && item.gender === state.gender && !seenSlots.has(item.slot)) {
-          validIds.push(item.id);
-          seenSlots.add(item.slot);
-        }
-      }
-
-      return {
-        ...state,
-        itemIds: validIds,
-      };
-    }
+    case 'APPLY_PRESET':
+      return applyPreset(state, action.itemIds, itemLookup);
 
     default:
       return state;

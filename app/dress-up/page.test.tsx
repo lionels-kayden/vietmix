@@ -115,4 +115,82 @@ describe("Dress-up entry route and outfit state (T1 & T2 & T4)", () => {
     expect(screen.getByRole("button", { name: /Cởi Trâm cài bạc/i })).toBeInTheDocument();
     expect(screen.getByRole("button", { name: /Cởi Vòng cổ bạc/i })).toBeInTheDocument();
   });
+
+  it("completes full integrated flow: select-character -> preset -> replace -> remove -> change-character", () => {
+    render(<DressUpPage />);
+
+    // Step 1: Select character Nam
+    const maleButton = screen.getByRole("button", { name: /Chọn nhân vật Nam/i });
+    fireEvent.click(maleButton);
+
+    expect(screen.getByTestId("selected-character")).toHaveTextContent("Nam");
+    expect(screen.queryByTestId("active-preset-badge")).not.toBeInTheDocument();
+
+    // Step 2: Apply preset RX-01 (male: Áo ngũ thân, beige trousers, sneakers)
+    const rx01Btn = screen.getByTestId("preset-button-rx-01-male");
+    fireEvent.click(rx01Btn);
+
+    expect(rx01Btn).toHaveAttribute("aria-pressed", "true");
+    expect(screen.getByTestId("active-preset-badge")).toHaveTextContent(
+      "Đang áp dụng: RX-01 - Ngũ thân hiện đại"
+    );
+    expect(screen.getByText(/Đang mặc: 3 món/i)).toBeInTheDocument();
+
+    // Step 3: Replace item manually (Switch to tab Áo and equip Áo giao lĩnh)
+    fireEvent.click(screen.getByRole("tab", { name: "Áo" }));
+    const equipGiaoLinhBtn = screen.getByRole("button", { name: /Mặc Áo giao lĩnh/i });
+    fireEvent.click(equipGiaoLinhBtn);
+
+    // After replacing top with Áo giao lĩnh, the outfit has Áo giao lĩnh, beige trousers, sneakers.
+    // This is no longer RX-01, so RX-01 active state is cleared.
+    expect(rx01Btn).toHaveAttribute("aria-pressed", "false");
+    expect(screen.queryByTestId("active-preset-badge")).not.toBeInTheDocument();
+
+    // If we now equip Vòng cổ bạc, it matches RX-02 exactly!
+    fireEvent.click(screen.getByRole("tab", { name: "Phụ kiện" }));
+    const equipNecklaceBtn = screen.getByRole("button", { name: /Mặc Vòng cổ bạc/i });
+    fireEvent.click(equipNecklaceBtn);
+
+    const rx02Btn = screen.getByTestId("preset-button-rx-02-male");
+    expect(rx02Btn).toHaveAttribute("aria-pressed", "true");
+    expect(screen.getByTestId("active-preset-badge")).toHaveTextContent(
+      "Đang áp dụng: RX-02 - Giao lĩnh phá cách"
+    );
+    expect(screen.getByText(/Đang mặc: 4 món/i)).toBeInTheDocument();
+
+    // Step 4: Remove item manually (Remove Vòng cổ bạc)
+    const removeNecklaceBtn = screen.getByRole("button", { name: /Cởi Vòng cổ bạc/i });
+    fireEvent.click(removeNecklaceBtn);
+
+    expect(screen.getByText(/Đang mặc: 3 món/i)).toBeInTheDocument();
+    expect(rx02Btn).toHaveAttribute("aria-pressed", "false");
+    expect(screen.queryByTestId("active-preset-badge")).not.toBeInTheDocument();
+
+    // Step 5: Change character to Female
+    const changeToFemaleBtn = screen.getByRole("button", { name: /Đổi sang nhân vật Nữ/i });
+    fireEvent.click(changeToFemaleBtn);
+
+    expect(screen.getByTestId("selected-character")).toHaveTextContent("Nữ");
+    expect(screen.getByText(/Đang mặc: 0 món/i)).toBeInTheDocument();
+    expect(screen.queryByTestId("active-preset-badge")).not.toBeInTheDocument();
+    expect(screen.getByTestId("preset-button-set-c-female")).toBeInTheDocument();
+
+    // Additional check: Applying preset replaces entire outfit and removes accessories
+    fireEvent.click(screen.getByRole("tab", { name: "Phụ kiện" }));
+    fireEvent.click(screen.getByRole("button", { name: /Mặc Nón lá/i }));
+    fireEvent.click(screen.getByRole("button", { name: /Mặc Vòng cổ bạc/i }));
+    expect(screen.getByText(/Đang mặc: 2 món/i)).toBeInTheDocument();
+
+    // Now apply Set A female (which has 0 accessories: top, trousers, shoes)
+    const setAFemaleBtn = screen.getByTestId("preset-button-set-a-female");
+    fireEvent.click(setAFemaleBtn);
+
+    expect(screen.getByText(/Đang mặc: 3 món/i)).toBeInTheDocument();
+    expect(screen.getByTestId("active-preset-badge")).toHaveTextContent(
+      "Đang áp dụng: Set A - Áo ngũ thân"
+    );
+    // Neither Nón lá nor Vòng cổ bạc should be worn
+    expect(screen.queryByRole("button", { name: /Cởi Nón lá/i })).not.toBeInTheDocument();
+    expect(screen.queryByRole("button", { name: /Cởi Vòng cổ bạc/i })).not.toBeInTheDocument();
+  });
 });

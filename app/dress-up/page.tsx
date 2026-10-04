@@ -3,14 +3,16 @@
 import { useReducer, useState } from "react";
 import Link from "next/link";
 import { Gender, Item } from "@/lib/types";
-import { itemsByGender, getItem } from "@/lib/data";
+import { itemsByGender, getItem, presetsByGender } from "@/lib/data";
 import {
   createInitialOutfit,
   outfitReducer,
   getEquippedItem,
+  getMatchingPreset,
 } from "@/lib/outfit";
 import { CharacterCanvas } from "@/app/components/CharacterCanvas";
 import { Wardrobe } from "@/app/components/Wardrobe";
+import { PresetsSelector } from "@/app/components/PresetsSelector";
 
 export default function DressUpPage() {
   const [outfitState, dispatch] = useReducer(
@@ -20,6 +22,8 @@ export default function DressUpPage() {
 
   const gender = outfitState.gender;
   const currentCatalog: Item[] = gender ? itemsByGender(gender) : [];
+  const availablePresets = gender ? presetsByGender(gender) : [];
+  const activePreset = gender ? getMatchingPreset(outfitState, availablePresets) : undefined;
 
   return (
     <div className="min-h-screen flex flex-col bg-[var(--bg-cream)] text-[var(--ink-text)]">
@@ -130,6 +134,15 @@ export default function DressUpPage() {
                 Đổi sang {gender === "male" ? "Nữ" : "Nam"}
               </button>
             </div>
+
+            {/* Presets Bar */}
+            <PresetsSelector
+              gender={gender}
+              activePresetId={activePreset?.id}
+              onSelectPreset={(preset) =>
+                dispatch({ type: "APPLY_PRESET", itemIds: preset.item_ids })
+              }
+            />
 
             {/* Dressing Area Container */}
             <div
