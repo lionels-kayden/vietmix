@@ -1,7 +1,7 @@
 # P2 controller verification — 2026-10-04
 
 Implementation: 14c336a. Executor report: P2.md, preserved verbatim.
-Verdict: PARTIAL. No acceptance tag or next-phase prompt.
+Original verdict: PARTIAL. Current code/build/test review: PASS after T6-T7; browser visual checks and user acceptance remain pending. No acceptance tag or next-phase prompt.
 
 Checks performed:
 - Read the executor report and implementation for outfit state, presets, fit adapter,
@@ -40,3 +40,23 @@ User hand-check after fixes:
   remain clearly visible with a small labeled error indicator.
 - At phone and desktop sizes, inspect diacritics, overflow, touch targets and visibility
   of the character during item selection. Enable reduced motion and equip/remove items.
+
+## T6-T7 resolution — 2026-10-04
+- Fix commits: 3c9182b (bounded garment fallback), a041156 (inner entry animation).
+- Scoped Git diff modifies only CharacterCanvas.tsx, its tests and globals.css.
+- Controller reran npm run check: exit 0; 22 assets synced; build passed;
+  103 tests passed across 15 files.
+- Fallback now uses a bounded badge rather than an inset-0 canvas overlay. Added test
+  simulates head-image failure and verifies bounded styling and preserved lower layers.
+- Entry animation is on an inner element; tested nonidentity outer fit transform remains
+  intact. A separate test confirms unrelated item changes preserve existing inner nodes.
+  CSS explicitly disables garment animation/transform in reduced-motion mode.
+- Code-level findings resolved. No browser rendering was inspected by this controller.
+  Executor reports browser setup failed with a driver download 404; this is an executor
+  claim, not independently reproduced. JSDOM cannot prove pixel geometry or animation.
+- Still hand-test phone/desktop layout, failed-image badge, motion and reduced motion
+  before user visual acceptance. No claim of complete browser verification is made.
+- The pasted activity log includes `rm AGENTS.md, CLAUDE.md`, omitted from the phase
+  report. These paths are not currently tracked and the committed diff contains no such
+  deletion. Their previous contents/origin and deletion impact cannot be established
+  from this repo review; this is not asserted to be harmless or a tracked-code regression.

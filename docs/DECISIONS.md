@@ -55,3 +55,8 @@
   update CURRENT STATE to PARTIAL. Build + 100 tests passed; source review found
   full-canvas garment error overlays and missing required entry motion. No code edits,
   acceptance tag or phase advancement. DECIDED unchanged.
+
+- 2026-10-04: Save verbatim P2-fix.md, append verification resolution and update
+  CONTROLLER.md: T6-T7 code fixes verified; build + 103 tests pass. Browser visual
+  verification and user acceptance remain pending. Record the pasted log's untracked
+  instruction-file deletion as unverified context; no code changes or acceptance tag.

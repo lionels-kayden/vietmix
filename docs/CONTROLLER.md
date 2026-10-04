@@ -212,10 +212,10 @@ P9 Polish and deploy prep: responsive layout, empty states, accessibility, READM
   review and resolution: docs/reports/P1-verification.md.
   Rechecked 2026-10-04: build + 67 tests passed. User accepted P1 and requested P2.
   Acceptance tag: p1-ok (acceptance-docs commit).
-- P2: executor PASS at 14c336a; report archived in docs/reports/P2.md.
-  Controller review 2026-10-04: PARTIAL despite build + 100 tests passing. Fix canvas
-  fallback occlusion and missing garment entry motion; docs/prompts/P2-fix.md.
-  Review: docs/reports/P2-verification.md. No p2-ok; awaiting scoped fix.
+- P2: scoped fixes 3c9182b/a041156 verified 2026-10-04: code/build/tests PASS
+  (103 tests / 15 files). Reports: docs/reports/P2.md and P2-fix.md.
+  Review: docs/reports/P2-verification.md. Browser visual checks and user acceptance
+  remain pending; no p2-ok tag.
   Uses current placeholders. User has 2D base characters and garment images with scale
   mismatch; source paths/files and suitability have not yet been inspected. Plan P3a
   after P2 and the first Vercel milestone, subject to image intake and phase handoff.
