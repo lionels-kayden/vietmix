@@ -1,26 +1,56 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #faf6ee;
+  --foreground: #1f1d1a;
+
+  /* Theme tokens: Do-paper cream, lacquer red, indigo, restrained gold, ink text */
+  --bg-cream: #faf6ee;
+  --bg-paper: #f4eee2;
+  --bg-card: #ffffff;
+  --red-lacquer: #b83a2c;
+  --red-lacquer-hover: #9e2f23;
+  --indigo-deep: #1e2e42;
+  --indigo-deep-hover: #162232;
+  --gold-accent: #c49a38;
+  --gold-light: #f3ebd7;
+  --ink-text: #1f1d1a;
+  --ink-muted: #5e5953;
+  --border-paper: #e5dcce;
+  --border-light: #eee7db;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --color-cream: var(--bg-cream);
+  --color-paper: var(--bg-paper);
+  --color-lacquer: var(--red-lacquer);
+  --color-indigo: var(--indigo-deep);
+  --color-gold: var(--gold-accent);
+  --color-ink: var(--ink-text);
+  --font-serif: var(--font-serif);
+  --font-sans: var(--font-sans);
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--bg-cream);
+  color: var(--ink-text);
+  font-family: var(--font-sans), ui-sans-serif, system-ui, sans-serif;
+  margin: 0;
+}
+
+h1, h2, h3, h4, .font-serif {
+  font-family: var(--font-serif), ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }
