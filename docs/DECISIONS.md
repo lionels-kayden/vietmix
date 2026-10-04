@@ -50,3 +50,8 @@
 - 2026-10-04: User reports real 2D characters and garment images exist but need scale
   alignment. Update CURRENT STATE; P2 still uses placeholders. Plan P3a image intake
   after P2 and first Vercel deployment; image paths and actual fit remain unverified.
+
+- 2026-10-04: Archive verbatim P2 report, add P2-verification.md and scoped P2-fix.md,
+  update CURRENT STATE to PARTIAL. Build + 100 tests passed; source review found
+  full-canvas garment error overlays and missing required entry motion. No code edits,
+  acceptance tag or phase advancement. DECIDED unchanged.
