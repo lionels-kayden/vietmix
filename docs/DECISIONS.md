@@ -73,3 +73,9 @@
 - 2026-10-05: Synchronize CONTROLLER.md, PROJECT.md, ROADMAP.md and VERCEL.md with
   user's earlier explicit postponement: local P3a first, deployment before P8 live tests.
   DECIDED unchanged. Source choices appended to image-input/notes.txt.
+
+- 2026-10-05: User requests repository research then autonomous P3a execution. Read two
+  reference repos (docs/image/REFERENCES.md), adopt layer/variant workflow only; no code
+  or art copied. T1 migrates 14 legacy IDs and filenames, updates runtime references and
+  PROJECT.md color-free catalog. source_map.json records user-name-derived kinds;
+  trouser-family mapping and generated variants remain reviewable. DECIDED unchanged.

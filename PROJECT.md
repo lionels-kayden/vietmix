@@ -64,32 +64,26 @@ WHAT WAS TRIED: <list>
 - Images may be missing: the app shows a grey labeled placeholder (phase 0 creates
   placeholder PNGs so everything can be tested).
 
-## ITEM CATALOG (file name pattern {M|F}_{set}_{SLOT}_{name}.png)
-Sets: A = ao ngu than (Nguyen, daily wear); B = ao giao linh (Le-Trinh, modern
-reconstruction); C = Nguyen ceremonial (male: ao tac, female: ao nhat binh);
-MIX = modern pieces.
-
-Male items (9):
-- Tops: A ao ngu than (indigo); B ao giao linh (earth brown); C ao tac (blue brocade
-  with gold flower-and-cloud motifs)
-- Bottoms: white silk trousers (shared by A, B, C); beige modern wide-leg trousers (MIX)
-- Shoes: black cloth shoes with white soles (traditional); white sneakers (modern)
-- Accessories: conical hat (non la); silver chain necklace
-
-Female items (11):
-- Tops: A ao ngu than (jade green); B ao giao linh (indigo); C ao nhat binh (crimson,
-  gold border)
-- Bottoms: white silk trousers (A, C); long black skirt (B); beige modern wide-leg
-  trousers (MIX)
-- Shoes: black cloth shoes with white soles (traditional); white sneakers (modern)
-- Accessories: conical hat (non la); silver chain necklace; silver hairpin (female only)
-
-Modern items: beige trousers and sneakers. All other items are traditional.
-Placeholder count for phase 0: 9 male + 11 female + 2 base characters = 22 files.
-
-Presets: Set A, Set B, Set C per gender; Remix RX-01 (ngu than + beige trousers +
-sneakers); RX-02 (giao linh + beige trousers + sneakers + necklace). Set C has no
-Remix preset.
+## ITEM CATALOG
+File pattern: {M|F}_{set}_{SLOT}_{kind}[_{variant}].png. Kind comes from the
+canonical filename; dominant color is measured from image pixels. Source files may
+have human-readable names; an explicit reviewed mapping gives them canonical names.
+No recolor filter. Variants are separate images; presets use the default variant.
+Sets: A = ao ngu than; B = ao giao linh; C = male ao tac / female ao nhat binh;
+MIX = modern; COMMON = shared pieces. These are app catalog categories, not new
+historical claims. Unverified content retains needs_review=true.
+Male kinds (9): ao_ngu_than, ao_giao_linh, ao_tac, quan_lua_trang, quan_hien_dai,
+giay_vai_den, giay_sneaker, non_la, vong_co_bac.
+Female kinds (11): ao_ngu_than, ao_giao_linh, ao_nhat_binh, quan_lua_trang, vay_dai,
+quan_hien_dai, giay_vai_den, giay_sneaker, non_la, tram_cai, vong_co_bac.
+Canonical kind identifiers retain their existing spelling for compatibility; words
+such as trang/den in an identifier do not force every image variant to that color.
+Modern kinds: quan_hien_dai and giay_sneaker. Other kinds are traditional in app logic.
+Default catalog remains 20 items plus 2 bases; additional source variants are not
+published as new runtime items until their review and variant integration.
+Presets: Set A/B/C per gender; Set B female uses vay_dai. RX-01 uses ao_ngu_than,
+quan_hien_dai and giay_sneaker; RX-02 uses ao_giao_linh, quan_hien_dai,
+giay_sneaker and vong_co_bac. No Set C remix preset.
 
 ## SCENES
 tet, ky-yeu, le-hoi, doi-thuong (simple flat SVG backgrounds behind the character).

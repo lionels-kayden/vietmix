@@ -1,0 +1,110 @@
+[
+  {
+    "source": "image-input/sheets/male/Nón lá.png",
+    "target": "M_COMMON_HEAD_non_la.png",
+    "needs_review": true,
+    "note": "Kind assigned from user filename, not inferred from pixels."
+  },
+  {
+    "source": "image-input/sheets/male/Quần trắng.png",
+    "target": "M_COMMON_BOTTOM_quan_lua_trang.png",
+    "needs_review": true,
+    "note": "User labels trousers traditional; canonical family mapping needs review; no material/history claim."
+  },
+  {
+    "source": "image-input/sheets/male/Quần đen.png",
+    "target": "M_COMMON_BOTTOM_quan_lua_trang_v02.png",
+    "needs_review": true,
+    "note": "User labels trousers traditional; canonical family mapping needs review; no material/history claim."
+  },
+  {
+    "source": "image-input/sheets/male/Áo giao lĩnh nam (set B).png",
+    "target": "M_B_TOP_ao_giao_linh.png",
+    "needs_review": true,
+    "note": "Kind assigned from user filename, not inferred from pixels."
+  },
+  {
+    "source": "image-input/sheets/male/Áo ngũ thân nam (set A).png",
+    "target": "M_A_TOP_ao_ngu_than.png",
+    "needs_review": true,
+    "note": "Kind assigned from user filename, not inferred from pixels."
+  },
+  {
+    "source": "image-input/sheets/male/Áo tấc nam (set C).png",
+    "target": "M_C_TOP_ao_tac.png",
+    "needs_review": true,
+    "note": "Kind assigned from user filename, not inferred from pixels."
+  },
+  {
+    "source": "image-input/sheets/common/giay_vai_den_generated_01.png",
+    "target": "M_COMMON_SHOES_giay_vai_den.png",
+    "needs_review": true,
+    "note": "Generated source; fit not yet approved. Sneaker retained as an alternative."
+  },
+  {
+    "source": "image-input/sheets/common/giay_vai_trang_generated_01.png",
+    "target": "M_COMMON_SHOES_giay_vai_den_v02.png",
+    "needs_review": true,
+    "note": "Generated source; fit not yet approved. Sneaker retained as an alternative."
+  },
+  {
+    "source": "image-input/sheets/common/giay_sneaker_trang_generated_01.png",
+    "target": "M_MIX_SHOES_giay_sneaker.png",
+    "needs_review": true,
+    "note": "Generated source; fit not yet approved. Sneaker retained as an alternative."
+  },
+  {
+    "source": "image-input/sheets/female/Quần dài nữ.png",
+    "target": "F_COMMON_BOTTOM_quan_lua_trang.png",
+    "needs_review": true,
+    "note": "User labels trousers traditional; canonical family mapping needs review; no material/history claim."
+  },
+  {
+    "source": "image-input/sheets/female/Trâm cài nữ.png",
+    "target": "F_COMMON_HEAD_tram_cai.png",
+    "needs_review": true,
+    "note": "Kind assigned from user filename, not inferred from pixels."
+  },
+  {
+    "source": "image-input/sheets/female/Váy đen giao lĩnh nữ.png",
+    "target": "F_B_BOTTOM_vay_dai.png",
+    "needs_review": true,
+    "note": "Kind assigned from user filename, not inferred from pixels."
+  },
+  {
+    "source": "image-input/sheets/female/áo giao lĩnh nữ.png",
+    "target": "F_B_TOP_ao_giao_linh.png",
+    "needs_review": true,
+    "note": "Kind assigned from user filename, not inferred from pixels."
+  },
+  {
+    "source": "image-input/sheets/female/Áo ngũ thân nữ.png",
+    "target": "F_A_TOP_ao_ngu_than.png",
+    "needs_review": true,
+    "note": "Kind assigned from user filename, not inferred from pixels."
+  },
+  {
+    "source": "image-input/sheets/female/Áo Nhật Bình nữ .png",
+    "target": "F_C_TOP_ao_nhat_binh.png",
+    "needs_review": true,
+    "note": "Kind assigned from user filename, not inferred from pixels."
+  },
+  {
+    "source": "image-input/sheets/common/giay_vai_den_generated_01.png",
+    "target": "F_COMMON_SHOES_giay_vai_den.png",
+    "needs_review": true,
+    "note": "Generated source; fit not yet approved. Sneaker retained as an alternative."
+  },
+  {
+    "source": "image-input/sheets/common/giay_vai_trang_generated_01.png",
+    "target": "F_COMMON_SHOES_giay_vai_den_v02.png",
+    "needs_review": true,
+    "note": "Generated source; fit not yet approved. Sneaker retained as an alternative."
+  },
+  {
+    "source": "image-input/sheets/common/giay_sneaker_trang_generated_01.png",
+    "target": "F_MIX_SHOES_giay_sneaker.png",
+    "needs_review": true,
+    "note": "Generated source; fit not yet approved. Sneaker retained as an alternative."
+  }
+]

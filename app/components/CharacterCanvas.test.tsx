@@ -31,16 +31,16 @@ describe("T3: CharacterCanvas Layered Renderer", () => {
   it("renders layers in strict logical order: body, shoes, bottom, top, neck, head", () => {
     // Equipping all slots for male:
     // top: M_A_TOP_ao_ngu_than
-    // bottom: M_A_BOTTOM_white_silk_trousers
-    // shoes: M_A_SHOES_cloth_shoes
-    // neck: M_A_NECK_silver_necklace
-    // head: M_A_HEAD_conical_hat
+    // bottom: M_COMMON_BOTTOM_quan_lua_trang
+    // shoes: M_COMMON_SHOES_giay_vai_den
+    // neck: M_COMMON_NECK_vong_co_bac
+    // head: M_COMMON_HEAD_non_la
     const maleFullOutfit = [
       "M_A_TOP_ao_ngu_than",
-      "M_A_BOTTOM_white_silk_trousers",
-      "M_A_SHOES_cloth_shoes",
-      "M_A_NECK_silver_necklace",
-      "M_A_HEAD_conical_hat",
+      "M_COMMON_BOTTOM_quan_lua_trang",
+      "M_COMMON_SHOES_giay_vai_den",
+      "M_COMMON_NECK_vong_co_bac",
+      "M_COMMON_HEAD_non_la",
     ];
 
     render(<CharacterCanvas gender="male" itemIds={maleFullOutfit} />);
@@ -65,10 +65,10 @@ describe("T3: CharacterCanvas Layered Renderer", () => {
     expect(topImg).toHaveAttribute("src", "/assets/male/M_A_TOP_ao_ngu_than.png");
 
     const bottomImg = screen.getByRole("img", { name: "Quần lụa trắng" });
-    expect(bottomImg).toHaveAttribute("src", "/assets/male/M_A_BOTTOM_white_silk_trousers.png");
+    expect(bottomImg).toHaveAttribute("src", "/assets/male/M_COMMON_BOTTOM_quan_lua_trang.png");
 
     const shoesImg = screen.getByRole("img", { name: "Giày vải đen đế trắng" });
-    expect(shoesImg).toHaveAttribute("src", "/assets/male/M_A_SHOES_cloth_shoes.png");
+    expect(shoesImg).toHaveAttribute("src", "/assets/male/M_COMMON_SHOES_giay_vai_den.png");
   });
 
   it("applies fit offsets and scale to garment layers", () => {
@@ -97,7 +97,7 @@ describe("T3: CharacterCanvas Layered Renderer", () => {
     render(
       <CharacterCanvas
         gender="male"
-        itemIds={["M_A_TOP_ao_ngu_than", "M_A_BOTTOM_white_silk_trousers"]}
+        itemIds={["M_A_TOP_ao_ngu_than", "M_COMMON_BOTTOM_quan_lua_trang"]}
       />
     );
 
@@ -129,10 +129,10 @@ describe("T3: CharacterCanvas Layered Renderer", () => {
       <CharacterCanvas
         gender="male"
         itemIds={[
-          "M_A_HEAD_conical_hat",
+          "M_COMMON_HEAD_non_la",
           "M_A_TOP_ao_ngu_than",
-          "M_A_BOTTOM_white_silk_trousers",
-          "M_A_SHOES_cloth_shoes",
+          "M_COMMON_BOTTOM_quan_lua_trang",
+          "M_COMMON_SHOES_giay_vai_den",
         ]}
       />
     );
@@ -219,7 +219,7 @@ describe("T3: CharacterCanvas Layered Renderer", () => {
     rerender(
       <CharacterCanvas
         gender="male"
-        itemIds={["M_A_TOP_ao_ngu_than", "M_A_SHOES_cloth_shoes"]}
+        itemIds={["M_A_TOP_ao_ngu_than", "M_COMMON_SHOES_giay_vai_den"]}
       />
     );
 

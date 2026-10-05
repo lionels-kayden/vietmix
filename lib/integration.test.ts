@@ -33,21 +33,21 @@ describe('T5: Integration tests for presets', () => {
     // Set A male: ao_ngu_than + quan_lua_trang triggers R_NGU_THAN_WHITE
     const setAMale = evaluate({
       gender: 'male',
-      itemIds: ['M_A_TOP_ao_ngu_than', 'M_A_BOTTOM_white_silk_trousers', 'M_A_SHOES_cloth_shoes'],
+      itemIds: ['M_A_TOP_ao_ngu_than', 'M_COMMON_BOTTOM_quan_lua_trang', 'M_COMMON_SHOES_giay_vai_den'],
     });
     expect(setAMale.suggest.some((h) => h.ruleId === 'R_NGU_THAN_WHITE')).toBe(true);
 
     // Set A female: ao_ngu_than + quan_lua_trang triggers R_NGU_THAN_WHITE
     const setAFemale = evaluate({
       gender: 'female',
-      itemIds: ['F_A_TOP_ao_ngu_than', 'F_A_BOTTOM_white_silk_trousers', 'F_A_SHOES_cloth_shoes'],
+      itemIds: ['F_A_TOP_ao_ngu_than', 'F_COMMON_BOTTOM_quan_lua_trang', 'F_COMMON_SHOES_giay_vai_den'],
     });
     expect(setAFemale.suggest.some((h) => h.ruleId === 'R_NGU_THAN_WHITE')).toBe(true);
 
     // Set B female: ao_giao_linh + vay_dai triggers R_GIAO_LINH_SKIRT
     const setBFemale = evaluate({
       gender: 'female',
-      itemIds: ['F_B_TOP_ao_giao_linh', 'F_B_BOTTOM_black_skirt', 'F_A_SHOES_cloth_shoes'],
+      itemIds: ['F_B_TOP_ao_giao_linh', 'F_B_BOTTOM_vay_dai', 'F_COMMON_SHOES_giay_vai_den'],
     });
     expect(setBFemale.suggest.some((h) => h.ruleId === 'R_GIAO_LINH_SKIRT')).toBe(true);
   });

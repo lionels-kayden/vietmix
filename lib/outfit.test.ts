@@ -54,9 +54,9 @@ describe('T2: Character selection and outfit state (lib/outfit.ts)', () => {
     expect(state.itemIds).toEqual(['M_B_TOP_ao_giao_linh']);
 
     // Equip bottom in different slot: both worn
-    state = equipItem(state, 'M_A_BOTTOM_white_silk_trousers');
+    state = equipItem(state, 'M_COMMON_BOTTOM_quan_lua_trang');
     expect(state.itemIds).toContain('M_B_TOP_ao_giao_linh');
-    expect(state.itemIds).toContain('M_A_BOTTOM_white_silk_trousers');
+    expect(state.itemIds).toContain('M_COMMON_BOTTOM_quan_lua_trang');
     expect(state.itemIds).toHaveLength(2);
 
     // Re-equipping exact same item does not duplicate
@@ -68,26 +68,26 @@ describe('T2: Character selection and outfit state (lib/outfit.ts)', () => {
     let state = createInitialOutfit('female');
 
     // Equip conical hat (slot: head)
-    state = equipItem(state, 'F_A_HEAD_conical_hat');
-    expect(state.itemIds).toEqual(['F_A_HEAD_conical_hat']);
+    state = equipItem(state, 'F_COMMON_HEAD_non_la');
+    expect(state.itemIds).toEqual(['F_COMMON_HEAD_non_la']);
 
     // Equip silver hairpin (slot: head): replaces conical hat
-    state = equipItem(state, 'F_A_HEAD_silver_hairpin');
-    expect(state.itemIds).toEqual(['F_A_HEAD_silver_hairpin']);
+    state = equipItem(state, 'F_COMMON_HEAD_tram_cai');
+    expect(state.itemIds).toEqual(['F_COMMON_HEAD_tram_cai']);
 
     // Equip necklace (slot: neck): worn concurrently with head accessory
-    state = equipItem(state, 'F_A_NECK_silver_necklace');
-    expect(state.itemIds).toContain('F_A_HEAD_silver_hairpin');
-    expect(state.itemIds).toContain('F_A_NECK_silver_necklace');
+    state = equipItem(state, 'F_COMMON_NECK_vong_co_bac');
+    expect(state.itemIds).toContain('F_COMMON_HEAD_tram_cai');
+    expect(state.itemIds).toContain('F_COMMON_NECK_vong_co_bac');
   });
 
   it('removes item and clears outfit', () => {
     let state = createInitialOutfit('male');
     state = equipItem(state, 'M_A_TOP_ao_ngu_than');
-    state = equipItem(state, 'M_A_BOTTOM_white_silk_trousers');
+    state = equipItem(state, 'M_COMMON_BOTTOM_quan_lua_trang');
 
     state = removeItem(state, 'M_A_TOP_ao_ngu_than');
-    expect(state.itemIds).toEqual(['M_A_BOTTOM_white_silk_trousers']);
+    expect(state.itemIds).toEqual(['M_COMMON_BOTTOM_quan_lua_trang']);
 
     state = clearOutfit(state);
     expect(state.itemIds).toEqual([]);

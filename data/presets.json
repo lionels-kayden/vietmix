@@ -6,8 +6,8 @@
     "type": "set",
     "item_ids": [
       "M_A_TOP_ao_ngu_than",
-      "M_A_BOTTOM_white_silk_trousers",
-      "M_A_SHOES_cloth_shoes"
+      "M_COMMON_BOTTOM_quan_lua_trang",
+      "M_COMMON_SHOES_giay_vai_den"
     ]
   },
   {
@@ -17,8 +17,8 @@
     "type": "set",
     "item_ids": [
       "F_A_TOP_ao_ngu_than",
-      "F_A_BOTTOM_white_silk_trousers",
-      "F_A_SHOES_cloth_shoes"
+      "F_COMMON_BOTTOM_quan_lua_trang",
+      "F_COMMON_SHOES_giay_vai_den"
     ]
   },
   {
@@ -28,8 +28,8 @@
     "type": "set",
     "item_ids": [
       "M_B_TOP_ao_giao_linh",
-      "M_A_BOTTOM_white_silk_trousers",
-      "M_A_SHOES_cloth_shoes"
+      "M_COMMON_BOTTOM_quan_lua_trang",
+      "M_COMMON_SHOES_giay_vai_den"
     ]
   },
   {
@@ -39,8 +39,8 @@
     "type": "set",
     "item_ids": [
       "F_B_TOP_ao_giao_linh",
-      "F_B_BOTTOM_black_skirt",
-      "F_A_SHOES_cloth_shoes"
+      "F_B_BOTTOM_vay_dai",
+      "F_COMMON_SHOES_giay_vai_den"
     ]
   },
   {
@@ -50,8 +50,8 @@
     "type": "set",
     "item_ids": [
       "M_C_TOP_ao_tac",
-      "M_A_BOTTOM_white_silk_trousers",
-      "M_A_SHOES_cloth_shoes"
+      "M_COMMON_BOTTOM_quan_lua_trang",
+      "M_COMMON_SHOES_giay_vai_den"
     ]
   },
   {
@@ -61,8 +61,8 @@
     "type": "set",
     "item_ids": [
       "F_C_TOP_ao_nhat_binh",
-      "F_A_BOTTOM_white_silk_trousers",
-      "F_A_SHOES_cloth_shoes"
+      "F_COMMON_BOTTOM_quan_lua_trang",
+      "F_COMMON_SHOES_giay_vai_den"
     ]
   },
   {
@@ -72,8 +72,8 @@
     "type": "remix",
     "item_ids": [
       "M_A_TOP_ao_ngu_than",
-      "M_MIX_BOTTOM_beige_trousers",
-      "M_MIX_SHOES_sneakers"
+      "M_MIX_BOTTOM_quan_hien_dai",
+      "M_MIX_SHOES_giay_sneaker"
     ]
   },
   {
@@ -83,8 +83,8 @@
     "type": "remix",
     "item_ids": [
       "F_A_TOP_ao_ngu_than",
-      "F_MIX_BOTTOM_beige_trousers",
-      "F_MIX_SHOES_sneakers"
+      "F_MIX_BOTTOM_quan_hien_dai",
+      "F_MIX_SHOES_giay_sneaker"
     ]
   },
   {
@@ -94,9 +94,9 @@
     "type": "remix",
     "item_ids": [
       "M_B_TOP_ao_giao_linh",
-      "M_MIX_BOTTOM_beige_trousers",
-      "M_MIX_SHOES_sneakers",
-      "M_A_NECK_silver_necklace"
+      "M_MIX_BOTTOM_quan_hien_dai",
+      "M_MIX_SHOES_giay_sneaker",
+      "M_COMMON_NECK_vong_co_bac"
     ]
   },
   {
@@ -106,9 +106,9 @@
     "type": "remix",
     "item_ids": [
       "F_B_TOP_ao_giao_linh",
-      "F_MIX_BOTTOM_beige_trousers",
-      "F_MIX_SHOES_sneakers",
-      "F_A_NECK_silver_necklace"
+      "F_MIX_BOTTOM_quan_hien_dai",
+      "F_MIX_SHOES_giay_sneaker",
+      "F_COMMON_NECK_vong_co_bac"
     ]
   }
 ]

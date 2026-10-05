@@ -44,13 +44,13 @@ describe('T3: Fit Adapter Contract (lib/fit.ts)', () => {
   it('correctly reads valid non-zero offsets and uniform scale', () => {
     const customFit = {
       M_A_TOP_ao_ngu_than: { x: 15, y: -20, scale: 1.05 },
-      F_A_HEAD_conical_hat: { x: 0, y: 50, scale: 0.95 },
+      F_COMMON_HEAD_non_la: { x: 0, y: 50, scale: 0.95 },
     };
 
     const entry1 = getFitEntry('M_A_TOP_ao_ngu_than', customFit);
     expect(entry1).toEqual({ x: 15, y: -20, scale: 1.05 });
 
-    const entry2 = getFitEntry('F_A_HEAD_conical_hat', customFit);
+    const entry2 = getFitEntry('F_COMMON_HEAD_non_la', customFit);
     expect(entry2).toEqual({ x: 0, y: 50, scale: 0.95 });
   });
 
