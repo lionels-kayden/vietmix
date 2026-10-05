@@ -15,7 +15,7 @@ T5: Ten presets and integration checks.
 Hand-test: switch characters, replace/remove items, apply presets, inspect layering,
 Vietnamese diacritics and one-handed use on a phone.
 
-## Immediately after P2 — First Vercel deployment
+## Deferred until after local development, before P8 — First Vercel deployment
 T1: Controller prepares a deployment checklist and repository/build handoff; Antigravity
 implements any needed app/config changes and basic Open Graph title, description/image.
 T2: User signs in and connects the GitHub repository to Vercel, grants account permissions

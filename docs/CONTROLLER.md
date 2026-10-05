@@ -158,7 +158,7 @@ P1 Data and rules: items.json (20 items), presets.json (10), types and loader, r
    docs/RULES.md.
 P2 Core dress-up: choose character, layered render, tabs and put on / take off, slot rules,
    presets, apply fit.json offsets.
-Post-P2 Vercel milestone: first deployment immediately after accepted P2, with basic
+Deferred Vercel milestone: after local development, before P8 live sharing checks, with basic
    Open Graph metadata and a real-link sharing smoke test. User connects GitHub to
    Vercel; controller prepares the handoff and verifies the deployed result; Antigravity
    implements any app/config changes. Full sharing remains P8. See docs/ROADMAP.md.
@@ -217,11 +217,13 @@ P9 Polish and deploy prep: responsive layout, empty states, accessibility, READM
   Review: docs/reports/P2-verification.md. User hand-tested and requested advancement
   on 2026-10-04; P2 accepted, p2-ok at acceptance-docs commit. Controller browser
   visual checks remain unperformed (not claimed).
-- Post-P2 Vercel: preparation prompt docs/prompts/VERCEL.md; guide docs/VERCEL.md.
-  Awaiting GitHub destination/account connection and executor OG preparation report.
-  Uses current placeholders. User has 2D base characters and garment images with scale
-  mismatch; source paths/files and suitability have not yet been inspected. Plan P3a
-  after P2 and the first Vercel milestone, subject to image intake and phase handoff.
+- Vercel deferred by user: continue local development; deploy before P8 live sharing
+  checks. Prior preparation prompt is on hold, not an active executor assignment.
+- P3a intake: 17 source images decoded successfully on 2026-10-05; inventory:
+  docs/image/INPUT_INVENTORY.json. Sources saved under image-input/, originals preserved.
+  Matching black/white cloth shoes selected; earlier sneaker retained as an alternative.
+  Three .png files contain JPEG data. Most source sheets have fully opaque backgrounds.
+  Image fitting, canonical mapping and P3a acceptance are not yet complete.
 - Pending: controller to align PROJECT.md ITEM CATALOG with the existing color-free
   decision during P3a. P3a includes color scanning; proposed legacy
   filename migration is documented in P1-verification.md, not implemented.

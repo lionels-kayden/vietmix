@@ -1,3 +1,5 @@
+Status update 2026-10-05: deferred at user request. Continue local P3a first; deploy before P8 live sharing checks. Earlier preparation instructions below remain for that later milestone.
+
 # First Vercel deployment
 
 Status 2026-10-04: P2 accepted by user; deployment preparation requested.

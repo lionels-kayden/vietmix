@@ -1,0 +1,214 @@
+[
+  {
+    "file": "image-input/bases/female_base.png",
+    "format": "JPEG",
+    "size": [
+      768,
+      1376
+    ],
+    "mode": "RGB",
+    "alpha_range": null
+  },
+  {
+    "file": "image-input/bases/male_base.png",
+    "format": "JPEG",
+    "size": [
+      768,
+      1376
+    ],
+    "mode": "RGB",
+    "alpha_range": null
+  },
+  {
+    "file": "image-input/sheets/common/giay_sneaker_trang_generated_01.png",
+    "format": "PNG",
+    "size": [
+      1536,
+      1024
+    ],
+    "mode": "RGBA",
+    "alpha_range": [
+      0,
+      254
+    ]
+  },
+  {
+    "file": "image-input/sheets/common/giay_vai_den_generated_01.png",
+    "format": "PNG",
+    "size": [
+      1536,
+      1024
+    ],
+    "mode": "RGBA",
+    "alpha_range": [
+      0,
+      254
+    ]
+  },
+  {
+    "file": "image-input/sheets/common/giay_vai_trang_generated_01.png",
+    "format": "PNG",
+    "size": [
+      1536,
+      1024
+    ],
+    "mode": "RGBA",
+    "alpha_range": [
+      0,
+      254
+    ]
+  },
+  {
+    "file": "image-input/sheets/female/Quần dài nữ.png",
+    "format": "PNG",
+    "size": [
+      1024,
+      1024
+    ],
+    "mode": "RGBA",
+    "alpha_range": [
+      255,
+      255
+    ]
+  },
+  {
+    "file": "image-input/sheets/female/Trâm cài nữ.png",
+    "format": "PNG",
+    "size": [
+      1024,
+      1024
+    ],
+    "mode": "RGBA",
+    "alpha_range": [
+      255,
+      255
+    ]
+  },
+  {
+    "file": "image-input/sheets/female/Váy đen giao lĩnh nữ.png",
+    "format": "PNG",
+    "size": [
+      768,
+      1369
+    ],
+    "mode": "RGBA",
+    "alpha_range": [
+      255,
+      255
+    ]
+  },
+  {
+    "file": "image-input/sheets/female/áo giao lĩnh nữ.png",
+    "format": "PNG",
+    "size": [
+      843,
+      1264
+    ],
+    "mode": "RGBA",
+    "alpha_range": [
+      255,
+      255
+    ]
+  },
+  {
+    "file": "image-input/sheets/female/Áo ngũ thân nữ.png",
+    "format": "PNG",
+    "size": [
+      768,
+      1369
+    ],
+    "mode": "RGBA",
+    "alpha_range": [
+      255,
+      255
+    ]
+  },
+  {
+    "file": "image-input/sheets/female/Áo Nhật Bình nữ .png",
+    "format": "JPEG",
+    "size": [
+      682,
+      1024
+    ],
+    "mode": "RGB",
+    "alpha_range": null
+  },
+  {
+    "file": "image-input/sheets/male/Nón lá.png",
+    "format": "PNG",
+    "size": [
+      1686,
+      2528
+    ],
+    "mode": "RGBA",
+    "alpha_range": [
+      255,
+      255
+    ]
+  },
+  {
+    "file": "image-input/sheets/male/Quần trắng.png",
+    "format": "PNG",
+    "size": [
+      1728,
+      2440
+    ],
+    "mode": "RGBA",
+    "alpha_range": [
+      255,
+      255
+    ]
+  },
+  {
+    "file": "image-input/sheets/male/Quần đen.png",
+    "format": "PNG",
+    "size": [
+      1728,
+      2440
+    ],
+    "mode": "RGBA",
+    "alpha_range": [
+      255,
+      255
+    ]
+  },
+  {
+    "file": "image-input/sheets/male/Áo giao lĩnh nam (set B).png",
+    "format": "PNG",
+    "size": [
+      1686,
+      2528
+    ],
+    "mode": "RGBA",
+    "alpha_range": [
+      255,
+      255
+    ]
+  },
+  {
+    "file": "image-input/sheets/male/Áo ngũ thân nam (set A).png",
+    "format": "PNG",
+    "size": [
+      2752,
+      1536
+    ],
+    "mode": "RGBA",
+    "alpha_range": [
+      255,
+      255
+    ]
+  },
+  {
+    "file": "image-input/sheets/male/Áo tấc nam (set C).png",
+    "format": "PNG",
+    "size": [
+      1686,
+      2528
+    ],
+    "mode": "RGBA",
+    "alpha_range": [
+      255,
+      255
+    ]
+  }
+]

@@ -1,0 +1,11 @@
+Ghi rõ tên file, loại trang phục và vị trí từng món trong ảnh.
+Giữ nguyên ảnh gốc, đúng đuôi PNG/JPG; chưa cắt, kéo giãn hoặc xóa nền.
+
+Ví dụ (thay bằng tên ảnh thực tế của bạn):
+F_C_ao_nhat_binh_01.png: nhân vật bên trái, áo bên phải; ghi rõ phần dưới gấu là áo hay món riêng.
+
+Confirmed source choices (2026-10-05):
+- giay_vai_den_generated_01.png and giay_vai_trang_generated_01.png: selected matching cloth-shoe designs, black and white variants; fit still pending.
+- giay_sneaker_trang_generated_01.png: earlier alternative retained, not the selected matching white cloth shoe. Do not substitute its kind automatically.
+- User classifies both male trousers and female trousers as traditional for the app; this is not independent historical verification.
+- Preserve original images. Canonical names, background removal and fit are still pending.

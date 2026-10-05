@@ -65,3 +65,11 @@
   Record P2 acceptance and tag p2-ok; add VERCEL guide and executor preparation prompt.
   Repo has no remote/project URL and lacks OG metadata/image. Controller prepares and
   verifies; Antigravity implements; user connects accounts. No deployment claimed.
+
+- 2026-10-05: Save image-input sources and selected matching black/white cloth-shoe
+  designs; retain earlier sneaker as alternative. Record 17-image format inventory
+  after decoding each file. User labels trousers traditional; no historical validation
+  or catalog change inferred. Fit remains pending.
+- 2026-10-05: Synchronize CONTROLLER.md, PROJECT.md, ROADMAP.md and VERCEL.md with
+  user's earlier explicit postponement: local P3a first, deployment before P8 live tests.
+  DECIDED unchanged. Source choices appended to image-input/notes.txt.

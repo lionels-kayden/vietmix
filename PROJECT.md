@@ -138,7 +138,7 @@ returns 404 otherwise, never linked from the UI.
   migrate legacy filenames and references together. Keep canonical kind identifiers.
 - P3b uses EXECUTOR=antigravity: the hidden /fit page and its integration/tests.
   Only one executor works at a time; stop, commit, report and verify before handoff.
-- Deploy a first Vercel version immediately after accepted P2. The user connects GitHub
+- Deploy the first Vercel version after local development, before P8 live sharing checks. The user connects GitHub
   to Vercel. The controller prepares instructions and verifies the real URL; Antigravity
   implements deployment-related app/config changes and basic Open Graph metadata.
   Check link sharing and previews there; complete the full sharing flow in P8.
