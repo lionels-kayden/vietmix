@@ -1,0 +1,22 @@
+{
+  "status": "REVIEW_REQUIRED",
+  "source_sha256": "b35f0d31293a5c098faeebd7a9a2ae860976e60e602c3fa5da868328745f8da4",
+  "base_pixel_identical": true,
+  "collar_and_face_unchanged": true,
+  "manual_cuff_regions": [
+    [
+      250,
+      920,
+      355,
+      990
+    ],
+    [
+      720,
+      920,
+      830,
+      990
+    ]
+  ],
+  "shoe_body_visibility_mask": "shoe-body-visibility.png; applies only with shoes, below y=1710",
+  "note": "Source-specific recovery; original base preserved, bare feet masked while shoes active. No generated hand/face pixels adopted. Visual acceptance pending."
+}

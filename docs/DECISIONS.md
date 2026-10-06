@@ -102,3 +102,8 @@
   the demo for cuffs/hands and pants/shoes. Add image/FIT_VISUAL_RULES.md with observed
   defects, local correction order and separate visual acceptance. Mark single-A as
   CHANGES REQUESTED. Preserve verbatim FIT_NOTES, assets and CONTROLLER DECIDED.
+
+- 2026-10-06: Implement requested male-A revision 2 with localized cuff recovery,
+  folded trouser hems and revised shoe artwork. Preserve original base/collar/hands;
+  record shoe-specific reversible foot mask and limited reuse under other tops in
+  reports/P3a-single-A.md. Save AI prompt/source and test recovery. No DECIDED change.
