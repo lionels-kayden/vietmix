@@ -79,3 +79,10 @@
   or art copied. T1 migrates 14 legacy IDs and filenames, updates runtime references and
   PROJECT.md color-free catalog. source_map.json records user-name-derived kinds;
   trouser-family mapping and generated variants remain reviewable. DECIDED unchanged.
+
+- 2026-10-06: Record P3a self-execution in reports/P3a.md and CONTROLLER CURRENT STATE.
+  Pipeline code tests pass, visual acceptance remains PARTIAL. Keep candidate assets in
+  reports/p3a rather than promoting flawed fits. Two explicitly inspected, hash-guarded
+  background seeds remove enclosed female base arm gaps without white-keying garments.
+  Fit uniformly to measured bottom length and independently measured feet; report
+  incompatible waist proportions and sleeve defects. Preserve originals and DECIDED.

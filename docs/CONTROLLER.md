@@ -223,10 +223,16 @@ P9 Polish and deploy prep: responsive layout, empty states, accessibility, READM
   docs/image/INPUT_INVENTORY.json. Sources saved under image-input/, originals preserved.
   Matching black/white cloth shoes selected; earlier sneaker retained as an alternative.
   Three .png files contain JPEG data. Most source sheets have fully opaque backgrounds.
-  Image fitting, canonical mapping and P3a acceptance are not yet complete.
-- Pending: controller to align PROJECT.md ITEM CATALOG with the existing color-free
-  decision during P3a. P3a includes color scanning; proposed legacy
-  filename migration is documented in P1-verification.md, not implemented.
+  Originals preserved; P3a acceptance is not yet complete.
+- P3a self-execution: T1 afec6e0 migrates legacy IDs/filenames and updates PROJECT.md
+  color-free catalog; T2 7b48847 extracts transparent layers; T3 ea6ec3c parses kinds
+  and scans colors; T4 9e4860f produces measured draft fits and separate shoe placement.
+  Verified 2026-10-06: build + 103 app tests and 20 pipeline tests pass.
+  Overall PARTIAL: 18 draft layers, numerical 16 WARN / 2 FAIL, no approved fit.
+  Visual review also finds exposed shoulders/arms and hidden hands. Female bottom
+  proportions fail; anchors remain heuristic (navel not detected). See docs/reports/P3a.md
+  and reports/p3a/outfits-draft.jpg. Runtime still uses placeholders. No p3a-ok tag.
+  Resolve source/fit issues and review candidates before promotion or P3b handoff.
 - Cultural review: all 20 items and 10 rules remain needs_review=true; no human approval
   recorded. docs/RULES.md messages are drafts, not verified cultural facts.
 
