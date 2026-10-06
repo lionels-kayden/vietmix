@@ -107,3 +107,8 @@
   folded trouser hems and revised shoe artwork. Preserve original base/collar/hands;
   record shoe-specific reversible foot mask and limited reuse under other tops in
   reports/P3a-single-A.md. Save AI prompt/source and test recovery. No DECIDED change.
+
+- 2026-10-06: User says "được chấp nhận" for male A revision 2 (f3c6a06).
+  Record single-outfit visual acceptance in CURRENT STATE, P3a-single-A report and
+  v2/ACCEPTANCE.md. It becomes the visual reference for subsequent fits. Other outfits
+  and P3a remain incomplete; no phase tag or cultural approval. DECIDED unchanged.

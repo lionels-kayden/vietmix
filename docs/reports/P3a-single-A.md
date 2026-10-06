@@ -1,6 +1,6 @@
 # P3a — single male A fitting checkpoint
 
-Status: CHANGES REQUESTED (2026-10-06), not phase acceptance. The previous 36-combination pack was
+Status: REVISION 2 VISUALLY ACCEPTED by user (2026-10-06), not phase acceptance. The previous 36-combination pack was
 rejected by the user for poor fitting and is retained only as an experiment.
 
 ## Delivered
@@ -46,5 +46,13 @@ not convincing fit. Follow docs/image/FIT_VISUAL_RULES.md before further asset c
   base remains intact. Removing shoes must restore it. This is a body-specific trial,
   not a validated general shoe-fitting solution.
 - Upper pants reuse prior artwork; the join is hidden by this tunic and is not yet
-  approved for other tops. Runtime unchanged. Visual approval pending.
+  approved for other tops. Runtime unchanged. Revision 2 visual approval recorded below.
 - 29 pipeline tests pass, including unchanged collar/body, exact composition and masks.
+
+## User acceptance — 2026-10-06
+User: "được chấp nhận" after viewing revision 2. Accepted scope: the male A outfit
+at reports/p3a-single-A/v2/, implementation commit f3c6a06. Use this as the visual
+quality reference for subsequent individual outfits. Earlier rejection applies to v1.
+Other combinations, cultural validation, runtime integration and P3a as a whole remain
+unaccepted. No p3a-ok tag. Rebuild report.json describes generation-time status;
+the persistent acceptance record is v2/ACCEPTANCE.md and this report.

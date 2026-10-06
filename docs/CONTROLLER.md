@@ -228,7 +228,8 @@ P9 Polish and deploy prep: responsive layout, empty states, accessibility, READM
   color-free catalog; T2 7b48847 extracts transparent layers; T3 ea6ec3c parses kinds
   and scans colors; T4 9e4860f produces measured draft fits and separate shoe placement.
   Verified 2026-10-06: build + 103 app tests and 20 pipeline tests pass.
-  Overall PARTIAL: 18 draft layers, numerical 16 WARN / 2 FAIL, no approved fit.
+  Initial T4 result PARTIAL: 18 draft layers, numerical 16 WARN / 2 FAIL; see newer
+  single-A acceptance below. Overall P3a remains PARTIAL.
   Visual review also finds exposed shoulders/arms and hidden hands. Female bottom
   proportions fail; anchors remain heuristic (navel not detected). See docs/reports/P3a.md
   and reports/p3a/outfits-draft.jpg. Runtime still uses placeholders. No p3a-ok tag.
@@ -236,10 +237,10 @@ P9 Polish and deploy prep: responsive layout, empty states, accessibility, READM
 - P3a visual correction 2026-10-06: user rejected the 36-combination overlay study.
   Work sequentially. Male A now has a separate-layer fitting candidate preserving the
   exact original base; 27 pipeline tests and build + 103 app tests pass.
-  See docs/reports/P3a-single-A.md. Candidate still requires visual review;
-  other outfits are not corrected yet. No phase acceptance implied.
-  Latest user review: collar satisfactory; hands/cuffs and pants/shoes need correction.
-  Single-A revision 2 now awaits review at reports/p3a-single-A/v2/.
+  See docs/reports/P3a-single-A.md. Other outfits are not corrected yet.
+  User accepted single-A revision 2 on 2026-10-06: "được chấp nhận".
+  Accepted artwork: reports/p3a-single-A/v2/, implementation f3c6a06.
+  This is single-outfit visual acceptance, not whole-phase or cultural approval.
   Cuffs and lower outfit revised; 29 pipeline tests pass. Shoe foot-mask and trouser
   reuse limitations are recorded in the report. Apply FIT_VISUAL_RULES.md sequentially.
 - Cultural review: all 20 items and 10 rules remain needs_review=true; no human approval
