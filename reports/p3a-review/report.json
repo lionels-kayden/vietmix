@@ -1,0 +1,1057 @@
+{
+  "status": "REJECTED_FIT",
+  "method": "Versioned original and AI-assisted candidates; provenance per item",
+  "base_hashes": {
+    "M": "e4cb391c54df0bbc6d3ce089afd0064752b47bab899a59abd4f25d1ac5c3aa13",
+    "F": "3d86cd5a8c113b8a2ae3a0ae44e11ca260fbe2eb54c55343f5791c00df2d339c"
+  },
+  "items": [
+    {
+      "id": "M_COMMON_HEAD_non_la",
+      "gender": "M",
+      "slot": "head",
+      "label": "Nón lá",
+      "source_sha256": "c48eeb633bdae4c07c76ed55a27cc7bb377302e36e0867f6139b7d9667f1fea9",
+      "provenance": "original",
+      "source": "reports/p3a/extracted/M_COMMON_HEAD_non_la.png",
+      "transform": {
+        "x": 310.0,
+        "y": 70,
+        "scale": 0.782312925170068
+      },
+      "part_transforms": null,
+      "shoulder_lift_px": 0,
+      "sleeve_width_adjustment_limit": 0,
+      "occlusion_mask": null,
+      "foreground": null,
+      "bbox": [
+        310,
+        70,
+        770,
+        366
+      ],
+      "review_note": "Phụ kiện: vị trí nháp; cần kiểm độ sâu và tóc.",
+      "status": "REVIEW_REQUIRED"
+    },
+    {
+      "id": "M_COMMON_BOTTOM_quan_lua_trang",
+      "gender": "M",
+      "slot": "bottom",
+      "label": "Quần trắng",
+      "source_sha256": "c1fbafe17c26ea103e114a55ace996709f97b28ff3210f015f1e9b51c1fb7ec5",
+      "provenance": "original",
+      "source": "reports/p3a/extracted/M_COMMON_BOTTOM_quan_lua_trang.png",
+      "transform": {
+        "x": 316.9117647058824,
+        "y": 750,
+        "scale": 0.6699346405228758
+      },
+      "part_transforms": null,
+      "shoulder_lift_px": 0,
+      "sleeve_width_adjustment_limit": 0,
+      "occlusion_mask": null,
+      "foreground": null,
+      "bbox": [
+        317,
+        750,
+        763,
+        1775
+      ],
+      "review_note": "Quần: căn dài tới giày, kiểm độ rộng gấu và độ phủ chân.",
+      "status": "REVIEW_REQUIRED"
+    },
+    {
+      "id": "M_COMMON_BOTTOM_quan_lua_trang_v02",
+      "gender": "M",
+      "slot": "bottom",
+      "label": "Quần đen",
+      "source_sha256": "726be051ec6a7809465bad61b574bbf47e220f9eba2d34fef5ab1c785a8c1838",
+      "provenance": "original",
+      "source": "reports/p3a/extracted/M_COMMON_BOTTOM_quan_lua_trang_v02.png",
+      "transform": {
+        "x": 316.53394255874673,
+        "y": 750,
+        "scale": 0.6690600522193212
+      },
+      "part_transforms": null,
+      "shoulder_lift_px": 0,
+      "sleeve_width_adjustment_limit": 0,
+      "occlusion_mask": null,
+      "foreground": null,
+      "bbox": [
+        317,
+        750,
+        764,
+        1775
+      ],
+      "review_note": "Quần: căn dài tới giày, kiểm độ rộng gấu và độ phủ chân.",
+      "status": "REVIEW_REQUIRED"
+    },
+    {
+      "id": "M_B_TOP_ao_giao_linh",
+      "gender": "M",
+      "slot": "top",
+      "label": "Áo xanh viền đỏ · B",
+      "source_sha256": "211ad0759d2ce75a89b3a41e76ed438e84d80ebe4b84fd8ab31486fa9bd6a4f4",
+      "provenance": "original",
+      "source": "reports/p3a/extracted/M_B_TOP_ao_giao_linh.png",
+      "transform": {
+        "x": 255.0,
+        "y": 330,
+        "scale": 0.7011070110701108
+      },
+      "part_transforms": null,
+      "shoulder_lift_px": 40,
+      "sleeve_width_adjustment_limit": 0.15,
+      "occlusion_mask": "masks/M_B_TOP_ao_giao_linh-rear-collar.png",
+      "foreground": null,
+      "bbox": [
+        255,
+        331,
+        825,
+        1510
+      ],
+      "review_note": "Áo: kiểm vai, cổ và cửa tay; chưa duyệt phom.",
+      "status": "REVIEW_REQUIRED"
+    },
+    {
+      "id": "M_A_TOP_ao_ngu_than",
+      "gender": "M",
+      "slot": "top",
+      "label": "Áo xanh chàm · A",
+      "source_sha256": "ef9513d860103cd89e4fb03b0bbdaad73d91644badba21b252635672d401b02d",
+      "provenance": "original",
+      "source": "reports/p3a/extracted/M_A_TOP_ao_ngu_than.png",
+      "transform": {
+        "x": 260.0,
+        "y": 330,
+        "scale": 0.9739130434782609
+      },
+      "part_transforms": null,
+      "shoulder_lift_px": 40,
+      "sleeve_width_adjustment_limit": 0.15,
+      "occlusion_mask": "masks/M_A_TOP_ao_ngu_than-rear-collar.png",
+      "foreground": null,
+      "bbox": [
+        260,
+        331,
+        820,
+        1541
+      ],
+      "review_note": "Áo: kiểm vai, cổ và cửa tay; chưa duyệt phom.",
+      "status": "REVIEW_REQUIRED"
+    },
+    {
+      "id": "M_C_TOP_ao_tac",
+      "gender": "M",
+      "slot": "top",
+      "label": "Áo đen tay rộng · C",
+      "source_sha256": "825d92d47bba93335e5dd4d6a980b409fcafd89c6268a6264dafd689c40a131d",
+      "provenance": "AI-assisted redraw",
+      "source": "reports/p3a-review/generated/M_C_TOP_ao_tac.png",
+      "transform": {
+        "x": 220.0,
+        "y": 330,
+        "scale": 0.7738814993954051
+      },
+      "part_transforms": null,
+      "shoulder_lift_px": 40,
+      "sleeve_width_adjustment_limit": 0,
+      "occlusion_mask": "masks/M_C_TOP_ao_tac-rear-collar.png",
+      "foreground": "foreground/M_C_TOP_ao_tac.png",
+      "bbox": [
+        220,
+        332,
+        860,
+        1519
+      ],
+      "review_note": "Áo: kiểm vai, cổ và cửa tay; chưa duyệt phom.",
+      "status": "REVIEW_REQUIRED"
+    },
+    {
+      "id": "M_COMMON_SHOES_giay_vai_den",
+      "gender": "M",
+      "slot": "shoes",
+      "label": "Giày vải đen",
+      "source_sha256": "b21b9f3efbe1018f5d4f58d819b0950b4d4f742d1079473570aabf615c326f5f",
+      "provenance": "original",
+      "source": "reports/p3a/extracted/M_COMMON_SHOES_giay_vai_den.png",
+      "transform": null,
+      "part_transforms": [
+        {
+          "x": 357.0,
+          "y": 1617.9906323185012,
+          "scale": 0.3255269320843091,
+          "source_box": [
+            0,
+            0,
+            427,
+            682
+          ],
+          "foot_box": [
+            357,
+            1672,
+            496,
+            1840
+          ]
+        },
+        {
+          "x": 590.0,
+          "y": 1621.185011709602,
+          "scale": 0.32084309133489464,
+          "source_box": [
+            452,
+            0,
+            879,
+            682
+          ],
+          "foot_box": [
+            590,
+            1672,
+            727,
+            1840
+          ]
+        }
+      ],
+      "shoulder_lift_px": 0,
+      "sleeve_width_adjustment_limit": 0,
+      "occlusion_mask": null,
+      "foreground": null,
+      "bbox": [
+        357,
+        1618,
+        727,
+        1840
+      ],
+      "review_note": "Giày: kiểm mép chân và cổ giày.",
+      "status": "REVIEW_REQUIRED"
+    },
+    {
+      "id": "M_COMMON_SHOES_giay_vai_den_v02",
+      "gender": "M",
+      "slot": "shoes",
+      "label": "Giày vải trắng",
+      "source_sha256": "eb4ccb38284e19cbfea2b38f35d34c8f22cd243fbe0f82ba171af4ba5bc6a25a",
+      "provenance": "original",
+      "source": "reports/p3a/extracted/M_COMMON_SHOES_giay_vai_den_v02.png",
+      "transform": null,
+      "part_transforms": [
+        {
+          "x": 357.0,
+          "y": 1615.9362934362935,
+          "scale": 0.26833976833976836,
+          "source_box": [
+            0,
+            0,
+            518,
+            835
+          ],
+          "foot_box": [
+            357,
+            1672,
+            496,
+            1840
+          ]
+        },
+        {
+          "x": 590.0,
+          "y": 1618.733075435203,
+          "scale": 0.26499032882011603,
+          "source_box": [
+            537,
+            0,
+            1054,
+            835
+          ],
+          "foot_box": [
+            590,
+            1672,
+            727,
+            1840
+          ]
+        }
+      ],
+      "shoulder_lift_px": 0,
+      "sleeve_width_adjustment_limit": 0,
+      "occlusion_mask": null,
+      "foreground": null,
+      "bbox": [
+        357,
+        1616,
+        727,
+        1840
+      ],
+      "review_note": "Giày: kiểm mép chân và cổ giày.",
+      "status": "REVIEW_REQUIRED"
+    },
+    {
+      "id": "M_MIX_SHOES_giay_sneaker",
+      "gender": "M",
+      "slot": "shoes",
+      "label": "Giày sneaker trắng",
+      "source_sha256": "fc6fea210f310e380ffd12529c29fe63a95309fbaf54f7587679eec4b3ac21cf",
+      "provenance": "original",
+      "source": "reports/p3a/extracted/M_MIX_SHOES_giay_sneaker.png",
+      "transform": null,
+      "part_transforms": [
+        {
+          "x": 357.0,
+          "y": 1602.4262948207172,
+          "scale": 0.27689243027888444,
+          "source_box": [
+            0,
+            1,
+            502,
+            859
+          ],
+          "foot_box": [
+            357,
+            1672,
+            496,
+            1840
+          ]
+        },
+        {
+          "x": 590.0,
+          "y": 1605.8446215139443,
+          "scale": 0.2729083665338645,
+          "source_box": [
+            552,
+            0,
+            1054,
+            858
+          ],
+          "foot_box": [
+            590,
+            1672,
+            727,
+            1840
+          ]
+        }
+      ],
+      "shoulder_lift_px": 0,
+      "sleeve_width_adjustment_limit": 0,
+      "occlusion_mask": null,
+      "foreground": null,
+      "bbox": [
+        357,
+        1602,
+        727,
+        1840
+      ],
+      "review_note": "Giày: kiểm mép chân và cổ giày.",
+      "status": "REVIEW_REQUIRED"
+    },
+    {
+      "id": "F_COMMON_BOTTOM_quan_lua_trang",
+      "gender": "F",
+      "slot": "bottom",
+      "label": "Quần trắng",
+      "source_sha256": "d1a3fbd56b545888eecaf54d2d61f00c321b98c9cc2c4ecdde29035cb6df2438",
+      "provenance": "AI-assisted redraw",
+      "source": "reports/p3a-review/generated/F_COMMON_BOTTOM_quan_lua_trang.png",
+      "transform": {
+        "x": 367.47179827471797,
+        "y": 735,
+        "scale": 0.6901128069011281
+      },
+      "part_transforms": null,
+      "shoulder_lift_px": 0,
+      "sleeve_width_adjustment_limit": 0,
+      "occlusion_mask": null,
+      "foreground": null,
+      "bbox": [
+        367,
+        735,
+        712,
+        1775
+      ],
+      "review_note": "Quần nữ: ứng viên AI sửa phom; cần duyệt chất vải và độ rộng.",
+      "status": "REVIEW_REQUIRED"
+    },
+    {
+      "id": "F_COMMON_HEAD_tram_cai",
+      "gender": "F",
+      "slot": "head",
+      "label": "Trâm cài",
+      "source_sha256": "a4a83db5d63e1f60a74b1c9d6604b955114d9f55909c298f600c8d88778fa46e",
+      "provenance": "original",
+      "source": "reports/p3a/extracted/F_COMMON_HEAD_tram_cai.png",
+      "transform": {
+        "x": 448,
+        "y": 190,
+        "scale": 0.11267605633802817
+      },
+      "part_transforms": null,
+      "shoulder_lift_px": 0,
+      "sleeve_width_adjustment_limit": 0,
+      "occlusion_mask": null,
+      "foreground": null,
+      "bbox": [
+        448,
+        190,
+        464,
+        289
+      ],
+      "review_note": "Phụ kiện: vị trí nháp; cần kiểm độ sâu và tóc.",
+      "status": "REVIEW_REQUIRED"
+    },
+    {
+      "id": "F_B_BOTTOM_vay_dai",
+      "gender": "F",
+      "slot": "bottom",
+      "label": "Váy đen",
+      "source_sha256": "65c51ba45edfe8c1bcbe1ee51f2e2ae733331cbbb6d2d3cd8d09a152ab83c07b",
+      "provenance": "original",
+      "source": "reports/p3a/extracted/F_B_BOTTOM_vay_dai.png",
+      "transform": {
+        "x": 231.38810198300285,
+        "y": 735,
+        "scale": 1.4730878186968839
+      },
+      "part_transforms": null,
+      "shoulder_lift_px": 0,
+      "sleeve_width_adjustment_limit": 0,
+      "occlusion_mask": null,
+      "foreground": null,
+      "bbox": [
+        237,
+        735,
+        842,
+        1775
+      ],
+      "review_note": "Váy: giữ phom xòe gốc, kiểm bề ngang eo khi tháo áo.",
+      "status": "REVIEW_REQUIRED"
+    },
+    {
+      "id": "F_B_TOP_ao_giao_linh",
+      "gender": "F",
+      "slot": "top",
+      "label": "Áo hồng · B",
+      "source_sha256": "2ec2d32156ed80e73ef41f3cdf15f724935f77e02b17cd0407ff141914c7c0c9",
+      "provenance": "original",
+      "source": "reports/p3a/extracted/F_B_TOP_ao_giao_linh.png",
+      "transform": {
+        "x": 255.0,
+        "y": 305,
+        "scale": 1.3411764705882352
+      },
+      "part_transforms": null,
+      "shoulder_lift_px": 12,
+      "sleeve_width_adjustment_limit": 0,
+      "occlusion_mask": "masks/F_B_TOP_ao_giao_linh-rear-collar.png",
+      "foreground": null,
+      "bbox": [
+        255,
+        327,
+        825,
+        1440
+      ],
+      "review_note": "Áo: kiểm vai, cổ và cửa tay; chưa duyệt phom.",
+      "status": "REVIEW_REQUIRED"
+    },
+    {
+      "id": "F_A_TOP_ao_ngu_than",
+      "gender": "F",
+      "slot": "top",
+      "label": "Áo xanh lá · A",
+      "source_sha256": "4bb7213529dfac8089375dd163f3a618565a84517daeee171d1ba5542ecd4c43",
+      "provenance": "original",
+      "source": "reports/p3a/extracted/F_A_TOP_ao_ngu_than.png",
+      "transform": {
+        "x": 315.0,
+        "y": 300,
+        "scale": 1.2228260869565217
+      },
+      "part_transforms": null,
+      "shoulder_lift_px": 12,
+      "sleeve_width_adjustment_limit": 0,
+      "occlusion_mask": "masks/F_A_TOP_ao_ngu_than-rear-collar.png",
+      "foreground": null,
+      "bbox": [
+        315,
+        323,
+        765,
+        1441
+      ],
+      "review_note": "Áo: kiểm vai, cổ và cửa tay; chưa duyệt phom.",
+      "status": "REVIEW_REQUIRED"
+    },
+    {
+      "id": "F_C_TOP_ao_nhat_binh",
+      "gender": "F",
+      "slot": "top",
+      "label": "Áo Nhật Bình đỏ · C",
+      "source_sha256": "7c2fc481afff10ab04ca767685ff98dc22b50f23c95b81e40db1468e6c2fae64",
+      "provenance": "original",
+      "source": "reports/p3a/extracted/F_C_TOP_ao_nhat_binh.png",
+      "transform": {
+        "x": 275.0,
+        "y": 305,
+        "scale": 1.5497076023391814
+      },
+      "part_transforms": null,
+      "shoulder_lift_px": 12,
+      "sleeve_width_adjustment_limit": 0,
+      "occlusion_mask": "masks/F_C_TOP_ao_nhat_binh-rear-collar.png",
+      "foreground": "foreground/F_C_TOP_ao_nhat_binh.png",
+      "bbox": [
+        275,
+        330,
+        805,
+        1498
+      ],
+      "review_note": "Áo: kiểm vai, cổ và cửa tay; chưa duyệt phom.",
+      "status": "REVIEW_REQUIRED"
+    },
+    {
+      "id": "F_COMMON_SHOES_giay_vai_den",
+      "gender": "F",
+      "slot": "shoes",
+      "label": "Giày vải đen",
+      "source_sha256": "b21b9f3efbe1018f5d4f58d819b0950b4d4f742d1079473570aabf615c326f5f",
+      "provenance": "original",
+      "source": "reports/p3a/extracted/F_COMMON_SHOES_giay_vai_den.png",
+      "transform": null,
+      "part_transforms": [
+        {
+          "x": 451.0,
+          "y": 1699.4473067915692,
+          "scale": 0.20608899297423888,
+          "source_box": [
+            0,
+            0,
+            427,
+            682
+          ],
+          "foot_box": [
+            451,
+            1721,
+            539,
+            1840
+          ]
+        },
+        {
+          "x": 544.0,
+          "y": 1701.0444964871194,
+          "scale": 0.20374707259953162,
+          "source_box": [
+            452,
+            0,
+            879,
+            682
+          ],
+          "foot_box": [
+            544,
+            1721,
+            631,
+            1840
+          ]
+        }
+      ],
+      "shoulder_lift_px": 0,
+      "sleeve_width_adjustment_limit": 0,
+      "occlusion_mask": null,
+      "foreground": null,
+      "bbox": [
+        451,
+        1699,
+        631,
+        1840
+      ],
+      "review_note": "Giày: kiểm mép chân và cổ giày.",
+      "status": "REVIEW_REQUIRED"
+    },
+    {
+      "id": "F_COMMON_SHOES_giay_vai_den_v02",
+      "gender": "F",
+      "slot": "shoes",
+      "label": "Giày vải trắng",
+      "source_sha256": "eb4ccb38284e19cbfea2b38f35d34c8f22cd243fbe0f82ba171af4ba5bc6a25a",
+      "provenance": "original",
+      "source": "reports/p3a/extracted/F_COMMON_SHOES_giay_vai_den_v02.png",
+      "transform": null,
+      "part_transforms": [
+        {
+          "x": 451.0,
+          "y": 1698.146718146718,
+          "scale": 0.16988416988416988,
+          "source_box": [
+            0,
+            0,
+            518,
+            835
+          ],
+          "foot_box": [
+            451,
+            1721,
+            539,
+            1840
+          ]
+        },
+        {
+          "x": 544.0,
+          "y": 1699.4874274661508,
+          "scale": 0.16827852998065765,
+          "source_box": [
+            537,
+            0,
+            1054,
+            835
+          ],
+          "foot_box": [
+            544,
+            1721,
+            631,
+            1840
+          ]
+        }
+      ],
+      "shoulder_lift_px": 0,
+      "sleeve_width_adjustment_limit": 0,
+      "occlusion_mask": null,
+      "foreground": null,
+      "bbox": [
+        451,
+        1698,
+        631,
+        1840
+      ],
+      "review_note": "Giày: kiểm mép chân và cổ giày.",
+      "status": "REVIEW_REQUIRED"
+    },
+    {
+      "id": "F_MIX_SHOES_giay_sneaker",
+      "gender": "F",
+      "slot": "shoes",
+      "label": "Giày sneaker trắng",
+      "source_sha256": "fc6fea210f310e380ffd12529c29fe63a95309fbaf54f7587679eec4b3ac21cf",
+      "provenance": "original",
+      "source": "reports/p3a/extracted/F_MIX_SHOES_giay_sneaker.png",
+      "transform": null,
+      "part_transforms": [
+        {
+          "x": 451.0,
+          "y": 1689.593625498008,
+          "scale": 0.1752988047808765,
+          "source_box": [
+            0,
+            1,
+            502,
+            859
+          ],
+          "foot_box": [
+            451,
+            1721,
+            539,
+            1840
+          ]
+        },
+        {
+          "x": 544.0,
+          "y": 1691.3027888446215,
+          "scale": 0.17330677290836655,
+          "source_box": [
+            552,
+            0,
+            1054,
+            858
+          ],
+          "foot_box": [
+            544,
+            1721,
+            631,
+            1840
+          ]
+        }
+      ],
+      "shoulder_lift_px": 0,
+      "sleeve_width_adjustment_limit": 0,
+      "occlusion_mask": null,
+      "foreground": null,
+      "bbox": [
+        451,
+        1690,
+        631,
+        1840
+      ],
+      "review_note": "Giày: kiểm mép chân và cổ giày.",
+      "status": "REVIEW_REQUIRED"
+    }
+  ],
+  "combinations": [
+    {
+      "id": "M-01",
+      "gender": "M",
+      "top": "M_B_TOP_ao_giao_linh",
+      "bottom": "M_COMMON_BOTTOM_quan_lua_trang",
+      "shoes": "M_COMMON_SHOES_giay_vai_den",
+      "preview": "combinations/M-01.jpg",
+      "visual_status": "UNREVIEWED",
+      "cultural_status": "UNVERIFIED"
+    },
+    {
+      "id": "M-02",
+      "gender": "M",
+      "top": "M_B_TOP_ao_giao_linh",
+      "bottom": "M_COMMON_BOTTOM_quan_lua_trang",
+      "shoes": "M_COMMON_SHOES_giay_vai_den_v02",
+      "preview": "combinations/M-02.jpg",
+      "visual_status": "UNREVIEWED",
+      "cultural_status": "UNVERIFIED"
+    },
+    {
+      "id": "M-03",
+      "gender": "M",
+      "top": "M_B_TOP_ao_giao_linh",
+      "bottom": "M_COMMON_BOTTOM_quan_lua_trang",
+      "shoes": "M_MIX_SHOES_giay_sneaker",
+      "preview": "combinations/M-03.jpg",
+      "visual_status": "UNREVIEWED",
+      "cultural_status": "UNVERIFIED"
+    },
+    {
+      "id": "M-04",
+      "gender": "M",
+      "top": "M_B_TOP_ao_giao_linh",
+      "bottom": "M_COMMON_BOTTOM_quan_lua_trang_v02",
+      "shoes": "M_COMMON_SHOES_giay_vai_den",
+      "preview": "combinations/M-04.jpg",
+      "visual_status": "UNREVIEWED",
+      "cultural_status": "UNVERIFIED"
+    },
+    {
+      "id": "M-05",
+      "gender": "M",
+      "top": "M_B_TOP_ao_giao_linh",
+      "bottom": "M_COMMON_BOTTOM_quan_lua_trang_v02",
+      "shoes": "M_COMMON_SHOES_giay_vai_den_v02",
+      "preview": "combinations/M-05.jpg",
+      "visual_status": "UNREVIEWED",
+      "cultural_status": "UNVERIFIED"
+    },
+    {
+      "id": "M-06",
+      "gender": "M",
+      "top": "M_B_TOP_ao_giao_linh",
+      "bottom": "M_COMMON_BOTTOM_quan_lua_trang_v02",
+      "shoes": "M_MIX_SHOES_giay_sneaker",
+      "preview": "combinations/M-06.jpg",
+      "visual_status": "UNREVIEWED",
+      "cultural_status": "UNVERIFIED"
+    },
+    {
+      "id": "M-07",
+      "gender": "M",
+      "top": "M_A_TOP_ao_ngu_than",
+      "bottom": "M_COMMON_BOTTOM_quan_lua_trang",
+      "shoes": "M_COMMON_SHOES_giay_vai_den",
+      "preview": "combinations/M-07.jpg",
+      "visual_status": "UNREVIEWED",
+      "cultural_status": "UNVERIFIED"
+    },
+    {
+      "id": "M-08",
+      "gender": "M",
+      "top": "M_A_TOP_ao_ngu_than",
+      "bottom": "M_COMMON_BOTTOM_quan_lua_trang",
+      "shoes": "M_COMMON_SHOES_giay_vai_den_v02",
+      "preview": "combinations/M-08.jpg",
+      "visual_status": "UNREVIEWED",
+      "cultural_status": "UNVERIFIED"
+    },
+    {
+      "id": "M-09",
+      "gender": "M",
+      "top": "M_A_TOP_ao_ngu_than",
+      "bottom": "M_COMMON_BOTTOM_quan_lua_trang",
+      "shoes": "M_MIX_SHOES_giay_sneaker",
+      "preview": "combinations/M-09.jpg",
+      "visual_status": "UNREVIEWED",
+      "cultural_status": "UNVERIFIED"
+    },
+    {
+      "id": "M-10",
+      "gender": "M",
+      "top": "M_A_TOP_ao_ngu_than",
+      "bottom": "M_COMMON_BOTTOM_quan_lua_trang_v02",
+      "shoes": "M_COMMON_SHOES_giay_vai_den",
+      "preview": "combinations/M-10.jpg",
+      "visual_status": "UNREVIEWED",
+      "cultural_status": "UNVERIFIED"
+    },
+    {
+      "id": "M-11",
+      "gender": "M",
+      "top": "M_A_TOP_ao_ngu_than",
+      "bottom": "M_COMMON_BOTTOM_quan_lua_trang_v02",
+      "shoes": "M_COMMON_SHOES_giay_vai_den_v02",
+      "preview": "combinations/M-11.jpg",
+      "visual_status": "UNREVIEWED",
+      "cultural_status": "UNVERIFIED"
+    },
+    {
+      "id": "M-12",
+      "gender": "M",
+      "top": "M_A_TOP_ao_ngu_than",
+      "bottom": "M_COMMON_BOTTOM_quan_lua_trang_v02",
+      "shoes": "M_MIX_SHOES_giay_sneaker",
+      "preview": "combinations/M-12.jpg",
+      "visual_status": "UNREVIEWED",
+      "cultural_status": "UNVERIFIED"
+    },
+    {
+      "id": "M-13",
+      "gender": "M",
+      "top": "M_C_TOP_ao_tac",
+      "bottom": "M_COMMON_BOTTOM_quan_lua_trang",
+      "shoes": "M_COMMON_SHOES_giay_vai_den",
+      "preview": "combinations/M-13.jpg",
+      "visual_status": "UNREVIEWED",
+      "cultural_status": "UNVERIFIED"
+    },
+    {
+      "id": "M-14",
+      "gender": "M",
+      "top": "M_C_TOP_ao_tac",
+      "bottom": "M_COMMON_BOTTOM_quan_lua_trang",
+      "shoes": "M_COMMON_SHOES_giay_vai_den_v02",
+      "preview": "combinations/M-14.jpg",
+      "visual_status": "UNREVIEWED",
+      "cultural_status": "UNVERIFIED"
+    },
+    {
+      "id": "M-15",
+      "gender": "M",
+      "top": "M_C_TOP_ao_tac",
+      "bottom": "M_COMMON_BOTTOM_quan_lua_trang",
+      "shoes": "M_MIX_SHOES_giay_sneaker",
+      "preview": "combinations/M-15.jpg",
+      "visual_status": "UNREVIEWED",
+      "cultural_status": "UNVERIFIED"
+    },
+    {
+      "id": "M-16",
+      "gender": "M",
+      "top": "M_C_TOP_ao_tac",
+      "bottom": "M_COMMON_BOTTOM_quan_lua_trang_v02",
+      "shoes": "M_COMMON_SHOES_giay_vai_den",
+      "preview": "combinations/M-16.jpg",
+      "visual_status": "UNREVIEWED",
+      "cultural_status": "UNVERIFIED"
+    },
+    {
+      "id": "M-17",
+      "gender": "M",
+      "top": "M_C_TOP_ao_tac",
+      "bottom": "M_COMMON_BOTTOM_quan_lua_trang_v02",
+      "shoes": "M_COMMON_SHOES_giay_vai_den_v02",
+      "preview": "combinations/M-17.jpg",
+      "visual_status": "UNREVIEWED",
+      "cultural_status": "UNVERIFIED"
+    },
+    {
+      "id": "M-18",
+      "gender": "M",
+      "top": "M_C_TOP_ao_tac",
+      "bottom": "M_COMMON_BOTTOM_quan_lua_trang_v02",
+      "shoes": "M_MIX_SHOES_giay_sneaker",
+      "preview": "combinations/M-18.jpg",
+      "visual_status": "UNREVIEWED",
+      "cultural_status": "UNVERIFIED"
+    },
+    {
+      "id": "F-01",
+      "gender": "F",
+      "top": "F_B_TOP_ao_giao_linh",
+      "bottom": "F_COMMON_BOTTOM_quan_lua_trang",
+      "shoes": "F_COMMON_SHOES_giay_vai_den",
+      "preview": "combinations/F-01.jpg",
+      "visual_status": "UNREVIEWED",
+      "cultural_status": "UNVERIFIED"
+    },
+    {
+      "id": "F-02",
+      "gender": "F",
+      "top": "F_B_TOP_ao_giao_linh",
+      "bottom": "F_COMMON_BOTTOM_quan_lua_trang",
+      "shoes": "F_COMMON_SHOES_giay_vai_den_v02",
+      "preview": "combinations/F-02.jpg",
+      "visual_status": "UNREVIEWED",
+      "cultural_status": "UNVERIFIED"
+    },
+    {
+      "id": "F-03",
+      "gender": "F",
+      "top": "F_B_TOP_ao_giao_linh",
+      "bottom": "F_COMMON_BOTTOM_quan_lua_trang",
+      "shoes": "F_MIX_SHOES_giay_sneaker",
+      "preview": "combinations/F-03.jpg",
+      "visual_status": "UNREVIEWED",
+      "cultural_status": "UNVERIFIED"
+    },
+    {
+      "id": "F-04",
+      "gender": "F",
+      "top": "F_B_TOP_ao_giao_linh",
+      "bottom": "F_B_BOTTOM_vay_dai",
+      "shoes": "F_COMMON_SHOES_giay_vai_den",
+      "preview": "combinations/F-04.jpg",
+      "visual_status": "UNREVIEWED",
+      "cultural_status": "UNVERIFIED"
+    },
+    {
+      "id": "F-05",
+      "gender": "F",
+      "top": "F_B_TOP_ao_giao_linh",
+      "bottom": "F_B_BOTTOM_vay_dai",
+      "shoes": "F_COMMON_SHOES_giay_vai_den_v02",
+      "preview": "combinations/F-05.jpg",
+      "visual_status": "UNREVIEWED",
+      "cultural_status": "UNVERIFIED"
+    },
+    {
+      "id": "F-06",
+      "gender": "F",
+      "top": "F_B_TOP_ao_giao_linh",
+      "bottom": "F_B_BOTTOM_vay_dai",
+      "shoes": "F_MIX_SHOES_giay_sneaker",
+      "preview": "combinations/F-06.jpg",
+      "visual_status": "UNREVIEWED",
+      "cultural_status": "UNVERIFIED"
+    },
+    {
+      "id": "F-07",
+      "gender": "F",
+      "top": "F_A_TOP_ao_ngu_than",
+      "bottom": "F_COMMON_BOTTOM_quan_lua_trang",
+      "shoes": "F_COMMON_SHOES_giay_vai_den",
+      "preview": "combinations/F-07.jpg",
+      "visual_status": "UNREVIEWED",
+      "cultural_status": "UNVERIFIED"
+    },
+    {
+      "id": "F-08",
+      "gender": "F",
+      "top": "F_A_TOP_ao_ngu_than",
+      "bottom": "F_COMMON_BOTTOM_quan_lua_trang",
+      "shoes": "F_COMMON_SHOES_giay_vai_den_v02",
+      "preview": "combinations/F-08.jpg",
+      "visual_status": "UNREVIEWED",
+      "cultural_status": "UNVERIFIED"
+    },
+    {
+      "id": "F-09",
+      "gender": "F",
+      "top": "F_A_TOP_ao_ngu_than",
+      "bottom": "F_COMMON_BOTTOM_quan_lua_trang",
+      "shoes": "F_MIX_SHOES_giay_sneaker",
+      "preview": "combinations/F-09.jpg",
+      "visual_status": "UNREVIEWED",
+      "cultural_status": "UNVERIFIED"
+    },
+    {
+      "id": "F-10",
+      "gender": "F",
+      "top": "F_A_TOP_ao_ngu_than",
+      "bottom": "F_B_BOTTOM_vay_dai",
+      "shoes": "F_COMMON_SHOES_giay_vai_den",
+      "preview": "combinations/F-10.jpg",
+      "visual_status": "UNREVIEWED",
+      "cultural_status": "UNVERIFIED"
+    },
+    {
+      "id": "F-11",
+      "gender": "F",
+      "top": "F_A_TOP_ao_ngu_than",
+      "bottom": "F_B_BOTTOM_vay_dai",
+      "shoes": "F_COMMON_SHOES_giay_vai_den_v02",
+      "preview": "combinations/F-11.jpg",
+      "visual_status": "UNREVIEWED",
+      "cultural_status": "UNVERIFIED"
+    },
+    {
+      "id": "F-12",
+      "gender": "F",
+      "top": "F_A_TOP_ao_ngu_than",
+      "bottom": "F_B_BOTTOM_vay_dai",
+      "shoes": "F_MIX_SHOES_giay_sneaker",
+      "preview": "combinations/F-12.jpg",
+      "visual_status": "UNREVIEWED",
+      "cultural_status": "UNVERIFIED"
+    },
+    {
+      "id": "F-13",
+      "gender": "F",
+      "top": "F_C_TOP_ao_nhat_binh",
+      "bottom": "F_COMMON_BOTTOM_quan_lua_trang",
+      "shoes": "F_COMMON_SHOES_giay_vai_den",
+      "preview": "combinations/F-13.jpg",
+      "visual_status": "UNREVIEWED",
+      "cultural_status": "UNVERIFIED"
+    },
+    {
+      "id": "F-14",
+      "gender": "F",
+      "top": "F_C_TOP_ao_nhat_binh",
+      "bottom": "F_COMMON_BOTTOM_quan_lua_trang",
+      "shoes": "F_COMMON_SHOES_giay_vai_den_v02",
+      "preview": "combinations/F-14.jpg",
+      "visual_status": "UNREVIEWED",
+      "cultural_status": "UNVERIFIED"
+    },
+    {
+      "id": "F-15",
+      "gender": "F",
+      "top": "F_C_TOP_ao_nhat_binh",
+      "bottom": "F_COMMON_BOTTOM_quan_lua_trang",
+      "shoes": "F_MIX_SHOES_giay_sneaker",
+      "preview": "combinations/F-15.jpg",
+      "visual_status": "UNREVIEWED",
+      "cultural_status": "UNVERIFIED"
+    },
+    {
+      "id": "F-16",
+      "gender": "F",
+      "top": "F_C_TOP_ao_nhat_binh",
+      "bottom": "F_B_BOTTOM_vay_dai",
+      "shoes": "F_COMMON_SHOES_giay_vai_den",
+      "preview": "combinations/F-16.jpg",
+      "visual_status": "UNREVIEWED",
+      "cultural_status": "UNVERIFIED"
+    },
+    {
+      "id": "F-17",
+      "gender": "F",
+      "top": "F_C_TOP_ao_nhat_binh",
+      "bottom": "F_B_BOTTOM_vay_dai",
+      "shoes": "F_COMMON_SHOES_giay_vai_den_v02",
+      "preview": "combinations/F-17.jpg",
+      "visual_status": "UNREVIEWED",
+      "cultural_status": "UNVERIFIED"
+    },
+    {
+      "id": "F-18",
+      "gender": "F",
+      "top": "F_C_TOP_ao_nhat_binh",
+      "bottom": "F_B_BOTTOM_vay_dai",
+      "shoes": "F_MIX_SHOES_giay_sneaker",
+      "preview": "combinations/F-18.jpg",
+      "visual_status": "UNREVIEWED",
+      "cultural_status": "UNVERIFIED"
+    }
+  ],
+  "missing": [
+    "male modern trousers",
+    "female modern trousers",
+    "male necklace",
+    "female necklace",
+    "female conical hat"
+  ],
+  "approval": {
+    "style_reference": true,
+    "layers": false,
+    "phase": false
+  },
+  "rejection": "User rejected overlay-only appearance; superseded by sequential single-outfit fitting"
+}

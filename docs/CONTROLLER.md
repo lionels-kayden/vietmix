@@ -233,6 +233,11 @@ P9 Polish and deploy prep: responsive layout, empty states, accessibility, READM
   proportions fail; anchors remain heuristic (navel not detected). See docs/reports/P3a.md
   and reports/p3a/outfits-draft.jpg. Runtime still uses placeholders. No p3a-ok tag.
   Resolve source/fit issues and review candidates before promotion or P3b handoff.
+- P3a visual correction 2026-10-06: user rejected the 36-combination overlay study.
+  Work sequentially. Male A now has a separate-layer fitting candidate preserving the
+  exact original base; 27 pipeline tests and build + 103 app tests pass.
+  See docs/reports/P3a-single-A.md. Candidate still requires visual review;
+  other outfits are not corrected yet. No phase acceptance implied.
 - Cultural review: all 20 items and 10 rules remain needs_review=true; no human approval
   recorded. docs/RULES.md messages are drafts, not verified cultural facts.
 

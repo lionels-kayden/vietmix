@@ -91,3 +91,9 @@
   cuff/hand masking analysis in image/OCCLUSION_REVIEW.md and author a local
   garment-2d-fit skill from official layer/mask references. Inspect opening geometry
   before diagnosing excessive sleeve length. No assets, runtime or DECIDED changes.
+
+- 2026-10-06: User rejects batch combination fits and requests sequential fitting to the
+  approved style reference. Archive the batch as REJECTED_FIT; produce male A as separate
+  transparent layers on the exact original base. AI edits supply garment pixels only.
+  Record scoped masks, sources, tests and remaining visual limitations in
+  reports/P3a-single-A.md. CURRENT STATE updated; DECIDED unchanged; no acceptance tag.
