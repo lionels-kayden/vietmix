@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="vi"><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Duyệt hai bộ nam B và C</title>
+<style>
+body{margin:0;background:#eee6da;color:#302b29;font:17px system-ui}main{max-width:1100px;margin:auto;padding:20px}h1{font-size:28px}p{line-height:1.6}label{display:inline-flex;align-items:center;gap:6px;padding:12px 10px}input{width:20px;height:20px}select{padding:10px;font:inherit}.pair{display:grid;grid-template-columns:1fr 1fr;gap:20px}.card{border:1px solid #cbbfaf;border-radius:16px;overflow:hidden}.card h2,.controls{padding:0 16px}.stage{position:relative;aspect-ratio:1080/1920;background:#eee6da}.stage img{position:absolute;width:100%;height:100%}a{color:#174d71}details{margin-top:20px}details img{width:100%}@media(max-width:650px){.pair{grid-template-columns:1fr}}
+</style>
+<main><h1>Hai bộ để bạn duyệt cùng lượt</h1>
+<p><b>B:</b> xanh xám, viền đỏ, tay gọn. <b>C:</b> đen, họa tiết vàng, tay rộng.<br>Giữ nhân vật gốc. Quần và giày đã làm lại nguyên món để mặc riêng cũng đầy đủ; bản cập nhật đang chờ bạn duyệt.</p>
+<p><button data-view="pants">Chỉ quần</button> <button data-view="shoes">Chỉ giày</button> <button data-view="lower">Quần + giày</button> <button data-view="all">Cả bộ</button></p>
+<label>Nền xem <select id="background"><option value="#eee6da">Kem</option><option value="#383a40">Tối</option><option value="#fff">Trắng</option></select></label>
+<div class="pair" id="pair"></div>
+<p>Kiểm cổ áo, hai cửa tay và dáng toàn thân. Nền tối vẫn thấy viền sáng mảnh từ ảnh tách nền, rõ nhất quanh tóc và bàn tay; phần này còn cần làm sạch trước khi đưa vào ứng dụng.</p>
+<p>B mang tên file “giao lĩnh” nhưng ảnh nguồn có cổ dựng: cần đối chiếu loại áo riêng, chưa coi đây là xác nhận văn hóa.</p>
+<details><summary>Xem cận cảnh cửa tay</summary><img src="cuffs-review.jpg" alt="Cận cảnh hai cửa tay của bộ B và C"></details>
+<details open><summary>Kiểm quần và giày độc lập</summary><img src="independent-review.jpg" alt="Chỉ quần, chỉ giày, quần phủ lên giày"></details>
+<p><a href="review-pair.jpg">Ảnh hai bộ cạnh nhau</a> · <a href="REPORT.md">Báo cáo</a></p></main>
+<script>
+for(const code of ['B','C']){
+ const card=document.createElement('section');card.className='card';
+ card.innerHTML=`<h2>Nam ${code}</h2><div class="controls">${[['top','Áo'],['bottom','Quần'],['shoes','Giày']].map(([slot,label])=>`<label><input type="checkbox" checked data-slot="${slot}" aria-label="${label} bộ ${code}">${label}</label>`).join('')}</div><div class="stage">${['base-with-shoes','shoes','bottom','top'].map((name,i)=>`<img data-layer="${i===0?'base':name}" src="${code}/layers/${name}.png" alt="${name} bộ ${code}">`).join('')}</div><p class="controls"><a href="${code}/preview.jpg">Phóng lớn</a> · <a href="${code}/composite.png">PNG trong suốt</a></p>`;
+ card.querySelectorAll('input').forEach(input=>input.addEventListener('change',()=>{
+  card.querySelector(`[data-layer="${input.dataset.slot}"]`).hidden=!input.checked;
+  if(input.dataset.slot==='shoes')card.querySelector('[data-layer="base"]').src=`${code}/layers/${input.checked?'base-with-shoes':'base'}.png`;
+ }));document.getElementById('pair').append(card);
+}
+document.getElementById('background').addEventListener('change',e=>document.querySelectorAll('.stage').forEach(stage=>stage.style.background=e.target.value));
+document.querySelectorAll('[data-view]').forEach(button=>button.addEventListener('click',()=>{
+ const mode=button.dataset.view;
+ document.querySelectorAll('input[data-slot]').forEach(input=>{
+  input.checked=mode==='all'||(input.dataset.slot==='bottom'&&['pants','lower'].includes(mode))||(input.dataset.slot==='shoes'&&['shoes','lower'].includes(mode));
+  input.dispatchEvent(new Event('change'));
+ });
+}));
+</script></html>

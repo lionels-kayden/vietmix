@@ -1,0 +1,42 @@
+{
+  "status": "REVIEW_REQUIRED",
+  "code": "C",
+  "source_hashes": {
+    "source.png": "6adccb3a26528f141de1921aa89dc37b050b19a2ec8074229a2ddca6c4f9e9e6"
+  },
+  "lower_outfit": "Complete standalone pants/shoes from p3a-lower-v3; user review pending",
+  "manual_regions": {
+    "garment": [
+      195,
+      320,
+      885,
+      1540
+    ],
+    "neck": [
+      450,
+      300,
+      630,
+      392
+    ],
+    "hands": [
+      [
+        250,
+        945,
+        370,
+        1130
+      ],
+      [
+        710,
+        945,
+        830,
+        1130
+      ]
+    ]
+  },
+  "kind_source": "User filename; visual/history validity unverified",
+  "limitations": [
+    "Source-specific garment extraction",
+    "AI motifs/folds adapted; originals preserved",
+    "Not approved for arbitrary combinations"
+  ]
+}

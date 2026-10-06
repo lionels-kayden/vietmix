@@ -47,6 +47,12 @@ Người dùng thấy cổ bản single-A ổn, nhưng chưa duyệt bàn tay v�
 
 ## 4. Đo và nghiệm thu
 
+- Mỗi món phải hoàn chỉnh cả vùng bị món khác che: quần liền từ cạp qua đũng đến gấu;
+  giày đủ cổ, mu, gót, mũi và đế. Không lấy phần nhìn thấy trong một bộ làm cả layer.
+  Luôn kiểm: chỉ quần, chỉ giày, quần + giày, rồi cả bộ. Thứ tự body → shoes → bottom
+  → top khiến quần che giày tự nhiên; bỏ quần phải thấy đôi giày đầy đủ, không có mảnh
+  gấu quần dính theo. Bỏ giày phải trả lại bàn chân, không để mask làm cụt chân.
+
 - So sánh mẫu và candidate sau khi chuẩn hóa chiều cao nhân vật, không so số pixel
   giữa hai ảnh khác kích thước. Ghi tỷ lệ cửa tay/cổ tay, gấu/mu giày và phần giày lộ
   ra làm chỉ báo; đo trên nguồn thật, không dùng tỷ lệ ước lượng làm hằng số chung.

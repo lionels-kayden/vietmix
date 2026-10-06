@@ -1,0 +1,22 @@
+{
+  "status": "REVIEW_REQUIRED",
+  "source_hashes": {
+    "pants.png": "35ad5e2d3accb56c61bd7420ba7b662bea4220ecd753f9eaf775dbb15c5034aa",
+    "shoes.png": "ba0b13eed7bef9bb39e51c383ef607dd05cb065634b09f45f1c17d596334808a"
+  },
+  "pants_fit": {
+    "y": 750,
+    "scale": 0.6503807106598984,
+    "hem": 1775
+  },
+  "inner_leg_max_adjustment_px": 12.630362998515219,
+  "shoe_placement": "Per-shoe uniform width 180px; source opening anchors annotated manually",
+  "body_visibility": "Original unchanged; source-specific shoe mask below y=1733; collar openings reveal original ankle",
+  "layer_order": [
+    "body",
+    "shoes",
+    "bottom",
+    "top"
+  ],
+  "independent_layers": true
+}

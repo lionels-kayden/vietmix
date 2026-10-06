@@ -11,6 +11,8 @@ You can read the repo and run commands. Use that: verify reports yourself (git l
 npm run check, open files) instead of trusting them.
 
 ## USER PREFERENCES
+- For P3a visual work, prepare 2-3 outfit images per review batch. Inspect each item
+  worn alone as well as combined: complete trousers and shoes, with natural layer overlap.
 - The user is the relay: they paste controller prompts into Antigravity and paste
   executor reports back here. Default EXECUTOR=antigravity; P3a uses EXECUTOR=self.
 - When a report arrives and the executor is idle, automatically save it verbatim in
@@ -245,6 +247,10 @@ P9 Polish and deploy prep: responsive layout, empty states, accessibility, READM
   reuse limitations are recorded in the report. Apply FIT_VISUAL_RULES.md sequentially.
 - Cultural review: all 20 items and 10 rules remain needs_review=true; no human approval
   recorded. docs/RULES.md messages are drafts, not verified cultural facts.
+- P3a batch 02: male B/C tops prepared; user finds overall appearance okay but requests
+  complete independent lower layers. Full trousers and full shoes rebuilt in
+  reports/p3a-lower-v3/ and applied to reports/p3a-batch-02/. 39 pipeline tests pass.
+  Updated batch needs review; runtime assets and prior accepted A snapshot unchanged.
 
 ## FIRST MESSAGE
 Do step 1 of YOUR PROCEDURE now and ask the user for the P1 report if it is not in the repo.

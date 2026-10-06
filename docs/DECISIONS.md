@@ -112,3 +112,9 @@
   Record single-outfit visual acceptance in CURRENT STATE, P3a-single-A report and
   v2/ACCEPTANCE.md. It becomes the visual reference for subsequent fits. Other outfits
   and P3a remain incomplete; no phase tag or cultural approval. DECIDED unchanged.
+
+- 2026-10-06: User requests 2-3 images per visual report. Prepare male B/C together,
+  then incorporate user's standalone-item correction: rebuild complete trousers and
+  shoes, preserve hidden artwork and verify body/shoes/bottom/top ordering. Record
+  test evidence and outstanding edge/cultural review in reports/P3a-batch-02.md.
+  Update USER PREFERENCES, CURRENT STATE and FIT_VISUAL_RULES; DECIDED unchanged.
