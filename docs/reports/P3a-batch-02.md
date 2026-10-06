@@ -47,3 +47,21 @@ mask plus complete shoes; Chỉ quần restores the unmasked original body; Qu�
 shows correct overlap. Screenshot: reports/p3a-batch-02/browser-check.png.
 Account quota checkpoint: weekly usage 97%, remaining approximately 3%. Stop after this
 commit as requested by user; no additional outfit generation started.
+
+## Lower-layer revision v4
+
+The user requested a narrower trouser leg aligned to the calf, a single clean waistband,
+and low shoe collars without the loop behind each ankle. `pipeline/lower_v4.py` keeps the
+two original source PNGs unchanged and creates `reports/p3a-lower-v4/` beside the v3
+record. It measures each lower-leg contour from the canonical base, tapers only x,
+brightens the duplicate rear-waistband shading while retaining the outer contour, and
+removes only the isolated shoe-collar rows above the continuous vamp.
+
+Batch B/C now copies v4 exactly. The four local controls were checked in a browser:
+**Chỉ quần**, **Chỉ giày**, **Quần + giày**, and **Cả bộ**. The standalone shoe view
+has two complete low shoes; with trousers enabled, the hem is above the shoe layer.
+This is a review candidate, not an acceptance of the batch or the remaining P3a scope.
+
+Verification: `python -m pytest pipeline -q` passes 45 tests; `npm run build` passes;
+`npm test` passes 103 tests. Current rebuild command: `python pipeline/lower_v4.py`
+followed by `python pipeline/batch_02.py`.

@@ -118,3 +118,13 @@
   shoes, preserve hidden artwork and verify body/shoes/bottom/top ordering. Record
   test evidence and outstanding edge/cultural review in reports/P3a-batch-02.md.
   Update USER PREFERENCES, CURRENT STATE and FIT_VISUAL_RULES; DECIDED unchanged.
+
+- 2026-10-06: User requests a lower-layer refinement: taper trousers to the measured
+  calves, remove the duplicate rear waistband rim, and remove shoe loops behind the
+  ankles. Preserve raw sources and v3; create v4 as a reversible source-specific layer
+  set and apply it to B/C only after independent-layer checks. Record the rule and test
+  evidence. DECIDED unchanged; visual acceptance remains with the user.
+
+- 2026-10-06: Antigravity replaces Codex temporarily as coordinator and executor
+  (EXECUTOR=self); Codex may return. Update CONTROLLER.md header and CURRENT STATE.
+  User requests to continue P3a. DECIDED unchanged.

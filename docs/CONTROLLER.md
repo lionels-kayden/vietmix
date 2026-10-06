@@ -1,3 +1,5 @@
+Bên điều phối hiện tại: Antigravity (thay Codex tạm thời, EXECUTOR=self); Codex có thể quay lại
+
 # CONTROLLER.md: project controller for "Viet phuc Remix"
 
 ## ROLE
@@ -251,6 +253,15 @@ P9 Polish and deploy prep: responsive layout, empty states, accessibility, READM
   complete independent lower layers. Full trousers and full shoes rebuilt in
   reports/p3a-lower-v3/ and applied to reports/p3a-batch-02/. 39 pipeline tests pass.
   Updated batch needs review; runtime assets and prior accepted A snapshot unchanged.
+- P3a lower revision v4: user requested narrower calf-aligned trouser legs, removal of
+  the duplicate rear waistband rim, and shoes without rear ankle loops. Source PNGs and
+  the v3 record remain intact; reports/p3a-lower-v4/ is now applied to batch B/C.
+  45 pipeline tests and build + 103 app tests pass. Implementation was left staged in git
+  index by Codex upon quota exhaustion. Visual acceptance is still pending; runtime assets
+  remain unchanged.
+- Handover 2026-10-06: Antigravity takes over as coordinator and executor (EXECUTOR=self);
+  Codex may return. Verified build + 103 app tests and 45 pipeline tests pass. User requested
+  to continue P3a.
 
 ## FIRST MESSAGE
 Do step 1 of YOUR PROCEDURE now and ask the user for the P1 report if it is not in the repo.

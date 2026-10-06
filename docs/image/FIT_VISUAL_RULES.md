@@ -63,3 +63,16 @@ Người dùng thấy cổ bản single-A ổn, nhưng chưa duyệt bàn tay v�
 - Test kỹ thuật kiểm nguồn không đổi, mask đúng phạm vi và thứ tự lớp. Test tay lộ
   ở hai pixel hoặc số pixel da được che không chứng minh fit đẹp. Nghiệm thu mỹ thuật
   của người dùng là bước riêng; bản single-A hiện tại CHƯA ĐẠT theo phản hồi mới.
+
+## 5. Chỉnh quần và giày phải sửa cả trạng thái độc lập
+
+- Khi thu ống quần, đo biên từng cẳng chân từ nhân vật chuẩn rồi chỉ đổi chiều ngang;
+  giữ thân/cạp và chiều cao gấu nếu chúng đã đúng. Cả hai ống phải còn phủ chân gốc,
+  nhưng không được giữ một khoảng dư rộng chỉ vì artwork nguồn là quần ống rộng.
+- Cạp quần chỉ có một mặt nhìn thấy. Một dải viền tối phía sau cạp đọc thành miệng quần
+  hở và phải được làm phẳng cục bộ, vẫn giữ đường viền ngoài của trang phục.
+- Giày ở trạng thái độc lập không có vòng/đai rời phía sau mắt cá. Cắt riêng phần cổ
+  giày thừa trên artwork, rồi kiểm lại cổ chân nối vào mu giày trước khi bật quần.
+- Sau khi sửa, xem cả ba trạng thái: giày riêng phải rõ đủ đôi, quần riêng phải phủ
+  cẳng chân tự nhiên, và quần + giày phải có phần gấu nằm trên giày mà không che mũi/
+  đế quá nhiều.
