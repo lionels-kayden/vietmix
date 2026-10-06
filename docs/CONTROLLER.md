@@ -238,6 +238,8 @@ P9 Polish and deploy prep: responsive layout, empty states, accessibility, READM
   exact original base; 27 pipeline tests and build + 103 app tests pass.
   See docs/reports/P3a-single-A.md. Candidate still requires visual review;
   other outfits are not corrected yet. No phase acceptance implied.
+  Latest user review: collar satisfactory; hands/cuffs and pants/shoes need correction.
+  Single-A status CHANGES REQUESTED. Apply docs/image/FIT_VISUAL_RULES.md sequentially.
 - Cultural review: all 20 items and 10 rules remain needs_review=true; no human approval
   recorded. docs/RULES.md messages are drafts, not verified cultural facts.
 

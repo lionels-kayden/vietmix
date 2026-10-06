@@ -97,3 +97,8 @@
   transparent layers on the exact original base. AI edits supply garment pixels only.
   Record scoped masks, sources, tests and remaining visual limitations in
   reports/P3a-single-A.md. CURRENT STATE updated; DECIDED unchanged; no acceptance tag.
+
+- 2026-10-06: User accepts only the direction of the collar, requests visual rules from
+  the demo for cuffs/hands and pants/shoes. Add image/FIT_VISUAL_RULES.md with observed
+  defects, local correction order and separate visual acceptance. Mark single-A as
+  CHANGES REQUESTED. Preserve verbatim FIT_NOTES, assets and CONTROLLER DECIDED.

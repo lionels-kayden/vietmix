@@ -1,6 +1,6 @@
 # P3a — single male A fitting checkpoint
 
-Status: REVIEW REQUIRED, not phase acceptance. The previous 36-combination pack was
+Status: CHANGES REQUESTED (2026-10-06), not phase acceptance. The previous 36-combination pack was
 rejected by the user for poor fitting and is retained only as an experiment.
 
 ## Delivered
@@ -30,3 +30,7 @@ rejected by the user for poor fitting and is retained only as an experiment.
 - Judge both phone-size and enlarged views. Review before reusing this fitting approach.
 
 Application verification: npm run check passed (production build + 103 tests / 15 files).
+
+User review correction: collar is satisfactory, but hand/cuff connection and pants/shoe
+proportions are not accepted. Earlier visual wording above describes visibility only,
+not convincing fit. Follow docs/image/FIT_VISUAL_RULES.md before further asset changes.
