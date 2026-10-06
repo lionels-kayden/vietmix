@@ -86,3 +86,8 @@
   background seeds remove enclosed female base arm gaps without white-keying garments.
   Fit uniformly to measured bottom length and independently measured feet; report
   incompatible waist proportions and sleeve defects. Preserve originals and DECIDED.
+
+- 2026-10-06: User corrects the blanket sleeve-redraw diagnosis. Record conditional
+  cuff/hand masking analysis in image/OCCLUSION_REVIEW.md and author a local
+  garment-2d-fit skill from official layer/mask references. Inspect opening geometry
+  before diagnosing excessive sleeve length. No assets, runtime or DECIDED changes.
