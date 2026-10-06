@@ -1,0 +1,614 @@
+{
+  "M_COMMON_HEAD_non_la": {
+    "x": 284.25,
+    "y": 6.319642857142853,
+    "scale": 0.8698979591836735,
+    "ruler_scale": 0.7174887892376681,
+    "mismatch": 0.15,
+    "numeric_status": "WARN",
+    "status": "WARN",
+    "approved": false,
+    "needs_review": true,
+    "reasons": [
+      "Accessory placement is a draft composition, not anatomical detection."
+    ],
+    "slot": "head",
+    "gender": "male",
+    "layer_transform": {
+      "x": 0,
+      "y": 0,
+      "scale": 1
+    },
+    "transform_space": "extracted source; layers output is already baked to canvas"
+  },
+  "M_COMMON_BOTTOM_quan_lua_trang": {
+    "x": 332.36470588235295,
+    "y": 718,
+    "scale": 0.6235294117647059,
+    "ruler_scale": 0.7373271889400922,
+    "mismatch": 0.0636,
+    "numeric_status": "PASS",
+    "status": "WARN",
+    "approved": false,
+    "needs_review": true,
+    "reasons": [
+      "Waist-vs-length scales 0.5839/0.6235; uniform length fit used. Navel not detected."
+    ],
+    "slot": "bottom",
+    "gender": "male",
+    "layer_transform": {
+      "x": 0,
+      "y": 0,
+      "scale": 1
+    },
+    "transform_space": "extracted source; layers output is already baked to canvas"
+  },
+  "M_COMMON_BOTTOM_quan_lua_trang_v02": {
+    "x": 332.0130548302872,
+    "y": 718,
+    "scale": 0.6227154046997389,
+    "ruler_scale": 0.7370184254606366,
+    "mismatch": 0.0624,
+    "numeric_status": "PASS",
+    "status": "WARN",
+    "approved": false,
+    "needs_review": true,
+    "reasons": [
+      "Waist-vs-length scales 0.5839/0.6227; uniform length fit used. Navel not detected."
+    ],
+    "slot": "bottom",
+    "gender": "male",
+    "layer_transform": {
+      "x": 0,
+      "y": 0,
+      "scale": 1
+    },
+    "transform_space": "extracted source; layers output is already baked to canvas"
+  },
+  "M_B_TOP_ao_giao_linh": {
+    "x": 253.26483799705449,
+    "y": 294,
+    "scale": 0.7053755522827688,
+    "ruler_scale": 0.7139959432048681,
+    "mismatch": 0.0121,
+    "numeric_status": "PASS",
+    "status": "WARN",
+    "approved": false,
+    "needs_review": true,
+    "reasons": [
+      "Shoulder/neck contour estimates require visual confirmation; cuffs and underwear coverage unverified."
+    ],
+    "slot": "top",
+    "gender": "male",
+    "layer_transform": {
+      "x": 0,
+      "y": 0,
+      "scale": 1
+    },
+    "transform_space": "extracted source; layers output is already baked to canvas"
+  },
+  "M_A_TOP_ao_ngu_than": {
+    "x": 267.3304455445545,
+    "y": 294,
+    "scale": 0.9484158415841583,
+    "ruler_scale": 1.1563731931668857,
+    "mismatch": 0.1798,
+    "numeric_status": "WARN",
+    "status": "WARN",
+    "approved": false,
+    "needs_review": true,
+    "reasons": [
+      "Shoulder/neck contour estimates require visual confirmation; cuffs and underwear coverage unverified."
+    ],
+    "slot": "top",
+    "gender": "male",
+    "layer_transform": {
+      "x": 0,
+      "y": 0,
+      "scale": 1
+    },
+    "transform_space": "extracted source; layers output is already baked to canvas"
+  },
+  "M_C_TOP_ao_tac": {
+    "x": 245.0494964028777,
+    "y": 294,
+    "scale": 0.689136690647482,
+    "ruler_scale": 0.7096774193548387,
+    "mismatch": 0.0289,
+    "numeric_status": "PASS",
+    "status": "WARN",
+    "approved": false,
+    "needs_review": true,
+    "reasons": [
+      "Shoulder/neck contour estimates require visual confirmation; cuffs and underwear coverage unverified."
+    ],
+    "slot": "top",
+    "gender": "male",
+    "layer_transform": {
+      "x": 0,
+      "y": 0,
+      "scale": 1
+    },
+    "transform_space": "extracted source; layers output is already baked to canvas"
+  },
+  "M_COMMON_SHOES_giay_vai_den": {
+    "x": 0,
+    "y": 0,
+    "scale": 1,
+    "ruler_scale": null,
+    "mismatch": 0.15,
+    "numeric_status": "WARN",
+    "status": "WARN",
+    "approved": false,
+    "needs_review": true,
+    "reasons": [
+      "Each shoe uniformly fitted to a measured foot. Perspective and toe coverage need visual review."
+    ],
+    "slot": "shoes",
+    "gender": "male",
+    "part_transforms": [
+      {
+        "x": 357.0,
+        "y": 1617.9906323185012,
+        "scale": 0.3255269320843091,
+        "source_box": [
+          0,
+          0,
+          427,
+          682
+        ],
+        "foot_box": [
+          357,
+          1672,
+          496,
+          1840
+        ]
+      },
+      {
+        "x": 590.0,
+        "y": 1621.185011709602,
+        "scale": 0.32084309133489464,
+        "source_box": [
+          452,
+          0,
+          879,
+          682
+        ],
+        "foot_box": [
+          590,
+          1672,
+          727,
+          1840
+        ]
+      }
+    ],
+    "layer_transform": {
+      "x": 0,
+      "y": 0,
+      "scale": 1
+    },
+    "transform_space": "extracted source; layers output is already baked to canvas"
+  },
+  "M_COMMON_SHOES_giay_vai_den_v02": {
+    "x": 0,
+    "y": 0,
+    "scale": 1,
+    "ruler_scale": null,
+    "mismatch": 0.15,
+    "numeric_status": "WARN",
+    "status": "WARN",
+    "approved": false,
+    "needs_review": true,
+    "reasons": [
+      "Each shoe uniformly fitted to a measured foot. Perspective and toe coverage need visual review."
+    ],
+    "slot": "shoes",
+    "gender": "male",
+    "part_transforms": [
+      {
+        "x": 357.0,
+        "y": 1615.9362934362935,
+        "scale": 0.26833976833976836,
+        "source_box": [
+          0,
+          0,
+          518,
+          835
+        ],
+        "foot_box": [
+          357,
+          1672,
+          496,
+          1840
+        ]
+      },
+      {
+        "x": 590.0,
+        "y": 1618.733075435203,
+        "scale": 0.26499032882011603,
+        "source_box": [
+          537,
+          0,
+          1054,
+          835
+        ],
+        "foot_box": [
+          590,
+          1672,
+          727,
+          1840
+        ]
+      }
+    ],
+    "layer_transform": {
+      "x": 0,
+      "y": 0,
+      "scale": 1
+    },
+    "transform_space": "extracted source; layers output is already baked to canvas"
+  },
+  "M_MIX_SHOES_giay_sneaker": {
+    "x": 0,
+    "y": 0,
+    "scale": 1,
+    "ruler_scale": null,
+    "mismatch": 0.15,
+    "numeric_status": "WARN",
+    "status": "WARN",
+    "approved": false,
+    "needs_review": true,
+    "reasons": [
+      "Each shoe uniformly fitted to a measured foot. Perspective and toe coverage need visual review."
+    ],
+    "slot": "shoes",
+    "gender": "male",
+    "part_transforms": [
+      {
+        "x": 357.0,
+        "y": 1602.4262948207172,
+        "scale": 0.27689243027888444,
+        "source_box": [
+          0,
+          1,
+          502,
+          859
+        ],
+        "foot_box": [
+          357,
+          1672,
+          496,
+          1840
+        ]
+      },
+      {
+        "x": 590.0,
+        "y": 1605.8446215139443,
+        "scale": 0.2729083665338645,
+        "source_box": [
+          552,
+          0,
+          1054,
+          858
+        ],
+        "foot_box": [
+          590,
+          1672,
+          727,
+          1840
+        ]
+      }
+    ],
+    "layer_transform": {
+      "x": 0,
+      "y": 0,
+      "scale": 1
+    },
+    "transform_space": "extracted source; layers output is already baked to canvas"
+  },
+  "F_COMMON_BOTTOM_quan_lua_trang": {
+    "x": 344.0084925690021,
+    "y": 672,
+    "scale": 1.1135881104033971,
+    "ruler_scale": 1.7995910020449897,
+    "mismatch": 0.3562,
+    "numeric_status": "FAIL",
+    "status": "FAIL",
+    "approved": false,
+    "needs_review": true,
+    "reasons": [
+      "Waist-vs-length scales 0.7170/1.1136; uniform length fit used. Navel not detected."
+    ],
+    "slot": "bottom",
+    "gender": "female",
+    "layer_transform": {
+      "x": 0,
+      "y": 0,
+      "scale": 1
+    },
+    "transform_space": "extracted source; layers output is already baked to canvas"
+  },
+  "F_COMMON_HEAD_tram_cai": {
+    "x": 561.24,
+    "y": 150.4,
+    "scale": 0.18082191780821918,
+    "ruler_scale": 1.8014329580348003,
+    "mismatch": 0.15,
+    "numeric_status": "WARN",
+    "status": "WARN",
+    "approved": false,
+    "needs_review": true,
+    "reasons": [
+      "Accessory placement is a draft composition, not anatomical detection."
+    ],
+    "slot": "head",
+    "gender": "female",
+    "layer_transform": {
+      "x": 0,
+      "y": 0,
+      "scale": 1
+    },
+    "transform_space": "extracted source; layers output is already baked to canvas"
+  },
+  "F_B_BOTTOM_vay_dai": {
+    "x": 228.71742209631725,
+    "y": 672,
+    "scale": 1.4858356940509916,
+    "ruler_scale": 1.3696498054474708,
+    "mismatch": 0.2348,
+    "numeric_status": "FAIL",
+    "status": "FAIL",
+    "approved": false,
+    "needs_review": true,
+    "reasons": [
+      "Waist-vs-length scales 1.1370/1.4858; uniform length fit used. Navel not detected."
+    ],
+    "slot": "bottom",
+    "gender": "female",
+    "layer_transform": {
+      "x": 0,
+      "y": 0,
+      "scale": 1
+    },
+    "transform_space": "extracted source; layers output is already baked to canvas"
+  },
+  "F_B_TOP_ao_giao_linh": {
+    "x": 247.61603773584903,
+    "y": 332,
+    "scale": 1.3759245283018868,
+    "ruler_scale": 1.453344343517754,
+    "mismatch": 0.0533,
+    "numeric_status": "PASS",
+    "status": "WARN",
+    "approved": false,
+    "needs_review": true,
+    "reasons": [
+      "Shoulder/neck contour estimates require visual confirmation; cuffs and underwear coverage unverified."
+    ],
+    "slot": "top",
+    "gender": "female",
+    "layer_transform": {
+      "x": 0,
+      "y": 0,
+      "scale": 1
+    },
+    "transform_space": "extracted source; layers output is already baked to canvas"
+  },
+  "F_A_TOP_ao_ngu_than": {
+    "x": 295.14569343065693,
+    "y": 332,
+    "scale": 1.3307299270072992,
+    "ruler_scale": 1.3424866514111364,
+    "mismatch": 0.0088,
+    "numeric_status": "PASS",
+    "status": "WARN",
+    "approved": false,
+    "needs_review": true,
+    "reasons": [
+      "Shoulder/neck contour estimates require visual confirmation; cuffs and underwear coverage unverified."
+    ],
+    "slot": "top",
+    "gender": "female",
+    "layer_transform": {
+      "x": 0,
+      "y": 0,
+      "scale": 1
+    },
+    "transform_space": "extracted source; layers output is already baked to canvas"
+  },
+  "F_C_TOP_ao_nhat_binh": {
+    "x": 259.1440540540541,
+    "y": 332,
+    "scale": 1.6424324324324322,
+    "ruler_scale": 1.8088386433710175,
+    "mismatch": 0.092,
+    "numeric_status": "PASS",
+    "status": "WARN",
+    "approved": false,
+    "needs_review": true,
+    "reasons": [
+      "Shoulder/neck contour estimates require visual confirmation; cuffs and underwear coverage unverified."
+    ],
+    "slot": "top",
+    "gender": "female",
+    "layer_transform": {
+      "x": 0,
+      "y": 0,
+      "scale": 1
+    },
+    "transform_space": "extracted source; layers output is already baked to canvas"
+  },
+  "F_COMMON_SHOES_giay_vai_den": {
+    "x": 0,
+    "y": 0,
+    "scale": 1,
+    "ruler_scale": null,
+    "mismatch": 0.15,
+    "numeric_status": "WARN",
+    "status": "WARN",
+    "approved": false,
+    "needs_review": true,
+    "reasons": [
+      "Each shoe uniformly fitted to a measured foot. Perspective and toe coverage need visual review."
+    ],
+    "slot": "shoes",
+    "gender": "female",
+    "part_transforms": [
+      {
+        "x": 451.0,
+        "y": 1699.4473067915692,
+        "scale": 0.20608899297423888,
+        "source_box": [
+          0,
+          0,
+          427,
+          682
+        ],
+        "foot_box": [
+          451,
+          1721,
+          539,
+          1840
+        ]
+      },
+      {
+        "x": 544.0,
+        "y": 1701.0444964871194,
+        "scale": 0.20374707259953162,
+        "source_box": [
+          452,
+          0,
+          879,
+          682
+        ],
+        "foot_box": [
+          544,
+          1721,
+          631,
+          1840
+        ]
+      }
+    ],
+    "layer_transform": {
+      "x": 0,
+      "y": 0,
+      "scale": 1
+    },
+    "transform_space": "extracted source; layers output is already baked to canvas"
+  },
+  "F_COMMON_SHOES_giay_vai_den_v02": {
+    "x": 0,
+    "y": 0,
+    "scale": 1,
+    "ruler_scale": null,
+    "mismatch": 0.15,
+    "numeric_status": "WARN",
+    "status": "WARN",
+    "approved": false,
+    "needs_review": true,
+    "reasons": [
+      "Each shoe uniformly fitted to a measured foot. Perspective and toe coverage need visual review."
+    ],
+    "slot": "shoes",
+    "gender": "female",
+    "part_transforms": [
+      {
+        "x": 451.0,
+        "y": 1698.146718146718,
+        "scale": 0.16988416988416988,
+        "source_box": [
+          0,
+          0,
+          518,
+          835
+        ],
+        "foot_box": [
+          451,
+          1721,
+          539,
+          1840
+        ]
+      },
+      {
+        "x": 544.0,
+        "y": 1699.4874274661508,
+        "scale": 0.16827852998065765,
+        "source_box": [
+          537,
+          0,
+          1054,
+          835
+        ],
+        "foot_box": [
+          544,
+          1721,
+          631,
+          1840
+        ]
+      }
+    ],
+    "layer_transform": {
+      "x": 0,
+      "y": 0,
+      "scale": 1
+    },
+    "transform_space": "extracted source; layers output is already baked to canvas"
+  },
+  "F_MIX_SHOES_giay_sneaker": {
+    "x": 0,
+    "y": 0,
+    "scale": 1,
+    "ruler_scale": null,
+    "mismatch": 0.15,
+    "numeric_status": "WARN",
+    "status": "WARN",
+    "approved": false,
+    "needs_review": true,
+    "reasons": [
+      "Each shoe uniformly fitted to a measured foot. Perspective and toe coverage need visual review."
+    ],
+    "slot": "shoes",
+    "gender": "female",
+    "part_transforms": [
+      {
+        "x": 451.0,
+        "y": 1689.593625498008,
+        "scale": 0.1752988047808765,
+        "source_box": [
+          0,
+          1,
+          502,
+          859
+        ],
+        "foot_box": [
+          451,
+          1721,
+          539,
+          1840
+        ]
+      },
+      {
+        "x": 544.0,
+        "y": 1691.3027888446215,
+        "scale": 0.17330677290836655,
+        "source_box": [
+          552,
+          0,
+          1054,
+          858
+        ],
+        "foot_box": [
+          544,
+          1721,
+          631,
+          1840
+        ]
+      }
+    ],
+    "layer_transform": {
+      "x": 0,
+      "y": 0,
+      "scale": 1
+    },
+    "transform_space": "extracted source; layers output is already baked to canvas"
+  }
+}

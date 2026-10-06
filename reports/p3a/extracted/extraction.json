@@ -1,0 +1,385 @@
+{
+  "bases": {
+    "male": {
+      "source_bbox": [
+        180,
+        16,
+        589,
+        1365
+      ],
+      "scale": 1.3046701260192735,
+      "position": [
+        273,
+        80
+      ],
+      "background_cleanup": {},
+      "source_format": "JPEG"
+    },
+    "female": {
+      "source_bbox": [
+        226,
+        44,
+        542,
+        1356
+      ],
+      "scale": 1.3414634146341464,
+      "position": [
+        328,
+        80
+      ],
+      "background_cleanup": {
+        "sha256": "f82c2cec555ed36be3ed847855e9e0e975a437e621aa213fc6f8197e2b22ea07",
+        "seeds": [
+          [
+            310,
+            469
+          ],
+          [
+            462,
+            469
+          ]
+        ],
+        "reason": "Visually inspected enclosed white arm/torso background gaps; source pixel coordinates, not anatomical landmarks. Never apply to garments."
+      },
+      "source_format": "JPEG"
+    }
+  },
+  "items": [
+    {
+      "source": "image-input/sheets/male/Nón lá.png",
+      "target": "M_COMMON_HEAD_non_la.png",
+      "needs_review": true,
+      "note": "Kind assigned from user filename, not inferred from pixels.",
+      "reference_height": 2453,
+      "divider_x": 896,
+      "crop_box": [
+        82,
+        61,
+        670,
+        446
+      ],
+      "size": [
+        588,
+        385
+      ],
+      "extraction": "OK"
+    },
+    {
+      "source": "image-input/sheets/male/Quần trắng.png",
+      "target": "M_COMMON_BOTTOM_quan_lua_trang.png",
+      "needs_review": true,
+      "note": "User labels trousers traditional; canonical family mapping needs review; no material/history claim.",
+      "reference_height": 2387,
+      "divider_x": 893,
+      "crop_box": [
+        71,
+        713,
+        737,
+        2243
+      ],
+      "size": [
+        666,
+        1530
+      ],
+      "extraction": "OK"
+    },
+    {
+      "source": "image-input/sheets/male/Quần đen.png",
+      "target": "M_COMMON_BOTTOM_quan_lua_trang_v02.png",
+      "needs_review": true,
+      "note": "User labels trousers traditional; canonical family mapping needs review; no material/history claim.",
+      "reference_height": 2388,
+      "divider_x": 892,
+      "crop_box": [
+        71,
+        712,
+        739,
+        2244
+      ],
+      "size": [
+        668,
+        1532
+      ],
+      "extraction": "OK"
+    },
+    {
+      "source": "image-input/sheets/male/Áo giao lĩnh nam (set B).png",
+      "target": "M_B_TOP_ao_giao_linh.png",
+      "needs_review": true,
+      "note": "Kind assigned from user filename, not inferred from pixels.",
+      "reference_height": 2465,
+      "divider_x": 837,
+      "crop_box": [
+        27,
+        369,
+        840,
+        2052
+      ],
+      "size": [
+        813,
+        1683
+      ],
+      "extraction": "OK"
+    },
+    {
+      "source": "image-input/sheets/male/Áo ngũ thân nam (set A).png",
+      "target": "M_A_TOP_ao_ngu_than.png",
+      "needs_review": true,
+      "note": "Kind assigned from user filename, not inferred from pixels.",
+      "reference_height": 1522,
+      "divider_x": 1323,
+      "crop_box": [
+        425,
+        214,
+        1000,
+        1457
+      ],
+      "size": [
+        575,
+        1243
+      ],
+      "extraction": "OK"
+    },
+    {
+      "source": "image-input/sheets/male/Áo tấc nam (set C).png",
+      "target": "M_C_TOP_ao_tac.png",
+      "needs_review": true,
+      "note": "Kind assigned from user filename, not inferred from pixels.",
+      "reference_height": 2480,
+      "divider_x": 822,
+      "crop_box": [
+        8,
+        365,
+        864,
+        2101
+      ],
+      "size": [
+        856,
+        1736
+      ],
+      "extraction": "OK"
+    },
+    {
+      "source": "image-input/sheets/common/giay_vai_den_generated_01.png",
+      "target": "M_COMMON_SHOES_giay_vai_den.png",
+      "needs_review": true,
+      "note": "Generated source; fit not yet approved. Sneaker retained as an alternative.",
+      "reference_height": null,
+      "crop_box": [
+        329,
+        160,
+        1208,
+        842
+      ],
+      "size": [
+        879,
+        682
+      ],
+      "extraction": "OK"
+    },
+    {
+      "source": "image-input/sheets/common/giay_vai_trang_generated_01.png",
+      "target": "M_COMMON_SHOES_giay_vai_den_v02.png",
+      "needs_review": true,
+      "note": "Generated source; fit not yet approved. Sneaker retained as an alternative.",
+      "reference_height": null,
+      "crop_box": [
+        242,
+        74,
+        1296,
+        909
+      ],
+      "size": [
+        1054,
+        835
+      ],
+      "extraction": "OK"
+    },
+    {
+      "source": "image-input/sheets/common/giay_sneaker_trang_generated_01.png",
+      "target": "M_MIX_SHOES_giay_sneaker.png",
+      "needs_review": true,
+      "note": "Generated source; fit not yet approved. Sneaker retained as an alternative.",
+      "reference_height": null,
+      "crop_box": [
+        241,
+        79,
+        1295,
+        938
+      ],
+      "size": [
+        1054,
+        859
+      ],
+      "extraction": "OK"
+    },
+    {
+      "source": "image-input/sheets/female/Quần dài nữ.png",
+      "target": "F_COMMON_BOTTOM_quan_lua_trang.png",
+      "needs_review": true,
+      "note": "User labels trousers traditional; canonical family mapping needs review; no material/history claim.",
+      "reference_height": 978,
+      "divider_x": 438,
+      "crop_box": [
+        107,
+        45,
+        459,
+        987
+      ],
+      "size": [
+        352,
+        942
+      ],
+      "extraction": "OK"
+    },
+    {
+      "source": "image-input/sheets/female/Trâm cài nữ.png",
+      "target": "F_COMMON_HEAD_tram_cai.png",
+      "needs_review": true,
+      "note": "Kind assigned from user filename, not inferred from pixels.",
+      "reference_height": 977,
+      "divider_x": 536,
+      "crop_box": [
+        161,
+        74,
+        303,
+        950
+      ],
+      "size": [
+        142,
+        876
+      ],
+      "extraction": "OK"
+    },
+    {
+      "source": "image-input/sheets/female/Váy đen giao lĩnh nữ.png",
+      "target": "F_B_BOTTOM_vay_dai.png",
+      "needs_review": true,
+      "note": "Kind assigned from user filename, not inferred from pixels.",
+      "reference_height": 1285,
+      "divider_x": null,
+      "crop_box": [
+        333,
+        484,
+        752,
+        1190
+      ],
+      "size": [
+        419,
+        706
+      ],
+      "extraction": "OK"
+    },
+    {
+      "source": "image-input/sheets/female/áo giao lĩnh nữ.png",
+      "target": "F_B_TOP_ao_giao_linh.png",
+      "needs_review": true,
+      "note": "Kind assigned from user filename, not inferred from pixels.",
+      "reference_height": 1211,
+      "divider_x": 386,
+      "crop_box": [
+        18,
+        201,
+        443,
+        1047
+      ],
+      "size": [
+        425,
+        846
+      ],
+      "extraction": "OK"
+    },
+    {
+      "source": "image-input/sheets/female/Áo ngũ thân nữ.png",
+      "target": "F_A_TOP_ao_ngu_than.png",
+      "needs_review": true,
+      "note": "Kind assigned from user filename, not inferred from pixels.",
+      "reference_height": 1311,
+      "divider_x": 371,
+      "crop_box": [
+        14,
+        218,
+        382,
+        1151
+      ],
+      "size": [
+        368,
+        933
+      ],
+      "extraction": "OK"
+    },
+    {
+      "source": "image-input/sheets/female/Áo Nhật Bình nữ .png",
+      "target": "F_C_TOP_ao_nhat_binh.png",
+      "needs_review": true,
+      "note": "Kind assigned from user filename, not inferred from pixels.",
+      "reference_height": 973,
+      "divider_x": 314,
+      "crop_box": [
+        19,
+        163,
+        361,
+        933
+      ],
+      "size": [
+        342,
+        770
+      ],
+      "extraction": "OK"
+    },
+    {
+      "source": "image-input/sheets/common/giay_vai_den_generated_01.png",
+      "target": "F_COMMON_SHOES_giay_vai_den.png",
+      "needs_review": true,
+      "note": "Generated source; fit not yet approved. Sneaker retained as an alternative.",
+      "reference_height": null,
+      "crop_box": [
+        329,
+        160,
+        1208,
+        842
+      ],
+      "size": [
+        879,
+        682
+      ],
+      "extraction": "OK"
+    },
+    {
+      "source": "image-input/sheets/common/giay_vai_trang_generated_01.png",
+      "target": "F_COMMON_SHOES_giay_vai_den_v02.png",
+      "needs_review": true,
+      "note": "Generated source; fit not yet approved. Sneaker retained as an alternative.",
+      "reference_height": null,
+      "crop_box": [
+        242,
+        74,
+        1296,
+        909
+      ],
+      "size": [
+        1054,
+        835
+      ],
+      "extraction": "OK"
+    },
+    {
+      "source": "image-input/sheets/common/giay_sneaker_trang_generated_01.png",
+      "target": "F_MIX_SHOES_giay_sneaker.png",
+      "needs_review": true,
+      "note": "Generated source; fit not yet approved. Sneaker retained as an alternative.",
+      "reference_height": null,
+      "crop_box": [
+        241,
+        79,
+        1295,
+        938
+      ],
+      "size": [
+        1054,
+        859
+      ],
+      "extraction": "OK"
+    }
+  ]
+}

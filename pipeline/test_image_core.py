@@ -1,6 +1,19 @@
 from PIL import Image, ImageDraw
 import numpy as np
 from image_core import remove_border_background, split_sheet, normalize_base, bbox
+from image_core import remove_seeded_background
+import pytest
+
+
+def test_seeded_base_gap_cleanup_preserves_other_enclosed_whites():
+    im=Image.new('RGB',(100,100),'black')
+    d=ImageDraw.Draw(im)
+    d.rectangle((10,10,30,80),fill='white')
+    d.rectangle((50,10,90,80),fill='white')
+    out=remove_seeded_background(im,[(20,20)])
+    assert out.getpixel((20,70))[3]==0
+    assert out.getpixel((70,70))[3]==255
+    with pytest.raises(ValueError): remove_seeded_background(im,[(0,0)])
 
 
 def test_enclosed_white_trousers_stay_opaque():

@@ -1,0 +1,7 @@
+{
+  "female": {
+    "sha256": "f82c2cec555ed36be3ed847855e9e0e975a437e621aa213fc6f8197e2b22ea07",
+    "seeds": [[310, 469], [462, 469]],
+    "reason": "Visually inspected enclosed white arm/torso background gaps; source pixel coordinates, not anatomical landmarks. Never apply to garments."
+  }
+}

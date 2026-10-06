@@ -1,0 +1,40 @@
+{
+  "male": {
+    "bbox": [
+      273,
+      80,
+      807,
+      1840
+    ],
+    "height": 1760,
+    "center_x": 540.0,
+    "neck_y": 294,
+    "shoulder_y": 554,
+    "shoulder_width": 465,
+    "waist_y": 718,
+    "waist_width": 238,
+    "ankle_y": 1672,
+    "method": "contour-extrema heuristic; not verified anatomical landmarks",
+    "needs_review": true,
+    "navel_y": null
+  },
+  "female": {
+    "bbox": [
+      328,
+      80,
+      752,
+      1840
+    ],
+    "height": 1760,
+    "center_x": 540.0,
+    "neck_y": 332,
+    "shoulder_y": 476,
+    "shoulder_width": 354,
+    "waist_y": 672,
+    "waist_width": 183,
+    "ankle_y": 1721,
+    "method": "contour-extrema heuristic; not verified anatomical landmarks",
+    "needs_review": true,
+    "navel_y": null
+  }
+}

@@ -1,0 +1,662 @@
+[
+  {
+    "source": "image-input/sheets/male/Nón lá.png",
+    "target": "M_COMMON_HEAD_non_la.png",
+    "needs_review": true,
+    "note": "Kind assigned from user filename, not inferred from pixels.",
+    "reference_height": 2453,
+    "divider_x": 896,
+    "crop_box": [
+      82,
+      61,
+      670,
+      446
+    ],
+    "size": [
+      588,
+      385
+    ],
+    "extraction": "OK",
+    "gender": "M",
+    "set": "COMMON",
+    "slot": "head",
+    "kind": "non_la",
+    "variant": "default",
+    "id": "M_COMMON_HEAD_non_la",
+    "source_sha256": "dc832ee76fab96c8269bad7d7a6ad5a1065dc2da83863526ab943ae3fbab7d10",
+    "color": {
+      "rgb": [
+        188,
+        150,
+        110
+      ],
+      "hex": "#bc966e",
+      "method": "24-step RGB modal bin, median opaque pixels",
+      "bin_fraction": 0.1658
+    },
+    "approved": false
+  },
+  {
+    "source": "image-input/sheets/male/Quần trắng.png",
+    "target": "M_COMMON_BOTTOM_quan_lua_trang.png",
+    "needs_review": true,
+    "note": "User labels trousers traditional; canonical family mapping needs review; no material/history claim.",
+    "reference_height": 2387,
+    "divider_x": 893,
+    "crop_box": [
+      71,
+      713,
+      737,
+      2243
+    ],
+    "size": [
+      666,
+      1530
+    ],
+    "extraction": "OK",
+    "gender": "M",
+    "set": "COMMON",
+    "slot": "bottom",
+    "kind": "quan_lua_trang",
+    "variant": "default",
+    "id": "M_COMMON_BOTTOM_quan_lua_trang",
+    "source_sha256": "011469d34e0c9e968a646627ce4f1b5c113dbd99d712977144ec853ac0db11a7",
+    "color": {
+      "rgb": [
+        246,
+        246,
+        241
+      ],
+      "hex": "#f6f6f1",
+      "method": "24-step RGB modal bin, median opaque pixels",
+      "bin_fraction": 0.6051
+    },
+    "approved": false
+  },
+  {
+    "source": "image-input/sheets/male/Quần đen.png",
+    "target": "M_COMMON_BOTTOM_quan_lua_trang_v02.png",
+    "needs_review": true,
+    "note": "User labels trousers traditional; canonical family mapping needs review; no material/history claim.",
+    "reference_height": 2388,
+    "divider_x": 892,
+    "crop_box": [
+      71,
+      712,
+      739,
+      2244
+    ],
+    "size": [
+      668,
+      1532
+    ],
+    "extraction": "OK",
+    "gender": "M",
+    "set": "COMMON",
+    "slot": "bottom",
+    "kind": "quan_lua_trang",
+    "variant": "v02",
+    "id": "M_COMMON_BOTTOM_quan_lua_trang_v02",
+    "source_sha256": "7359a9a2a2177b8ff7bdda24f6d455c0819c0f6b061dce6d143effb8df6103c1",
+    "color": {
+      "rgb": [
+        56,
+        56,
+        56
+      ],
+      "hex": "#383838",
+      "method": "24-step RGB modal bin, median opaque pixels",
+      "bin_fraction": 0.6437
+    },
+    "approved": false
+  },
+  {
+    "source": "image-input/sheets/male/Áo giao lĩnh nam (set B).png",
+    "target": "M_B_TOP_ao_giao_linh.png",
+    "needs_review": true,
+    "note": "Kind assigned from user filename, not inferred from pixels.",
+    "reference_height": 2465,
+    "divider_x": 837,
+    "crop_box": [
+      27,
+      369,
+      840,
+      2052
+    ],
+    "size": [
+      813,
+      1683
+    ],
+    "extraction": "OK",
+    "gender": "M",
+    "set": "B",
+    "slot": "top",
+    "kind": "ao_giao_linh",
+    "variant": "default",
+    "id": "M_B_TOP_ao_giao_linh",
+    "source_sha256": "4c60d7aa7a98917584d1dcbc639aba1e54419111f114bbb39ee9246d302c7eaa",
+    "color": {
+      "rgb": [
+        52,
+        69,
+        106
+      ],
+      "hex": "#34456a",
+      "method": "24-step RGB modal bin, median opaque pixels",
+      "bin_fraction": 0.5824
+    },
+    "approved": false
+  },
+  {
+    "source": "image-input/sheets/male/Áo ngũ thân nam (set A).png",
+    "target": "M_A_TOP_ao_ngu_than.png",
+    "needs_review": true,
+    "note": "Kind assigned from user filename, not inferred from pixels.",
+    "reference_height": 1522,
+    "divider_x": 1323,
+    "crop_box": [
+      425,
+      214,
+      1000,
+      1457
+    ],
+    "size": [
+      575,
+      1243
+    ],
+    "extraction": "OK",
+    "gender": "M",
+    "set": "A",
+    "slot": "top",
+    "kind": "ao_ngu_than",
+    "variant": "default",
+    "id": "M_A_TOP_ao_ngu_than",
+    "source_sha256": "a6c051c7cd9f20e63a5c2f049ad9e426c9eb432bd0f6485aa61699acb750e981",
+    "color": {
+      "rgb": [
+        41,
+        57,
+        99
+      ],
+      "hex": "#293963",
+      "method": "24-step RGB modal bin, median opaque pixels",
+      "bin_fraction": 0.7099
+    },
+    "approved": false
+  },
+  {
+    "source": "image-input/sheets/male/Áo tấc nam (set C).png",
+    "target": "M_C_TOP_ao_tac.png",
+    "needs_review": true,
+    "note": "Kind assigned from user filename, not inferred from pixels.",
+    "reference_height": 2480,
+    "divider_x": 822,
+    "crop_box": [
+      8,
+      365,
+      864,
+      2101
+    ],
+    "size": [
+      856,
+      1736
+    ],
+    "extraction": "OK",
+    "gender": "M",
+    "set": "C",
+    "slot": "top",
+    "kind": "ao_tac",
+    "variant": "default",
+    "id": "M_C_TOP_ao_tac",
+    "source_sha256": "ce61646fc1ece190ffe11899eae3ed1359a2ad44fbb2e9a634b65b84df384842",
+    "color": {
+      "rgb": [
+        43,
+        43,
+        43
+      ],
+      "hex": "#2b2b2b",
+      "method": "24-step RGB modal bin, median opaque pixels",
+      "bin_fraction": 0.8664
+    },
+    "approved": false
+  },
+  {
+    "source": "image-input/sheets/common/giay_vai_den_generated_01.png",
+    "target": "M_COMMON_SHOES_giay_vai_den.png",
+    "needs_review": true,
+    "note": "Generated source; fit not yet approved. Sneaker retained as an alternative.",
+    "reference_height": null,
+    "crop_box": [
+      329,
+      160,
+      1208,
+      842
+    ],
+    "size": [
+      879,
+      682
+    ],
+    "extraction": "OK",
+    "gender": "M",
+    "set": "COMMON",
+    "slot": "shoes",
+    "kind": "giay_vai_den",
+    "variant": "default",
+    "id": "M_COMMON_SHOES_giay_vai_den",
+    "source_sha256": "cf7d44c85aacb8815300a737cf5fe6f59a21dea320029bf452a0ad9d62d1d5c7",
+    "color": {
+      "rgb": [
+        37,
+        34,
+        35
+      ],
+      "hex": "#252223",
+      "method": "24-step RGB modal bin, median opaque pixels",
+      "bin_fraction": 0.4461
+    },
+    "approved": false
+  },
+  {
+    "source": "image-input/sheets/common/giay_vai_trang_generated_01.png",
+    "target": "M_COMMON_SHOES_giay_vai_den_v02.png",
+    "needs_review": true,
+    "note": "Generated source; fit not yet approved. Sneaker retained as an alternative.",
+    "reference_height": null,
+    "crop_box": [
+      242,
+      74,
+      1296,
+      909
+    ],
+    "size": [
+      1054,
+      835
+    ],
+    "extraction": "OK",
+    "gender": "M",
+    "set": "COMMON",
+    "slot": "shoes",
+    "kind": "giay_vai_den",
+    "variant": "v02",
+    "id": "M_COMMON_SHOES_giay_vai_den_v02",
+    "source_sha256": "da9694e2ac7db226adb1f1dee488394357994698e61005f72f8cb72fad959ed2",
+    "color": {
+      "rgb": [
+        232,
+        228,
+        224
+      ],
+      "hex": "#e8e4e0",
+      "method": "24-step RGB modal bin, median opaque pixels",
+      "bin_fraction": 0.2069
+    },
+    "approved": false
+  },
+  {
+    "source": "image-input/sheets/common/giay_sneaker_trang_generated_01.png",
+    "target": "M_MIX_SHOES_giay_sneaker.png",
+    "needs_review": true,
+    "note": "Generated source; fit not yet approved. Sneaker retained as an alternative.",
+    "reference_height": null,
+    "crop_box": [
+      241,
+      79,
+      1295,
+      938
+    ],
+    "size": [
+      1054,
+      859
+    ],
+    "extraction": "OK",
+    "gender": "M",
+    "set": "MIX",
+    "slot": "shoes",
+    "kind": "giay_sneaker",
+    "variant": "default",
+    "id": "M_MIX_SHOES_giay_sneaker",
+    "source_sha256": "e910fc58272a29a7884ef4c239e316c80045e1a32ecff5e94255283606434ef4",
+    "color": {
+      "rgb": [
+        249,
+        248,
+        249
+      ],
+      "hex": "#f9f8f9",
+      "method": "24-step RGB modal bin, median opaque pixels",
+      "bin_fraction": 0.5155
+    },
+    "approved": false
+  },
+  {
+    "source": "image-input/sheets/female/Quần dài nữ.png",
+    "target": "F_COMMON_BOTTOM_quan_lua_trang.png",
+    "needs_review": true,
+    "note": "User labels trousers traditional; canonical family mapping needs review; no material/history claim.",
+    "reference_height": 978,
+    "divider_x": 438,
+    "crop_box": [
+      107,
+      45,
+      459,
+      987
+    ],
+    "size": [
+      352,
+      942
+    ],
+    "extraction": "OK",
+    "gender": "F",
+    "set": "COMMON",
+    "slot": "bottom",
+    "kind": "quan_lua_trang",
+    "variant": "default",
+    "id": "F_COMMON_BOTTOM_quan_lua_trang",
+    "source_sha256": "e6377fc739dbb79e4cd9b5f895f70b011b31e2358065798941c8a08d0e88797f",
+    "color": {
+      "rgb": [
+        252,
+        252,
+        252
+      ],
+      "hex": "#fcfcfc",
+      "method": "24-step RGB modal bin, median opaque pixels",
+      "bin_fraction": 0.6722
+    },
+    "approved": false
+  },
+  {
+    "source": "image-input/sheets/female/Trâm cài nữ.png",
+    "target": "F_COMMON_HEAD_tram_cai.png",
+    "needs_review": true,
+    "note": "Kind assigned from user filename, not inferred from pixels.",
+    "reference_height": 977,
+    "divider_x": 536,
+    "crop_box": [
+      161,
+      74,
+      303,
+      950
+    ],
+    "size": [
+      142,
+      876
+    ],
+    "extraction": "OK",
+    "gender": "F",
+    "set": "COMMON",
+    "slot": "head",
+    "kind": "tram_cai",
+    "variant": "default",
+    "id": "F_COMMON_HEAD_tram_cai",
+    "source_sha256": "e5ce55dce326382d6e6c2b3fecde566443478eda20f92b2a48e5e92f1547b980",
+    "color": {
+      "rgb": [
+        246,
+        243,
+        235
+      ],
+      "hex": "#f6f3eb",
+      "method": "24-step RGB modal bin, median opaque pixels",
+      "bin_fraction": 0.1488
+    },
+    "approved": false
+  },
+  {
+    "source": "image-input/sheets/female/Váy đen giao lĩnh nữ.png",
+    "target": "F_B_BOTTOM_vay_dai.png",
+    "needs_review": true,
+    "note": "Kind assigned from user filename, not inferred from pixels.",
+    "reference_height": 1285,
+    "divider_x": null,
+    "crop_box": [
+      333,
+      484,
+      752,
+      1190
+    ],
+    "size": [
+      419,
+      706
+    ],
+    "extraction": "OK",
+    "gender": "F",
+    "set": "B",
+    "slot": "bottom",
+    "kind": "vay_dai",
+    "variant": "default",
+    "id": "F_B_BOTTOM_vay_dai",
+    "source_sha256": "98828beb1e7e7eaa212f65d4eb0468a44e0fafe6c61d821367d77d1e2d2961b0",
+    "color": {
+      "rgb": [
+        42,
+        42,
+        42
+      ],
+      "hex": "#2a2a2a",
+      "method": "24-step RGB modal bin, median opaque pixels",
+      "bin_fraction": 0.8963
+    },
+    "approved": false
+  },
+  {
+    "source": "image-input/sheets/female/áo giao lĩnh nữ.png",
+    "target": "F_B_TOP_ao_giao_linh.png",
+    "needs_review": true,
+    "note": "Kind assigned from user filename, not inferred from pixels.",
+    "reference_height": 1211,
+    "divider_x": 386,
+    "crop_box": [
+      18,
+      201,
+      443,
+      1047
+    ],
+    "size": [
+      425,
+      846
+    ],
+    "extraction": "OK",
+    "gender": "F",
+    "set": "B",
+    "slot": "top",
+    "kind": "ao_giao_linh",
+    "variant": "default",
+    "id": "F_B_TOP_ao_giao_linh",
+    "source_sha256": "7810ef1b3da84fab7743c09ffdacf7d1305482eaca5050fc5fbb77c52c06f428",
+    "color": {
+      "rgb": [
+        237,
+        196,
+        197
+      ],
+      "hex": "#edc4c5",
+      "method": "24-step RGB modal bin, median opaque pixels",
+      "bin_fraction": 0.2986
+    },
+    "approved": false
+  },
+  {
+    "source": "image-input/sheets/female/Áo ngũ thân nữ.png",
+    "target": "F_A_TOP_ao_ngu_than.png",
+    "needs_review": true,
+    "note": "Kind assigned from user filename, not inferred from pixels.",
+    "reference_height": 1311,
+    "divider_x": 371,
+    "crop_box": [
+      14,
+      218,
+      382,
+      1151
+    ],
+    "size": [
+      368,
+      933
+    ],
+    "extraction": "OK",
+    "gender": "F",
+    "set": "A",
+    "slot": "top",
+    "kind": "ao_ngu_than",
+    "variant": "default",
+    "id": "F_A_TOP_ao_ngu_than",
+    "source_sha256": "916662cce0256d199b76b98c075e14ddf24807ec62ac932fcb6c5284aa6c6dc8",
+    "color": {
+      "rgb": [
+        28,
+        108,
+        62
+      ],
+      "hex": "#1c6c3e",
+      "method": "24-step RGB modal bin, median opaque pixels",
+      "bin_fraction": 0.2936
+    },
+    "approved": false
+  },
+  {
+    "source": "image-input/sheets/female/Áo Nhật Bình nữ .png",
+    "target": "F_C_TOP_ao_nhat_binh.png",
+    "needs_review": true,
+    "note": "Kind assigned from user filename, not inferred from pixels.",
+    "reference_height": 973,
+    "divider_x": 314,
+    "crop_box": [
+      19,
+      163,
+      361,
+      933
+    ],
+    "size": [
+      342,
+      770
+    ],
+    "extraction": "OK",
+    "gender": "F",
+    "set": "C",
+    "slot": "top",
+    "kind": "ao_nhat_binh",
+    "variant": "default",
+    "id": "F_C_TOP_ao_nhat_binh",
+    "source_sha256": "6e16b36827efc242dcb9c6805123d1195795ace7cd786d14be8528240d79fcb9",
+    "color": {
+      "rgb": [
+        177,
+        26,
+        27
+      ],
+      "hex": "#b11a1b",
+      "method": "24-step RGB modal bin, median opaque pixels",
+      "bin_fraction": 0.1984
+    },
+    "approved": false
+  },
+  {
+    "source": "image-input/sheets/common/giay_vai_den_generated_01.png",
+    "target": "F_COMMON_SHOES_giay_vai_den.png",
+    "needs_review": true,
+    "note": "Generated source; fit not yet approved. Sneaker retained as an alternative.",
+    "reference_height": null,
+    "crop_box": [
+      329,
+      160,
+      1208,
+      842
+    ],
+    "size": [
+      879,
+      682
+    ],
+    "extraction": "OK",
+    "gender": "F",
+    "set": "COMMON",
+    "slot": "shoes",
+    "kind": "giay_vai_den",
+    "variant": "default",
+    "id": "F_COMMON_SHOES_giay_vai_den",
+    "source_sha256": "cf7d44c85aacb8815300a737cf5fe6f59a21dea320029bf452a0ad9d62d1d5c7",
+    "color": {
+      "rgb": [
+        37,
+        34,
+        35
+      ],
+      "hex": "#252223",
+      "method": "24-step RGB modal bin, median opaque pixels",
+      "bin_fraction": 0.4461
+    },
+    "approved": false
+  },
+  {
+    "source": "image-input/sheets/common/giay_vai_trang_generated_01.png",
+    "target": "F_COMMON_SHOES_giay_vai_den_v02.png",
+    "needs_review": true,
+    "note": "Generated source; fit not yet approved. Sneaker retained as an alternative.",
+    "reference_height": null,
+    "crop_box": [
+      242,
+      74,
+      1296,
+      909
+    ],
+    "size": [
+      1054,
+      835
+    ],
+    "extraction": "OK",
+    "gender": "F",
+    "set": "COMMON",
+    "slot": "shoes",
+    "kind": "giay_vai_den",
+    "variant": "v02",
+    "id": "F_COMMON_SHOES_giay_vai_den_v02",
+    "source_sha256": "da9694e2ac7db226adb1f1dee488394357994698e61005f72f8cb72fad959ed2",
+    "color": {
+      "rgb": [
+        232,
+        228,
+        224
+      ],
+      "hex": "#e8e4e0",
+      "method": "24-step RGB modal bin, median opaque pixels",
+      "bin_fraction": 0.2069
+    },
+    "approved": false
+  },
+  {
+    "source": "image-input/sheets/common/giay_sneaker_trang_generated_01.png",
+    "target": "F_MIX_SHOES_giay_sneaker.png",
+    "needs_review": true,
+    "note": "Generated source; fit not yet approved. Sneaker retained as an alternative.",
+    "reference_height": null,
+    "crop_box": [
+      241,
+      79,
+      1295,
+      938
+    ],
+    "size": [
+      1054,
+      859
+    ],
+    "extraction": "OK",
+    "gender": "F",
+    "set": "MIX",
+    "slot": "shoes",
+    "kind": "giay_sneaker",
+    "variant": "default",
+    "id": "F_MIX_SHOES_giay_sneaker",
+    "source_sha256": "e910fc58272a29a7884ef4c239e316c80045e1a32ecff5e94255283606434ef4",
+    "color": {
+      "rgb": [
+        249,
+        248,
+        249
+      ],
+      "hex": "#f9f8f9",
+      "method": "24-step RGB modal bin, median opaque pixels",
+      "bin_fraction": 0.5155
+    },
+    "approved": false
+  }
+]

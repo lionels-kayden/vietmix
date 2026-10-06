@@ -97,8 +97,21 @@ def bbox(image):
     return box
 
 
-def normalize_base(image):
-    cutout = keep_components(remove_border_background(image))
+def remove_seeded_background(image, seeds, threshold=233):
+    """Explicit reviewed background samples for enclosed base arm gaps only."""
+    rgba = np.array(image.convert('RGBA'))
+    bright = rgba[:, :, :3].min(axis=2) >= threshold
+    seed = np.zeros_like(bright)
+    for x, y in seeds:
+        if not (0 <= x < image.width and 0 <= y < image.height) or not bright[y, x]:
+            raise ValueError('Background seed does not select a bright pixel')
+        seed[y, x] = True
+    rgba[ndi.binary_propagation(seed, mask=bright), 3] = 0
+    return Image.fromarray(rgba)
+
+
+def normalize_base(image, background_seeds=()):
+    cutout = keep_components(remove_seeded_background(remove_border_background(image), background_seeds))
     box = bbox(cutout)
     crop = cutout.crop(box)
     # Presentation margins, NOT anatomy: detected head/foot extent fills 1760px.
@@ -115,9 +128,17 @@ def extract_all(root, output):
     root, output = Path(root), Path(output)
     output.mkdir(parents=True, exist_ok=True)
     metadata = {'bases': {}, 'items': []}
+    import hashlib
+    cleanup_path = root/'pipeline/base_cleanup.json'
+    cleanup = json.loads(cleanup_path.read_text(encoding='utf-8')) if cleanup_path.exists() else {}
     for gender in ('male', 'female'):
-        image = Image.open(root/'image-input'/'bases'/f'{gender}_base.png')
-        base, info = normalize_base(image)
+        path = root/'image-input'/'bases'/f'{gender}_base.png'
+        image = Image.open(path)
+        config = cleanup.get(gender, {})
+        if config and hashlib.sha256(path.read_bytes()).hexdigest() != config['sha256']:
+            raise ValueError('Base changed: reselect enclosed-background seeds')
+        base, info = normalize_base(image, config.get('seeds', []))
+        info['background_cleanup'] = config
         base.save(output/f'{gender}_base.png')
         info['source_format'] = image.format
         metadata['bases'][gender] = info
