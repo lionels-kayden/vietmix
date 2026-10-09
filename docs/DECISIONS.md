@@ -128,3 +128,8 @@
 - 2026-10-06: Antigravity replaces Codex temporarily as coordinator and executor
   (EXECUTOR=self); Codex may return. Update CONTROLLER.md header and CURRENT STATE.
   User requests to continue P3a. DECIDED unchanged.
+
+- 2026-10-10: User authorizes implementation of Phase 3b. Implemented hidden /fit alignment
+  tool with ENABLE_FIT security gate, interactive X/Y/Scale controls, guidelines overlay,
+  and local JSON export/import respecting Vercel read-only filesystem. Added 12 automated
+  integration tests (build + 115 tests pass). Recorded in docs/reports/P3b.md. DECIDED unchanged.

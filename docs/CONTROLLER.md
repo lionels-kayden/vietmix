@@ -262,6 +262,11 @@ P9 Polish and deploy prep: responsive layout, empty states, accessibility, READM
 - Handover 2026-10-06: Antigravity takes over as coordinator and executor (EXECUTOR=self);
   Codex may return. Verified build + 103 app tests and 45 pipeline tests pass. User requested
   to continue P3a.
+- P3b Hidden /fit: implemented 2026-10-10 at commit 4e44f3c / 81166a3. Route app/fit/page.tsx
+  gated by ENABLE_FIT/NEXT_PUBLIC_ENABLE_FIT; 404 notFound() otherwise. Interactive controls
+  for X, Y, Scale with visual reference lines; local JSON export/import respecting Vercel
+  read-only filesystem. Verified build + 115 tests pass (12 in app/fit/page.test.tsx).
+  Report: docs/reports/P3b.md.
 
 ## FIRST MESSAGE
 Do step 1 of YOUR PROCEDURE now and ask the user for the P1 report if it is not in the repo.
