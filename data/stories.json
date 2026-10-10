@@ -1,1 +1,248 @@
-{}
+{
+  "items": {
+    "ao_ngu_than": {
+      "kind": "ao_ngu_than",
+      "title_vi": "Áo ngũ thân",
+      "period": "Thời Nguyễn (thế kỷ 18–20)",
+      "origin": "Định hình từ cải cách trang phục của Chúa Nguyễn Phúc Khoát (1744) và chuẩn hóa toàn quốc dưới triều vua Minh Mạng (1837). Cấu tạo 5 thân tượng trưng cho tứ thân phụ mẫu và bản thân người mặc.",
+      "occasion": "Trang phục thường nhật lẫn công vụ của cả nam và nữ trong mọi tầng lớp xã hội thời Nguyễn.",
+      "remix_note": "Cổ đứng lập lĩnh kín đáo, trang nhã. Khi kết hợp cùng quần âu màu be hoặc giày sneaker trắng tạo nên vẻ ngoài thanh lịch, tri thức.",
+      "sources": [
+        "https://vi.wikipedia.org/wiki/%C3%81o_ng%C5%A9_th%C3%A2n",
+        "Ngàn năm áo mũ - Trần Quang Đức (2013)"
+      ],
+      "needs_review": false
+    },
+    "ao_giao_linh": {
+      "kind": "ao_giao_linh",
+      "title_vi": "Áo giao lĩnh",
+      "period": "Thời Lê - Trịnh (thế kỷ 15–18)",
+      "origin": "Áo có cổ chéo vạt đè lên nhau, là kiểu trang phục cổ xưa phổ biến rộng rãi khắp Đông Á thời trung đại và thịnh hành suốt thời Lý, Trần, Lê của Việt Nam.",
+      "occasion": "Mặc trong đời sống sinh hoạt, yến tiệc hoặc nghi lễ dân gian của quý tộc và thường dân.",
+      "remix_note": "Cổ áo chéo phóng khoáng, tà áo buông rủ bay bổng rất hợp để mix cùng phụ kiện bạc đương đại và sneaker.",
+      "sources": [
+        "Ngàn năm áo mũ - Trần Quang Đức (2013)",
+        "Đại Việt sử ký toàn thư"
+      ],
+      "needs_review": false
+    },
+    "ao_tac": {
+      "kind": "ao_tac",
+      "title_vi": "Áo tấc",
+      "period": "Thời Nguyễn (thế kỷ 19–20)",
+      "origin": "Còn gọi là áo thụng, áo ngũ thân tay thụng dài rộng trên một tấc. Là lễ phục quy chuẩn trang trọng của nam giới thời Nguyễn.",
+      "occasion": "Dùng trong các nghi lễ trang nghiêm như lễ tế, bái vọng tổ tiên, lễ cưới hỏi và hội làng.",
+      "remix_note": "Mang tính nghi lễ cao, vì vậy khi phối remix nên giữ tối đa nét cổ điển, tránh lạm dụng quá nhiều phụ kiện nghịch mắt.",
+      "sources": [
+        "Khâm định Đại Nam hội điển sự lệ",
+        "Trang phục cung đình triều Nguyễn"
+      ],
+      "needs_review": false
+    },
+    "ao_nhat_binh": {
+      "kind": "ao_nhat_binh",
+      "title_vi": "Áo nhật bình",
+      "period": "Triều Nguyễn (1802–1945)",
+      "origin": "Lễ phục dành riêng cho Hoàng hậu, Công chúa, Phi tần và mệnh phụ quan viên triều Nguyễn. Đặc trưng bởi dải viền cổ áo ghép lại thành hình chữ nhật trước ngực.",
+      "occasion": "Lễ tiết cung đình, đại triều, lễ hỷ của hoàng gia và trang phục cưới cao quý thời cận đại.",
+      "remix_note": "Hoa văn cổ áo lộng lẫy; phối cùng quần âu thanh thoát mang lại thần thái quý phái, kiêu kỳ của thiếu nữ hiện đại.",
+      "sources": [
+        "Khâm định Đại Nam hội điển sự lệ",
+        "Bảo tàng Cổ vật Cung đình Huế"
+      ],
+      "needs_review": false
+    },
+    "quan_lua_trang": {
+      "kind": "quan_lua_trang",
+      "title_vi": "Quần lụa trắng",
+      "period": "Truyền thống cổ truyền",
+      "origin": "Quần may bằng lụa tơ tằm dệt tay, đáy nem rộng rãi thoáng mát, phù hợp với khí hậu nhiệt đới gió mùa của Việt Nam.",
+      "occasion": "Mặc kết hợp bên trong tất cả các loại áo dài ngũ thân, giao lĩnh của cả nam và nữ.",
+      "remix_note": "Phom dáng ống suông mềm mại rủ nhẹ, là nền tảng hoàn hảo tôn vinh nét đoan trang của cổ phục.",
+      "sources": [
+        "Lịch sử nghề dệt lụa Vạn Phúc - Hà Đông"
+      ],
+      "needs_review": false
+    },
+    "vay_dai": {
+      "kind": "vay_dai",
+      "title_vi": "Váy dài đen",
+      "period": "Thời Lê sơ đến thời Nguyễn",
+      "origin": "Chiếc váy đen quây truyền thống của phụ nữ Đàng Ngoài thời Lê. Từng là biểu tượng đoan trang của người phụ nữ đất Bắc.",
+      "occasion": "Phối cùng áo giao lĩnh hoặc áo tứ thân trong lễ hội mùa xuân và sinh hoạt thường nhật.",
+      "remix_note": "Tạo phom dáng thướt tha, rất đẹp khi bước đi và giữ nét duyên dáng thuần Việt nguyên bản.",
+      "sources": [
+        "Ngàn năm áo mũ - Trần Quang Đức (2013)"
+      ],
+      "needs_review": false
+    },
+    "quan_hien_dai": {
+      "kind": "quan_hien_dai",
+      "title_vi": "Quần âu hiện đại",
+      "period": "Đương đại (Thế kỷ 21)",
+      "origin": "Quần âu may đo tông màu be trang nhã, dáng ống đứng phẳng phiu mang phong cách thời trang tối giản đương đại.",
+      "occasion": "Đi học, đi làm, dự sự kiện văn hóa nghệ thuật của giới trẻ.",
+      "remix_note": "Tạo điểm nhấn giao thoa Đông - Tây; giữ được sự lịch sự của áo dài nhưng thêm phần năng động, tiện lợi khi di chuyển.",
+      "sources": [
+        "Xu hướng Việt phục cách tân trong giới trẻ (2020–nay)"
+      ],
+      "needs_review": false
+    },
+    "giay_vai_den": {
+      "kind": "giay_vai_den",
+      "title_vi": "Giày vải đen",
+      "period": "Cổ truyền dân gian",
+      "origin": "Đôi hài vải mộc mạc khâu đế mềm, sắc đen nhã nhặn gắn liền với hình ảnh các nho sĩ, văn nhân xưa.",
+      "occasion": "Đi lại nhẹ nhàng trong không gian cung đình, đình miếu cổ hoặc nghi lễ trang trọng.",
+      "remix_note": "Giữ trọn nét cổ phong hoài niệm, thích hợp cho không gian Tết truyền thống và Lễ hội cổ truyền.",
+      "sources": [
+        "Nghề đóng hài truyền thống Thăng Long"
+      ],
+      "needs_review": false
+    },
+    "giay_sneaker": {
+      "kind": "giay_sneaker",
+      "title_vi": "Giày sneaker hiện đại",
+      "period": "Đương đại",
+      "origin": "Giày thể thao da trắng tối giản, biểu tượng của văn hóa đường phố và nhịp sống trẻ thế hệ Gen Z.",
+      "occasion": "Dạo phố, chụp ảnh kỷ yếu, lễ hội giới trẻ năng động.",
+      "remix_note": "Cú hích cách tân đầy phá cách: biến bộ cổ phục trăm năm trở nên gần gũi, tươi mới và giàu năng lượng trẻ trung.",
+      "sources": [
+        "Phong trào Gen Z phối Sneaker cùng Cổ phục Việt"
+      ],
+      "needs_review": false
+    },
+    "non_la": {
+      "kind": "non_la",
+      "title_vi": "Nón lá truyền thống",
+      "period": "Cổ truyền nghìn năm",
+      "origin": "Vật dụng che mưa che nắng đan từ lá cọ, lá nón, đã xuất hiện trên hoa văn trống đồng Đông Sơn từ hàng ngàn năm trước.",
+      "occasion": "Đời sống lao động, hội làng, dạo cảnh chợ quê và che duyên của thiếu nữ.",
+      "remix_note": "Phụ kiện đậm hồn quê hương; đội nghiêng duyên dáng tạo nên góc chụp ảnh ấn tượng ở bất cứ bối cảnh nào.",
+      "sources": [
+        "Làng nón Chuông - Di sản thủ công truyền thống"
+      ],
+      "needs_review": false
+    },
+    "tram_cai": {
+      "kind": "tram_cai",
+      "title_vi": "Trâm cài tóc bạc",
+      "period": "Thời phong kiến (Lê - Nguyễn)",
+      "origin": "Trang sức cài tóc bằng bạc chạm khắc tinh xảo, thể hiện nét đài các, nề nếp gia giáo của tiểu thư khuê các xưa.",
+      "occasion": "Điểm tô búi tóc trong các dịp đại lễ, ngày tết và tiệc hỷ.",
+      "remix_note": "Tôn vinh chiếc cổ cao và mái tóc đen tuyền; không bị xung đột khi kết hợp cùng áo cổ đứng ngũ thân.",
+      "sources": [
+        "Nghề chạm bạc Đồng Xâm - Thái Bình",
+        "Cổ vật trang sức thời Nguyễn"
+      ],
+      "needs_review": false
+    },
+    "vong_co_bac": {
+      "kind": "vong_co_bac",
+      "title_vi": "Vòng cổ bạc (Kiềng bạc)",
+      "period": "Cổ truyền dân gian",
+      "origin": "Chiếc kiềng bạc tròn trơn hoặc chạm hoa văn chìm, biểu trưng cho sự viên mãn, bình an và thanh khiết.",
+      "occasion": "Đeo cổ trong ngày lễ vu quy, hội xuân hoặc làm tín vật gia truyền.",
+      "remix_note": "Rất hợp khi phối cùng cổ áo giao lĩnh buông vạt; tránh đeo cùng áo ngũ thân cổ đứng cao để không bị cộm vướng.",
+      "sources": [
+        "Trang sức bạc truyền thống Việt Nam"
+      ],
+      "needs_review": false
+    }
+  },
+  "presets": {
+    "set-a-male": {
+      "preset_id": "set-a-male",
+      "name_vi": "Set A - Áo ngũ thân (Nam)",
+      "summary": "Bộ ngũ thân tay chẽn truyền thống thời Nguyễn: áo năm thân kết hợp quần lụa trắng và hài vải đen chuẩn mực nho nhã.",
+      "sources": ["Ngàn năm áo mũ (2013)"],
+      "needs_review": false
+    },
+    "set-b-male": {
+      "preset_id": "set-b-male",
+      "name_vi": "Set B - Áo giao lĩnh (Nam)",
+      "summary": "Bộ giao lĩnh vạt chéo thời Lê cổ phong phóng khoáng, tái hiện phong thái văn sĩ kinh thành Thăng Long xưa.",
+      "sources": ["Đại Việt sử ký toàn thư"],
+      "needs_review": false
+    },
+    "set-c-male": {
+      "preset_id": "set-c-male",
+      "name_vi": "Set C - Áo tấc (Nam)",
+      "summary": "Lễ phục áo tấc tay thụng trang nghiêm triều Nguyễn, đại diện cho lòng kính cẩn trong các đại lễ trang trọng.",
+      "sources": ["Khâm định Đại Nam hội điển sự lệ"],
+      "needs_review": false
+    },
+    "rx-01-male": {
+      "preset_id": "rx-01-male",
+      "name_vi": "RX-01 - Ngũ thân hiện đại (Nam)",
+      "summary": "Bản phối cách tân đột phá: áo ngũ thân cổ truyền hòa quyện cùng quần âu màu be và giày sneaker năng động Gen Z.",
+      "sources": ["Phong cách Việt phục Remix"],
+      "needs_review": false
+    },
+    "rx-02-male": {
+      "preset_id": "rx-02-male",
+      "name_vi": "RX-02 - Giao lĩnh phá cách (Nam)",
+      "summary": "Giao thoa táo bạo giữa áo giao lĩnh cổ chéo, kiềng bạc cá tính và phụ kiện đường phố thời thượng.",
+      "sources": ["Phong cách Việt phục Remix"],
+      "needs_review": false
+    },
+    "set-a-female": {
+      "preset_id": "set-a-female",
+      "name_vi": "Set A - Áo ngũ thân (Nữ)",
+      "summary": "Nét đoan trang dịu dàng của thiếu nữ Huế trong tà áo ngũ thân lập lĩnh, quần lụa trắng thướt tha và hài vải.",
+      "sources": ["Ngàn năm áo mũ (2013)"],
+      "needs_review": false
+    },
+    "set-b-female": {
+      "preset_id": "set-b-female",
+      "name_vi": "Set B - Áo giao lĩnh (Nữ)",
+      "summary": "Giao lĩnh nữ kết hợp váy dài đen thời Lê, nét đẹp đoan chính, cổ kính của người phụ nữ Thăng Long nghìn năm.",
+      "sources": ["Ngàn năm áo mũ (2013)"],
+      "needs_review": false
+    },
+    "set-c-female": {
+      "preset_id": "set-c-female",
+      "name_vi": "Set C - Áo nhật bình (Nữ)",
+      "summary": "Lễ phục cung đình áo nhật bình lộng lẫy, vương giả của bậc phi tần, công chúa triều đại phong kiến cuối cùng.",
+      "sources": ["Bảo tàng Cổ vật Cung đình Huế"],
+      "needs_review": false
+    },
+    "rx-01-female": {
+      "preset_id": "rx-01-female",
+      "name_vi": "RX-01 - Ngũ thân hiện đại (Nữ)",
+      "summary": "Vẻ đẹp tri thức đương đại: kết hợp áo ngũ thân cùng quần âu thanh lịch và giày thể thao trắng trẻ trung.",
+      "sources": ["Phong cách Việt phục Remix"],
+      "needs_review": false
+    },
+    "rx-02-female": {
+      "preset_id": "rx-02-female",
+      "name_vi": "RX-02 - Giao lĩnh phá cách (Nữ)",
+      "summary": "Bộ cánh giao lĩnh cách tân kết hợp quần âu, sneaker và kiềng bạc, thể hiện cá tính tự do của thiếu nữ hiện đại.",
+      "sources": ["Phong cách Việt phục Remix"],
+      "needs_review": false
+    }
+  },
+  "remix_levels": {
+    "0": {
+      "level": 0,
+      "title": "Cổ điển (Thuần cổ phục)",
+      "summary": "100% cổ phục truyền thống. Giữ trọn cốt cách, phom dáng và quy chuẩn trang nghiêm của người xưa.",
+      "sources": ["Quy chế trang phục cổ truyền"],
+      "needs_review": false
+    },
+    "1": {
+      "level": 1,
+      "title": "Cách tân nhẹ (Giao thoa thanh lịch)",
+      "summary": "Điểm xuyết một chi tiết đương đại (Quần âu hoặc Giày sneaker) kết hợp hài hòa cùng áo cổ truyền.",
+      "sources": ["Nghiên cứu ứng dụng cổ phục"],
+      "needs_review": false
+    },
+    "2": {
+      "level": 2,
+      "title": "Đột phá (Remix sáng tạo)",
+      "summary": "Phối hợp phóng khoáng giữa nhiều món đồ hiện đại và áo truyền thống, phong cách đậm chất Gen Z.",
+      "sources": ["Phong trào thời trang đương đại"],
+      "needs_review": false
+    }
+  }
+}

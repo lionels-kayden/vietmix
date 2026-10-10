@@ -95,8 +95,7 @@
     "item_ids": [
       "M_B_TOP_ao_giao_linh",
       "M_MIX_BOTTOM_quan_hien_dai",
-      "M_MIX_SHOES_giay_sneaker",
-      "M_COMMON_NECK_vong_co_bac"
+      "M_MIX_SHOES_giay_sneaker"
     ]
   },
   {
@@ -107,8 +106,7 @@
     "item_ids": [
       "F_B_TOP_ao_giao_linh",
       "F_MIX_BOTTOM_quan_hien_dai",
-      "F_MIX_SHOES_giay_sneaker",
-      "F_COMMON_NECK_vong_co_bac"
+      "F_MIX_SHOES_giay_sneaker"
     ]
   }
 ]

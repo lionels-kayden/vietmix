@@ -57,11 +57,11 @@ describe("T4: Wardrobe Tabs and Item Controls", () => {
     expect(screen.getByText("Giày sneaker trắng")).toBeInTheDocument();
     expect(screen.queryByText("Quần lụa trắng")).not.toBeInTheDocument();
 
-    // Click tab "Phụ kiện" (accessories: head + neck)
+    // Click tab "Phụ kiện" (accessories: head)
     fireEvent.click(screen.getByRole("tab", { name: "Phụ kiện" }));
     expect(screen.getByText("Nón lá")).toBeInTheDocument();
     expect(screen.getByText("Trâm cài bạc")).toBeInTheDocument();
-    expect(screen.getByText("Vòng cổ bạc")).toBeInTheDocument();
+    expect(screen.queryByText("Vòng cổ bạc")).not.toBeInTheDocument();
     expect(screen.queryByText("Giày vải đen đế trắng")).not.toBeInTheDocument();
   });
 

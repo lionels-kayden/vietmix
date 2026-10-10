@@ -102,7 +102,11 @@ export function Wardrobe({
         ) : (
           tabItems.map((item) => {
             const isWorn = itemIds.includes(item.id);
-            const thumbSrc = `/assets/${gender}/${item.image_file}`;
+            const isGiaoLinh = item.id === "F_B_TOP_ao_giao_linh";
+            const isWornWithSkirt = isGiaoLinh && itemIds.includes("F_B_BOTTOM_vay_dai");
+            const thumbSrc = isWornWithSkirt
+              ? "/assets/female/F_B_TOP_ao_giao_linh_in_skirt.png"
+              : `/assets/${gender}/${item.image_file}`;
 
             return (
               <div

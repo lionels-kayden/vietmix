@@ -420,3 +420,11 @@ export function getPreset(id: string): Preset | undefined {
 export function presetsByGender(g: Gender): Preset[] {
   return loadedPresets.filter((preset) => preset.gender === g);
 }
+
+export function getAllScenes(): Scene[] {
+  return loadedScenes;
+}
+
+export function getScene(id: string): Scene | undefined {
+  return loadedScenes.find((scene) => scene.id === id);
+}

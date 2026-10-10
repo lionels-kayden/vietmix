@@ -1,18 +1,25 @@
 "use client";
 
-import { useReducer, useState } from "react";
+import { useReducer, useState, useEffect } from "react";
 import Link from "next/link";
-import { Gender, Item } from "@/lib/types";
-import { itemsByGender, getItem, presetsByGender } from "@/lib/data";
+import { Item, RuleHit, Gender } from "@/lib/types";
+import { itemsByGender, getItem, presetsByGender, getScene, getAllScenes } from "@/lib/data";
 import {
   createInitialOutfit,
   outfitReducer,
-  getEquippedItem,
   getMatchingPreset,
 } from "@/lib/outfit";
+import { evaluate } from "@/lib/rules";
 import { CharacterCanvas } from "@/app/components/CharacterCanvas";
 import { Wardrobe } from "@/app/components/Wardrobe";
 import { PresetsSelector } from "@/app/components/PresetsSelector";
+import { SceneSelector } from "@/app/components/SceneSelector";
+import { RemixSlider } from "@/app/components/RemixSlider";
+import { SceneCapBadge } from "@/app/components/SceneCapBadge";
+import { StoryCard } from "@/app/components/StoryCard";
+import { ResultView } from "@/app/components/ResultView";
+import { BlockFeedbackModal } from "@/app/components/BlockFeedbackModal";
+import { getItemStory } from "@/lib/stories";
 
 export default function DressUpPage() {
   const [outfitState, dispatch] = useReducer(
@@ -20,10 +27,57 @@ export default function DressUpPage() {
     createInitialOutfit()
   );
 
+  // Check for shared outfit query parameters on initial mount
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    try {
+      const params = new URLSearchParams(window.location.search);
+      const g = params.get("gender");
+      const itemsParam = params.get("items");
+      const s = params.get("scene");
+
+      if (g === "male" || g === "female") {
+        dispatch({ type: "SELECT_GENDER", gender: g as Gender });
+        if (s) {
+          dispatch({ type: "SELECT_SCENE", sceneId: s });
+        }
+        if (itemsParam) {
+          const ids = itemsParam.split(",").filter(Boolean);
+          dispatch({ type: "APPLY_PRESET", itemIds: ids });
+        }
+      }
+    } catch {
+      // Ignore URL parsing errors
+    }
+  }, []);
+
   const gender = outfitState.gender;
   const currentCatalog: Item[] = gender ? itemsByGender(gender) : [];
   const availablePresets = gender ? presetsByGender(gender) : [];
   const activePreset = gender ? getMatchingPreset(outfitState, availablePresets) : undefined;
+  const activeSceneId = outfitState.sceneId || "tet";
+  const currentScene = getScene(activeSceneId) || getAllScenes()[0];
+
+  const [isConfirmed, setIsConfirmed] = useState(false);
+  const [blockViolations, setBlockViolations] = useState<RuleHit[]>([]);
+
+  const handleConfirmOutfit = () => {
+    if (!gender) return;
+    const evalResult = evaluate({ gender, itemIds: outfitState.itemIds });
+    if (!evalResult.canConfirm) {
+      setBlockViolations(evalResult.block);
+    } else {
+      setIsConfirmed(true);
+    }
+  };
+
+  const wornStoryItems = outfitState.itemIds
+    .map((id) => {
+      const item = getItem(id);
+      const story = item ? getItemStory(id) : undefined;
+      return item && story ? { item, story } : null;
+    })
+    .filter((entry): entry is { item: Item; story: import("@/lib/types").ItemStory } => entry !== null);
 
   return (
     <div className="min-h-screen flex flex-col bg-[var(--bg-cream)] text-[var(--ink-text)]">
@@ -103,14 +157,22 @@ export default function DressUpPage() {
               </div>
             </section>
           </div>
+        ) : isConfirmed ? (
+          /* Step 3: Result View */
+          <ResultView
+            gender={gender}
+            itemIds={outfitState.itemIds}
+            sceneId={activeSceneId}
+            onEdit={() => setIsConfirmed(false)}
+          />
         ) : (
           /* Step 2: Dressing Screen */
           <section
             aria-label="Khu vực phối đồ"
-            className="w-full flex flex-col gap-6"
+            className="w-full flex flex-col gap-5"
           >
             {/* Character Header Bar */}
-            <div className="w-full flex items-center justify-between border-b border-[var(--border-paper)] pb-3">
+            <div className="w-full flex flex-wrap items-center justify-between gap-3 border-b border-[var(--border-paper)] pb-3">
               <div className="flex items-center gap-2">
                 <span className="text-sm font-medium text-[var(--ink-muted)]">
                   Nhân vật:
@@ -125,15 +187,38 @@ export default function DressUpPage() {
                   Đang mặc: {outfitState.itemIds.length} món
                 </span>
               </div>
-              <button
-                type="button"
-                onClick={() => dispatch({ type: "SELECT_GENDER", gender: gender === "male" ? "female" : "male" })}
-                className="min-h-[44px] px-3 py-2 text-sm font-medium text-[var(--indigo-deep)] hover:text-[var(--red-lacquer)] underline underline-offset-4 transition-colors"
-                aria-label={`Đổi sang nhân vật ${gender === "male" ? "Nữ" : "Nam"}`}
-              >
-                Đổi sang {gender === "male" ? "Nữ" : "Nam"}
-              </button>
+
+              <div className="flex items-center gap-2.5">
+                <button
+                  type="button"
+                  onClick={() => dispatch({ type: "SELECT_GENDER", gender: gender === "male" ? "female" : "male" })}
+                  className="min-h-[44px] px-3 py-2 text-sm font-medium text-[var(--indigo-deep)] hover:text-[var(--red-lacquer)] underline underline-offset-4 transition-colors"
+                  aria-label={`Đổi sang nhân vật ${gender === "male" ? "Nữ" : "Nam"}`}
+                >
+                  Đổi sang {gender === "male" ? "Nữ" : "Nam"}
+                </button>
+
+                <button
+                  type="button"
+                  data-testid="btn-confirm-outfit"
+                  onClick={handleConfirmOutfit}
+                  disabled={outfitState.itemIds.length === 0}
+                  className="min-h-[44px] px-4 py-2 rounded-xl bg-[var(--red-lacquer)] text-white font-semibold text-sm shadow-sm hover:opacity-90 disabled:opacity-40 disabled:cursor-not-allowed transition-all flex items-center gap-1.5 cursor-pointer focus-visible:outline focus-visible:outline-2 focus-visible:outline-[var(--red-lacquer)]"
+                  aria-label="Chốt bộ trang phục"
+                >
+                  <span>✓</span>
+                  <span>Chốt bộ</span>
+                </button>
+              </div>
             </div>
+
+            {/* Scene Selector */}
+            <SceneSelector
+              selectedSceneId={activeSceneId}
+              onSelectScene={(sceneId) =>
+                dispatch({ type: "SELECT_SCENE", sceneId })
+              }
+            />
 
             {/* Presets Bar */}
             <PresetsSelector
@@ -149,26 +234,43 @@ export default function DressUpPage() {
               data-testid="dressing-area"
               className="grid grid-cols-1 md:grid-cols-2 gap-6 w-full"
             >
-              {/* Left Column: Canvas Preview area */}
-              <div
-                data-testid="character-canvas-container"
-                className="bg-[var(--bg-paper)] rounded-2xl border border-[var(--border-paper)] p-4 flex flex-col items-center justify-center"
-              >
-                <CharacterCanvas
-                  gender={gender}
-                  itemIds={outfitState.itemIds}
-                />
+              {/* Left Column: Canvas Preview area + RemixSlider + SceneCapBadge */}
+              <div className="flex flex-col gap-4">
                 <div
-                  data-testid="worn-items-summary"
-                  className="text-xs text-[var(--ink-muted)] text-center mt-3"
+                  data-testid="character-canvas-container"
+                  className="bg-[var(--bg-paper)] rounded-2xl border border-[var(--border-paper)] p-4 flex flex-col items-center justify-center"
                 >
-                  {outfitState.itemIds.length === 0
-                    ? "Chưa chọn món đồ nào"
-                    : `Đang mặc: ${outfitState.itemIds
-                        .map((id) => getItem(id)?.name_vi)
-                        .filter(Boolean)
-                        .join(", ")}`}
+                  <CharacterCanvas
+                    gender={gender}
+                    itemIds={outfitState.itemIds}
+                    sceneId={activeSceneId}
+                  />
+                  <div
+                    data-testid="worn-items-summary"
+                    className="text-xs text-[var(--ink-muted)] text-center mt-3"
+                  >
+                    {outfitState.itemIds.length === 0
+                      ? "Chưa chọn món đồ nào"
+                      : `Đang mặc: ${outfitState.itemIds
+                          .map((id) => getItem(id)?.name_vi)
+                          .filter(Boolean)
+                          .join(", ")}`}
+                  </div>
                 </div>
+
+                {/* Remix Slider */}
+                <RemixSlider
+                  outfit={{ gender, itemIds: outfitState.itemIds }}
+                  scene={currentScene}
+                />
+
+                {/* Cultural Scene Cap Badge & Non-binding Guidance */}
+                {currentScene && (
+                  <SceneCapBadge
+                    scene={currentScene}
+                    outfit={{ gender, itemIds: outfitState.itemIds }}
+                  />
+                )}
               </div>
 
               {/* Right Column: Wardrobe Tabs & Items */}
@@ -182,8 +284,51 @@ export default function DressUpPage() {
                 />
               </div>
             </div>
+
+            {/* Cultural Story Cards Section */}
+            <section
+              data-testid="story-cards-section"
+              aria-label="Câu chuyện văn hóa trang phục"
+              className="w-full bg-[var(--bg-paper)] rounded-2xl border border-[var(--border-paper)] p-4 md:p-6 shadow-sm flex flex-col gap-4 mt-2"
+            >
+              <div className="flex items-center justify-between border-b border-[var(--border-paper)] pb-2.5">
+                <div className="flex items-center gap-2">
+                  <span className="text-xl" aria-hidden="true">📜</span>
+                  <h3 className="font-serif font-bold text-base md:text-lg text-[var(--ink-text)]">
+                    Câu chuyện văn hóa trang phục
+                  </h3>
+                </div>
+                <span className="text-xs text-[var(--ink-muted)]">
+                  {wornStoryItems.length > 0 ? `${wornStoryItems.length} thẻ tư liệu` : "Chưa chọn trang phục"}
+                </span>
+              </div>
+
+              {wornStoryItems.length === 0 ? (
+                <div
+                  data-testid="story-cards-empty"
+                  className="text-center py-6 text-xs md:text-sm text-[var(--ink-muted)] italic"
+                >
+                  Hãy chọn một món trang phục bên tủ đồ để mở khóa câu chuyện nguồn gốc và lịch sử văn hóa.
+                </div>
+              ) : (
+                <div
+                  data-testid="story-cards-grid"
+                  className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4"
+                >
+                  {wornStoryItems.map(({ item, story }) => (
+                    <StoryCard key={item.id} story={story} item={item} />
+                  ))}
+                </div>
+              )}
+            </section>
           </section>
         )}
+
+        {/* Rule Block Violations Modal */}
+        <BlockFeedbackModal
+          blockHits={blockViolations}
+          onClose={() => setBlockViolations([])}
+        />
       </main>
     </div>
   );

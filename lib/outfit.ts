@@ -4,6 +4,7 @@ import { getItem } from './data';
 export interface OutfitState {
   gender: Gender | null;
   itemIds: string[];
+  sceneId?: string;
 }
 
 export type OutfitAction =
@@ -11,12 +12,17 @@ export type OutfitAction =
   | { type: 'EQUIP_ITEM'; itemId: string }
   | { type: 'REMOVE_ITEM'; itemId: string }
   | { type: 'CLEAR_OUTFIT' }
-  | { type: 'APPLY_PRESET'; itemIds: string[] };
+  | { type: 'APPLY_PRESET'; itemIds: string[] }
+  | { type: 'SELECT_SCENE'; sceneId: string };
 
-export function createInitialOutfit(gender: Gender | null = null): OutfitState {
+export function createInitialOutfit(
+  gender: Gender | null = null,
+  sceneId: string = 'tet'
+): OutfitState {
   return {
     gender,
     itemIds: [],
+    sceneId,
   };
 }
 
@@ -24,8 +30,9 @@ export function selectGender(state: OutfitState, newGender: Gender): OutfitState
   if (state.gender === newGender) {
     return state;
   }
-  // A gender change clears the outfit
+  // A gender change clears the outfit but preserves scene selection
   return {
+    ...state,
     gender: newGender,
     itemIds: [],
   };
@@ -158,6 +165,12 @@ export function applyOutfitAction(
 
     case 'APPLY_PRESET':
       return applyPreset(state, action.itemIds, itemLookup);
+
+    case 'SELECT_SCENE':
+      return {
+        ...state,
+        sceneId: action.sceneId,
+      };
 
     default:
       return state;

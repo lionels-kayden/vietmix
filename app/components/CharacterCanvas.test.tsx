@@ -28,18 +28,16 @@ describe("T3: CharacterCanvas Layered Renderer", () => {
     expect(baseImg).toHaveAttribute("src", "/assets/female/female_base.png");
   });
 
-  it("renders layers in strict logical order: body, shoes, bottom, top, neck, head", () => {
+  it("renders layers in strict logical order: body, shoes, bottom, top, head", () => {
     // Equipping all slots for male:
     // top: M_A_TOP_ao_ngu_than
     // bottom: M_COMMON_BOTTOM_quan_lua_trang
     // shoes: M_COMMON_SHOES_giay_vai_den
-    // neck: M_COMMON_NECK_vong_co_bac
     // head: M_COMMON_HEAD_non_la
     const maleFullOutfit = [
       "M_A_TOP_ao_ngu_than",
       "M_COMMON_BOTTOM_quan_lua_trang",
       "M_COMMON_SHOES_giay_vai_den",
-      "M_COMMON_NECK_vong_co_bac",
       "M_COMMON_HEAD_non_la",
     ];
 
@@ -49,15 +47,13 @@ describe("T3: CharacterCanvas Layered Renderer", () => {
     const shoesLayer = screen.getByTestId("layer-shoes");
     const bottomLayer = screen.getByTestId("layer-bottom");
     const topLayer = screen.getByTestId("layer-top");
-    const neckLayer = screen.getByTestId("layer-neck");
     const headLayer = screen.getByTestId("layer-head");
 
-    // Check z-index progression matches layer order: body (0) < shoes (10) < bottom (20) < top (30) < neck (40) < head (50)
+    // Check z-index progression matches layer order: body (0) < shoes (10) < bottom (20) < top (30) < head (50)
     expect(bodyLayer).toHaveClass("z-0");
     expect(shoesLayer).toHaveStyle({ zIndex: 10 });
     expect(bottomLayer).toHaveStyle({ zIndex: 20 });
     expect(topLayer).toHaveStyle({ zIndex: 30 });
-    expect(neckLayer).toHaveStyle({ zIndex: 40 });
     expect(headLayer).toHaveStyle({ zIndex: 50 });
 
     // Verify correct item src attributes
@@ -232,7 +228,7 @@ describe("T3: CharacterCanvas Layered Renderer", () => {
     expect(shoesInner).toHaveClass("garment-enter");
   });
 
-  it("verifies all 22 expected PNG files exist in public/assets/", async () => {
+  it("verifies all expected PNG files exist in public/assets/", async () => {
     const fs = await import("fs");
     const path = await import("path");
     const publicAssetsDir = path.resolve(process.cwd(), "public", "assets");
@@ -243,10 +239,65 @@ describe("T3: CharacterCanvas Layered Renderer", () => {
     const itemsPath = path.resolve(process.cwd(), "data", "items.json");
     const items = JSON.parse(fs.readFileSync(itemsPath, "utf-8"));
 
-    expect(items).toHaveLength(20);
+    expect(items).toHaveLength(18);
     items.forEach((item: any) => {
       const filePath = path.join(publicAssetsDir, item.gender, item.image_file);
       expect(fs.existsSync(filePath), `Expected ${filePath} to exist`).toBe(true);
     });
+  });
+
+  it("renders scene background at z-0 and character within 85% scale bottom container", () => {
+    render(<CharacterCanvas gender="female" itemIds={[]} sceneId="tet" />);
+
+    // Scene layer exists and renders tet.jpg at z-0
+    const sceneLayer = screen.getByTestId("layer-scene");
+    expect(sceneLayer).toHaveClass("z-0");
+    const sceneImg = screen.getByRole("img", { name: "Bối cảnh tet" });
+    expect(sceneImg).toHaveAttribute("src", "/assets/scenes/tet.jpg");
+
+    // Character container has 85% scale and bottom-center anchoring
+    const characterContainer = screen.getByTestId("character-container");
+    expect(characterContainer).toHaveClass("w-[85%]");
+    expect(characterContainer).toHaveClass("h-[85%]");
+    expect(characterContainer).toHaveClass("bottom-0");
+  });
+
+  it("handles broken scene background gracefully without affecting character rendering", () => {
+    render(<CharacterCanvas gender="male" itemIds={[]} sceneId="ky-yeu" />);
+
+    const sceneImg = screen.getByRole("img", { name: "Bối cảnh ky-yeu" });
+    fireEvent.error(sceneImg);
+
+    expect(screen.getByTestId("fallback-scene")).toHaveTextContent(/Lỗi ảnh bối cảnh: ky-yeu/i);
+    expect(screen.getByRole("img", { name: /Hình mẫu nhân vật Nam/i })).toBeInTheDocument();
+  });
+
+  it("dynamically resolves Giao Linh variant: in_skirt when paired with black skirt, full robe when paired with pants", () => {
+    // 1. Paired with skirt (F_B_BOTTOM_vay_dai) -> uses shortened/in_skirt variant
+    const { unmount } = render(
+      <CharacterCanvas
+        gender="female"
+        itemIds={["F_B_TOP_ao_giao_linh", "F_B_BOTTOM_vay_dai"]}
+      />
+    );
+    const topImgWithSkirt = screen.getByRole("img", { name: "Áo giao lĩnh" });
+    expect(topImgWithSkirt).toHaveAttribute(
+      "src",
+      "/assets/female/F_B_TOP_ao_giao_linh_in_skirt.png"
+    );
+    unmount();
+
+    // 2. Paired with pants (F_COMMON_BOTTOM_quan_lua_trang) -> uses full loose robe variant
+    render(
+      <CharacterCanvas
+        gender="female"
+        itemIds={["F_B_TOP_ao_giao_linh", "F_COMMON_BOTTOM_quan_lua_trang"]}
+      />
+    );
+    const topImgWithPants = screen.getByRole("img", { name: "Áo giao lĩnh" });
+    expect(topImgWithPants).toHaveAttribute(
+      "src",
+      "/assets/female/F_B_TOP_ao_giao_linh.png"
+    );
   });
 });

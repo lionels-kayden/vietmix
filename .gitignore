@@ -46,3 +46,10 @@ __pycache__/
 *.py[cod]
 *$py.class
 .pytest_cache/
+
+# local scratch & reports
+scratch/
+reports/
+public/reports/
+public/review_*.html
+

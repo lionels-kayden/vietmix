@@ -53,25 +53,6 @@ describe('T3: Rules and the rule engine', () => {
     });
   });
 
-  describe('Rule R_NECKLACE_STAND_COLLAR', () => {
-    it('triggers when silver necklace is combined with a stand collar top', () => {
-      const res = evaluate({
-        gender: 'male',
-        itemIds: ['M_COMMON_NECK_vong_co_bac', 'M_A_TOP_ao_ngu_than'],
-      });
-      expect(res.block.some((h) => h.ruleId === 'R_NECKLACE_STAND_COLLAR')).toBe(true);
-      expect(res.canConfirm).toBe(false);
-    });
-
-    it('does not trigger when silver necklace is combined with cross-collar (no stand collar)', () => {
-      const res = evaluate({
-        gender: 'male',
-        itemIds: ['M_COMMON_NECK_vong_co_bac', 'M_B_TOP_ao_giao_linh'],
-      });
-      expect(res.block.some((h) => h.ruleId === 'R_NECKLACE_STAND_COLLAR')).toBe(false);
-    });
-  });
-
   describe('Rule R_HAT_HAIRPIN', () => {
     it('triggers when conical hat and silver hairpin are both present', () => {
       const res = evaluate({
@@ -146,12 +127,13 @@ describe('T3: Rules and the rule engine', () => {
   });
 
   describe('Rule R_SKIRT_NGU_THAN', () => {
-    it('triggers when black skirt is combined with ao ngu than', () => {
+    it('triggers block and prevents confirmation when black skirt is combined with ao ngu than', () => {
       const res = evaluate({
         gender: 'female',
         itemIds: ['F_B_BOTTOM_vay_dai', 'F_A_TOP_ao_ngu_than'],
       });
-      expect(res.warn.some((h) => h.ruleId === 'R_SKIRT_NGU_THAN')).toBe(true);
+      expect(res.block.some((h) => h.ruleId === 'R_SKIRT_NGU_THAN')).toBe(true);
+      expect(res.canConfirm).toBe(false);
     });
 
     it('does not trigger when black skirt is combined with ao giao linh', () => {
@@ -159,7 +141,7 @@ describe('T3: Rules and the rule engine', () => {
         gender: 'female',
         itemIds: ['F_B_BOTTOM_vay_dai', 'F_B_TOP_ao_giao_linh'],
       });
-      expect(res.warn.some((h) => h.ruleId === 'R_SKIRT_NGU_THAN')).toBe(false);
+      expect(res.block.some((h) => h.ruleId === 'R_SKIRT_NGU_THAN')).toBe(false);
     });
   });
 

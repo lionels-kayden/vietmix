@@ -19,7 +19,6 @@ describe('T1: items.json and presets.json', () => {
     'giay_vai_den',
     'giay_sneaker',
     'non_la',
-    'vong_co_bac',
   ];
 
   const expectedFemaleKinds = [
@@ -33,15 +32,14 @@ describe('T1: items.json and presets.json', () => {
     'giay_sneaker',
     'non_la',
     'tram_cai',
-    'vong_co_bac',
   ];
 
-  it('verifies 20 items (9 male, 11 female)', () => {
-    expect(items).toHaveLength(20);
+  it('verifies 18 items (8 male, 10 female)', () => {
+    expect(items).toHaveLength(18);
     const maleItems = items.filter((i: any) => i.gender === 'male');
     const femaleItems = items.filter((i: any) => i.gender === 'female');
-    expect(maleItems).toHaveLength(9);
-    expect(femaleItems).toHaveLength(11);
+    expect(maleItems).toHaveLength(8);
+    expect(femaleItems).toHaveLength(10);
   });
 
   it('verifies kinds per gender match the expected specification', () => {

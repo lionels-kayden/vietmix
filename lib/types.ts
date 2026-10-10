@@ -104,3 +104,36 @@ export interface RuleEvaluationResult {
   suggest: RuleHit[];
   canConfirm: boolean;
 }
+
+export interface ItemStory {
+  kind: ItemKind;
+  title_vi: string;
+  period: string;
+  origin: string;
+  occasion: string;
+  remix_note: string;
+  sources: string[];
+  needs_review: boolean;
+}
+
+export interface PresetStory {
+  preset_id: string;
+  name_vi: string;
+  summary: string;
+  sources: string[];
+  needs_review: boolean;
+}
+
+export interface RemixLevelStory {
+  level: number;
+  title: string;
+  summary: string;
+  sources: string[];
+  needs_review: boolean;
+}
+
+export interface StoriesData {
+  items: Record<string, ItemStory>;
+  presets: Record<string, PresetStory>;
+  remix_levels: Record<string, RemixLevelStory>;
+}

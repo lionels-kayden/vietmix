@@ -75,10 +75,10 @@ describe('T2: Character selection and outfit state (lib/outfit.ts)', () => {
     state = equipItem(state, 'F_COMMON_HEAD_tram_cai');
     expect(state.itemIds).toEqual(['F_COMMON_HEAD_tram_cai']);
 
-    // Equip necklace (slot: neck): worn concurrently with head accessory
-    state = equipItem(state, 'F_COMMON_NECK_vong_co_bac');
+    // Equip shoes (slot: shoes): worn concurrently with head accessory
+    state = equipItem(state, 'F_COMMON_SHOES_giay_vai_den');
     expect(state.itemIds).toContain('F_COMMON_HEAD_tram_cai');
-    expect(state.itemIds).toContain('F_COMMON_NECK_vong_co_bac');
+    expect(state.itemIds).toContain('F_COMMON_SHOES_giay_vai_den');
   });
 
   it('removes item and clears outfit', () => {
@@ -107,5 +107,19 @@ describe('T2: Character selection and outfit state (lib/outfit.ts)', () => {
 
     state = outfitReducer(state, { type: 'REMOVE_ITEM', itemId: 'F_A_TOP_ao_ngu_than' });
     expect(state.itemIds).toEqual([]);
+  });
+
+  it('selects scene and preserves scene selection across gender switch', () => {
+    let state = createInitialOutfit('female', 'tet');
+    expect(state.sceneId).toBe('tet');
+
+    // Switch scene
+    state = outfitReducer(state, { type: 'SELECT_SCENE', sceneId: 'ky-yeu' });
+    expect(state.sceneId).toBe('ky-yeu');
+
+    // Switch gender preserves scene
+    state = outfitReducer(state, { type: 'SELECT_GENDER', gender: 'male' });
+    expect(state.gender).toBe('male');
+    expect(state.sceneId).toBe('ky-yeu');
   });
 });

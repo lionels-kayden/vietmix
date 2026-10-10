@@ -8,8 +8,10 @@ import {
   getItem,
   itemsByGender,
   itemsBySlot,
+  getAllScenes,
+  getScene,
 } from './data';
-import { Item } from './types';
+import { Item, Scene } from './types';
 
 describe('T2: Types and loader', () => {
   const sampleValidItem: Item = {
@@ -248,7 +250,7 @@ describe('T2: Types and loader', () => {
   describe('loadAll and helpers on real data', () => {
     it('successfully loads all real data without errors', () => {
       const data = loadAll();
-      expect(data.items.length).toBe(20);
+      expect(data.items.length).toBe(18);
       expect(data.presets.length).toBe(10);
       expect(data.scenes.length).toBe(4);
       expect(Array.isArray(data.rules)).toBe(true);
@@ -292,8 +294,8 @@ describe('T2: Types and loader', () => {
       loadAll();
       const maleItems = itemsByGender('male');
       const femaleItems = itemsByGender('female');
-      expect(maleItems).toHaveLength(9);
-      expect(femaleItems).toHaveLength(11);
+      expect(maleItems).toHaveLength(8);
+      expect(femaleItems).toHaveLength(10);
       expect(maleItems.every((i) => i.gender === 'male')).toBe(true);
       expect(femaleItems.every((i) => i.gender === 'female')).toBe(true);
     });
@@ -307,6 +309,23 @@ describe('T2: Types and loader', () => {
       const femaleHead = itemsBySlot('female', 'head');
       expect(femaleHead).toHaveLength(2); // non_la and tram_cai
       expect(femaleHead.map((i) => i.kind).sort()).toEqual(['non_la', 'tram_cai'].sort());
+    });
+
+    it('getAllScenes returns all 4 scenes', () => {
+      loadAll();
+      const scenes = getAllScenes();
+      expect(scenes).toHaveLength(4);
+      expect(scenes.map((s: Scene) => s.id)).toEqual(['tet', 'ky-yeu', 'le-hoi', 'doi-thuong']);
+    });
+
+    it('getScene retrieves specific scene by id', () => {
+      loadAll();
+      const tet = getScene('tet');
+      expect(tet).toBeDefined();
+      expect(tet?.name_vi).toBe('Tết');
+      expect(tet?.remix_cap).toBe(1);
+
+      expect(getScene('unknown')).toBeUndefined();
     });
   });
 });

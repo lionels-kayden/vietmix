@@ -74,14 +74,13 @@ describe('T5: Presets logic and integration (lib/outfit.ts & lib/data.ts)', () =
   });
 
   it('replaces the whole outfit and clears stale accessories', () => {
-    // 1. Male: Dress with full suit + hat + necklace
+    // 1. Male: Dress with full suit + hat
     let maleState = createInitialOutfit('male');
     maleState = equipItem(maleState, 'M_C_TOP_ao_tac');
     maleState = equipItem(maleState, 'M_COMMON_BOTTOM_quan_lua_trang');
     maleState = equipItem(maleState, 'M_COMMON_SHOES_giay_vai_den');
     maleState = equipItem(maleState, 'M_COMMON_HEAD_non_la'); // head accessory
-    maleState = equipItem(maleState, 'M_COMMON_NECK_vong_co_bac'); // neck accessory
-    expect(maleState.itemIds).toHaveLength(5);
+    expect(maleState.itemIds).toHaveLength(4);
 
     // Apply RX-01 male preset (has top, modern bottom, sneakers; NO accessories)
     const rx01Male = getPreset('rx-01-male')!;
@@ -89,15 +88,13 @@ describe('T5: Presets logic and integration (lib/outfit.ts & lib/data.ts)', () =
 
     expect(afterRx01.itemIds).toEqual(rx01Male.item_ids);
     expect(afterRx01.itemIds).not.toContain('M_COMMON_HEAD_non_la');
-    expect(afterRx01.itemIds).not.toContain('M_COMMON_NECK_vong_co_bac');
     expect(afterRx01.itemIds).not.toContain('M_C_TOP_ao_tac');
 
-    // 2. Female: Start with RX-02 (includes necklace) plus hairpin
+    // 2. Female: Start with RX-02 plus manually equipped hairpin
     let femaleState = createInitialOutfit('female');
     const rx02Female = getPreset('rx-02-female')!;
     femaleState = applyPreset(femaleState, rx02Female.item_ids);
     femaleState = equipItem(femaleState, 'F_COMMON_HEAD_tram_cai');
-    expect(femaleState.itemIds).toContain('F_COMMON_NECK_vong_co_bac');
     expect(femaleState.itemIds).toContain('F_COMMON_HEAD_tram_cai');
 
     // Apply Set B female (top, skirt, shoes; NO accessories)
@@ -105,7 +102,6 @@ describe('T5: Presets logic and integration (lib/outfit.ts & lib/data.ts)', () =
     const afterSetB = applyPreset(femaleState, setBFemale.item_ids);
 
     expect(afterSetB.itemIds).toEqual(setBFemale.item_ids);
-    expect(afterSetB.itemIds).not.toContain('F_COMMON_NECK_vong_co_bac');
     expect(afterSetB.itemIds).not.toContain('F_COMMON_HEAD_tram_cai');
   });
 
@@ -128,19 +124,17 @@ describe('T5: Presets logic and integration (lib/outfit.ts & lib/data.ts)', () =
     state = equipItem(state, 'M_MIX_BOTTOM_quan_hien_dai');
     expect(getMatchingPreset(state, malePresets)?.id).toBe('rx-01-male');
 
-    // Edit 3: Add an accessory (necklace) -> RX-01 does not include necklace
-    state = equipItem(state, 'M_COMMON_NECK_vong_co_bac');
-    // Now wearing: Set A top, modern trousers, sneakers, necklace -> no matching preset
+    // Edit 3: Add an accessory (hat) -> RX-01 does not include hat
+    state = equipItem(state, 'M_COMMON_HEAD_non_la');
     expect(getMatchingPreset(state, malePresets)).toBeUndefined();
 
-    // Edit 4: Replace top with Áo giao lĩnh -> Now wearing Áo giao lĩnh, modern trousers, sneakers, necklace
-    // This matches RX-02!
+    // Edit 4: Remove hat -> back to RX-01
+    state = removeItem(state, 'M_COMMON_HEAD_non_la');
+    expect(getMatchingPreset(state, malePresets)?.id).toBe('rx-01-male');
+
+    // Edit 5: Replace top with Áo giao lĩnh -> Now matches RX-02!
     state = equipItem(state, 'M_B_TOP_ao_giao_linh');
     expect(getMatchingPreset(state, malePresets)?.id).toBe('rx-02-male');
-
-    // Edit 5: Remove an item
-    state = removeItem(state, 'M_COMMON_NECK_vong_co_bac');
-    expect(getMatchingPreset(state, malePresets)).toBeUndefined();
   });
 
   it('rejects cross-gender items in applyPreset', () => {

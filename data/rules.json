@@ -18,22 +18,6 @@
     "needs_review": true
   },
   {
-    "id": "R_NECKLACE_STAND_COLLAR",
-    "level": "block",
-    "type": "combo",
-    "all": [
-      {
-        "kind": "vong_co_bac"
-      },
-      {
-        "attr": "stand_collar"
-      }
-    ],
-    "message_key": "necklace_stand_collar",
-    "message_vi": "Vòng cổ kim loại không đeo ra ngoài trang phục có cổ đứng.",
-    "needs_review": true
-  },
-  {
     "id": "R_HAT_HAIRPIN",
     "level": "block",
     "type": "combo",
@@ -99,7 +83,7 @@
   },
   {
     "id": "R_SKIRT_NGU_THAN",
-    "level": "warn",
+    "level": "block",
     "type": "combo",
     "all": [
       {
@@ -110,8 +94,8 @@
       }
     ],
     "message_key": "skirt_ngu_than",
-    "message_vi": "Áo ngũ thân truyền thống thời Nguyễn thường đi kèm quần hai ống thay vì váy dài.",
-    "needs_review": true
+    "message_vi": "Áo ngũ thân truyền thống thời Nguyễn không kết hợp cùng váy dài (cần mặc quần hai ống theo quy chuẩn cải cách triều Nguyễn).",
+    "needs_review": false
   },
   {
     "id": "R_GIAO_LINH_SKIRT",
