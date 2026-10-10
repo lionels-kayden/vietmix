@@ -79,5 +79,17 @@ if (fs.existsSync(brandingSrcDir)) {
   }
 }
 
-console.log(`Synced character assets, scenes, audio, and branding to public/assets/.`);
+// Copy demo assets
+const demoSrcDir = path.join(rootDir, 'assets', 'demo');
+const demoTargetDir = path.join(publicDir, 'demo');
+fs.mkdirSync(demoTargetDir, { recursive: true });
+
+if (fs.existsSync(demoSrcDir)) {
+  const demoFiles = fs.readdirSync(demoSrcDir);
+  for (const file of demoFiles) {
+    fs.copyFileSync(path.join(demoSrcDir, file), path.join(demoTargetDir, file));
+  }
+}
+
+console.log(`Synced character assets, scenes, audio, branding, and demo samples to public/assets/.`);
 

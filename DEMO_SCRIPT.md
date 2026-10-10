@@ -1,0 +1,41 @@
+# KỊCH BẢN QUAY VIDEO DEMO SẢN PHẨM VIETMIX
+**Thời lượng dự kiến:** ~3 phút (180 giây)  
+**Ngôn ngữ thuyết minh:** Tiếng Việt  
+**Nguyên tắc:** Bám sát 100% tính năng đang chạy thực tế, không cường điệu hoá, ngôn từ tự nhiên, mạch lạc và tự tin.
+
+---
+
+## 1. TỔNG QUAN CẤU TRÚC VIDEO
+
+| Phần | Thời gian | Mục tiêu |
+| :--- | :---: | :--- |
+| **Phần 1: Đặt vấn đề** | 00:00 – 00:25 (25s) | Khơi gợi sự yêu thích cổ phục của giới trẻ và rào cản thực tế khi tiếp cận. |
+| **Phần 2: Giới thiệu Vietmix** | 00:25 – 00:50 (25s) | Định vị Vietmix là nền tảng phối đồ Việt phục tương tác gắn liền tri thức văn hóa. |
+| **Phần 3: Trực tiếp trải nghiệm (Live Demo)** | 00:50 – 01:55 (65s) | Thao tác mượt mà: chọn nhân vật, đổi bối cảnh, phối đồ, cơ chế layering, lật thẻ văn hóa, chốt bộ. |
+| **Phần 4: Kết quả & Album Lookbook** | 01:55 – 02:35 (40s) | Màn hình kết quả, tải ảnh thẻ PNG sắc nét, sao chép caption chia sẻ và mở Album Lookbook trên máy. |
+| **Phần 5: Điểm nhấn & Định hướng** | 02:35 – 03:00 (25s) | Khẳng định giá trị hiện tại và bật mí hướng phát triển dài hạn của đội ngũ. |
+
+---
+
+## 2. BẢNG KỊCH BẢN CHI TIẾT (SHOT-BY-SHOT)
+
+| Thời gian | Màn hình / Cảnh quay | Thao tác cụ thể của người quay | Lời thuyết minh (Đọc trực tiếp) |
+| :---: | :--- | :--- | :--- |
+| **00:00 – 00:15** *(15s)* | **Trang chủ Vietmix (`/`)**<br>- Giao diện trang chủ đậm nét văn hóa Việt, logo và tiêu đề xuất hiện rõ nét.<br>- Nhạc nền BGM du dương phát nhẹ nhàng. | - Để trỏ chuột ở giữa màn hình trang chủ.<br>- Di chuyển nhẹ chuột qua các cụm giới thiệu (không click vội).<br>- Giữ khung hình tĩnh khoảng 3 giây đầu để người xem cảm nhận không gian thẩm mỹ. | *"Xin chào mọi người! Cổ phục Việt Nam đang ngày càng trở thành niềm tự hào lớn của thế hệ trẻ. Từ áo ngũ thân, nhật bình đến giao lĩnh, ngày càng nhiều bạn mong muốn được khoác lên mình tà áo truyền thống trong những dịp đặc biệt."* |
+| **00:15 – 00:25** *(10s)* | **Trang chủ Vietmix**<br>- Trỏ chuột di chuyển về nút hành động. | - Rê chuột nhẹ vào dòng phụ đề giới thiệu dự án.<br>- Trỏ chuột chuẩn bị bấm nút bắt đầu. | *"Thế nhưng, không ít bạn trẻ vẫn cảm thấy bỡ ngỡ: Mẫu áo này mặc vào phom dáng ra sao? Phối cùng phụ kiện gì thì đúng tinh thần? Và kết hợp cùng trang phục hiện đại thế nào để vừa mới mẻ, vừa tôn trọng văn hóa?"* |
+| **00:25 – 00:50** *(25s)* | **Chuyển cảnh vào Phòng phối đồ (`/dress-up`)**<br>- Không gian thiết kế trực quan hiện ra: nhân vật ở giữa, tủ đồ bên phải, bảng tri thức văn hóa phía dưới. | - **Click nút "BẮT ĐẦU PHỐI ĐỒ"** trên trang chủ.<br>- Màn hình chuyển vào `/dress-up`.<br>- Di chuột một lượt từ Canvas nhân vật qua Tủ đồ và Thước đo Remix. | *"Đó chính là lý do đội ngũ chúng em phát triển **Vietmix** — nền tảng trải nghiệm và phối đồ Việt phục số hóa mang tính tương tác cao.<br>Vietmix hướng tới học sinh, sinh viên, các nhà sáng tạo nội dung và tất cả những ai yêu quý trang phục truyền thống, giúp việc tìm hiểu và ứng dụng cổ phục trở nên gần gũi, trực quan chỉ sau vài cú chạm."* |
+| **00:50 – 01:10** *(20s)* | **Phòng phối đồ: Chọn nhân vật & Bối cảnh**<br>- Thao tác chọn nhân vật Nữ và đổi bối cảnh Hội An. | 1. Bấm chọn nhân vật **"Nữ"** (nếu đang ở Nam).<br>2. Ở thanh **Bối cảnh** bên dưới canvas, bấm chọn **"Đời thường / Hội An"**.<br>3. Khung cảnh nền lập tức đổi sang dãy phố cổ rực rỡ đèn lồng. | *"Bắt đầu trải nghiệm, chúng ta có thể tùy chọn nhân vật Nam hoặc Nữ, và đặt nhân vật vào từng không gian cụ thể như Tết truyền thống, Kỷ yếu hay Dạo phố đời thường. Ở đây, em chọn bối cảnh Hội An trầm mặc và thơ mộng."* |
+| **01:10 – 01:30** *(20s)* | **Phối đồ & Trải nghiệm Layering thông minh**<br>- Phối áo Giao Lĩnh + Quần ống rộng + Sneaker.<br>- Quan sát thanh trượt Remix chuyển động. | 1. Chọn tab **"Áo"** $\rightarrow$ Click **"Áo Giao Lĩnh"**.<br>2. Chọn tab **"Quần/Váy"** $\rightarrow$ Click **"Quần Ống Rộng Be"** (Hiện đại).<br>3. Chọn tab **"Giày"** $\rightarrow$ Click **"Sneaker Trắng"**.<br>4. Rê chuột chỉ vào vạt áo được sơ vin gọn gàng và thanh **Remix Slider** đang ở mốc **"Đương đại" (Mốc 2)**. | *"Trong tủ đồ, Vietmix chuẩn bị sẵn các dòng trang phục đặc trưng. Em sẽ thử kết hợp tà Áo Giao Lĩnh cổ phong cùng một chiếc Quần ống rộng hiện đại và đôi Sneaker năng động.<br>Hệ thống tự động xử lý lớp hiển thị để tà áo được sơ vin tinh tế vào cạp quần. Đồng thời, thước đo phong cách tự động nhận diện đây là một bản phối 'Remix Đương đại' đầy trẻ trung."* |
+| **01:30 – 01:45** *(15s)* | **Khám phá Thẻ tri thức văn hóa (Story Cards)**<br>- Lật thẻ 3D để đọc thông điệp lịch sử. | 1. Cuộn nhẹ xuống khu vực **Thẻ văn hóa** dưới tủ đồ.<br>2. **Click vào thẻ "Áo Giao Lĩnh"** để kích hoạt hiệu ứng xoay lật 3D.<br>3. Giữ 3 giây để người xem thấy mặt sau hiển thị: Nguồn gốc, Dịp mặc và Gợi ý phối đồ. | *"Điểm đặc biệt của Vietmix là mỗi món đồ đều gắn liền với một 'Thẻ tri thức văn hóa'. Khi bấm vào thẻ, người dùng có thể lật xem nguồn gốc lịch sử, ý nghĩa và bối cảnh sử dụng phù hợp. Việc phối đồ giờ đây trở thành một hành trình khám phá di sản sống động chứ không chỉ là trò chơi trang điểm đơn thuần."* |
+| **01:45 – 01:55** *(10s)* | **Kiểm tra quy tắc & Chốt bộ trang phục**<br>- Bấm nút chốt bộ và chuyển sang màn hình kết quả. | 1. Di chuột sang nút lớn **"CHỐT BỘ TRANG PHỤC"**.<br>2. **Click nút "CHỐT BỘ TRANG PHỤC"**.<br>3. Màn hình mở ra `ResultView` với hiệu ứng trang trọng. | *"Khi đã ưng ý với bản phối, chúng ta nhấn 'Chốt bộ trang phục'. Hệ thống tự động kiểm tra tính hài hòa về quy tắc trang phục và tạo ra một bản tổng kết hoàn chỉnh."* |
+| **01:55 – 02:15** *(20s)* | **Màn hình Kết quả (`ResultView`) & Xuất ảnh PNG**<br>- Trưng bày thẻ ảnh thời trang chất lượng cao 1080x1350 kèm mã QR và lời bình tự động. | 1. Rê chuột đọc lướt qua **Lời bình văn hóa** tự động ở cột phải.<br>2. Di chuột đến nút **"TẢI ẢNH THẺ (PNG)"** và **Click**.<br>3. Trình duyệt tải file ảnh PNG sắc nét về máy, thông báo Toast xanh hiện lên: *✓ Đã tải ảnh thẻ PNG về máy!*<br>4. Click nút **"Chia sẻ"**, bấm **"Sao chép Caption & Hashtag"**. | *"Tại màn hình kết quả, Vietmix xuất ra một tấm ảnh thẻ thời trang chuẩn độ phân giải cao 1080x1350, tích hợp sẵn mã QR truy xuất và lời bình văn hóa tương ứng.<br>Em có thể dễ dàng tải ngay bức ảnh này về thiết bị chỉ với một cú nhấp chuột, hoặc sao chép sẵn caption và hashtag để chia sẻ cùng bạn bè."* |
+| **02:15 – 02:35** *(20s)* | **Album Lookbook cá nhân trên thiết bị**<br>- Trình diễn kho lưu trữ Lookbook với các bộ mẫu đã chuẩn bị. | 1. Click nút **"Lưu vào Lookbook"** (nếu chưa lưu).<br>2. Mở **"Album Lookbook"**.<br>3. Di chuột qua 3 bộ mẫu đã chuẩn bị sẵn: Bộ Tết Ngũ Thân trang trọng, Bộ Hội An Giao Lĩnh remix, và Bộ Kỷ Yếu Nhật Bình.<br>4. Bấm thử nút **"Mặc lại"** hoặc **"Xem chi tiết"** trên một thẻ để minh họa khả năng chỉnh sửa tiếp. | *"Mọi bộ trang phục tâm đắc đều được lưu giữ trong Album Lookbook ngay trên bộ nhớ trình duyệt bằng IndexedDB. Chúng ta có thể mở lại bất cứ lúc nào để ngắm nhìn, tải lại ảnh hoặc bấm 'Mặc lại' để tiếp tục sáng tạo mà không sợ mất đi dữ liệu đã lưu."* |
+| **02:35 – 03:00** *(25s)* | **Tổng kết & Định hướng phát triển**<br>- Quay trở về màn hình giao diện tổng thể hoặc trang chủ. | - Đóng modal Lookbook hoặc quay về trang chính.<br>- Giữ khung hình thoáng đãng, nụ cười hoặc giọng nói chân thành, tự tin. | *"Hiện tại, Vietmix đã vận hành hoàn chỉnh trên nền tảng web với đầy đủ cơ chế phân tầng trang phục thông minh, bộ lọc bối cảnh và kho tư liệu văn hóa chọn lọc.<br>Trong giai đoạn tiếp theo, đội ngũ mong muốn tiếp tục mở rộng thêm kho tàng cổ phục qua các triều đại Lý, Trần, Lê, đồng thời kết nối cùng các chuyên gia văn hóa để làm giàu thêm nguồn tư liệu cho cộng đồng người trẻ yêu Việt phục.<br>Cảm ơn thầy cô và các bạn đã theo dõi!"* |
+
+---
+
+## 3. LƯU Ý KHI THỰC HIỆN LỜI THOẠI (VOICEOVER TIPS)
+- **Tốc độ nói:** Khoảng 120 – 130 từ/phút, giữ nhịp đều, rõ chữ, không nói quá vội.
+- **Thái độ:** Nhiệt huyết, tôn trọng di sản văn hóa, thân thiện và gần gũi.
+- **Phối hợp thao tác:** Nói tới đâu thì chuột chỉ tới đó; rê chuột nhẹ nhàng, dứt khoát, không lắc chuột liên tục làm người xem chóng mặt.
+- **Dự phòng chia sẻ:** Trong kịch bản, thao tác "Tải ảnh PNG" và "Sao chép Caption" được ưu tiên hàng đầu vì chạy ổn định 100% trên cả máy tính lẫn điện thoại, tránh phụ thuộc vào hộp thoại chia sẻ hệ thống của từng trình duyệt.

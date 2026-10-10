@@ -234,6 +234,14 @@ export async function migrateLegacyStorage(force: boolean = false): Promise<numb
 export async function getLookbook(): Promise<LookbookEntry[]> {
   if (typeof window === 'undefined') return [];
 
+  if (typeof window !== 'undefined' && window.location?.search?.includes('demo=1')) {
+    try {
+      await seedDemoOutfitsIfRequested();
+    } catch {
+      // ignore
+    }
+  }
+
   // 1. Try to migrate any old localStorage entries on first read
   try {
     await migrateLegacyStorage();
@@ -395,4 +403,49 @@ export async function clearLookbook(): Promise<void> {
   } catch {
     // ignore
   }
+}
+
+/**
+ * Seeds the 3 curated demo outfits into IndexedDB without overwriting or deleting any personal user data.
+ */
+export async function seedDemoOutfitsIfRequested(): Promise<number> {
+  if (typeof window === 'undefined') return 0;
+  const db = await openLookbookDb();
+  if (!db) return 0;
+
+  // Import lazily to avoid circular references
+  const { DEMO_SAMPLE_LOOKS } = await import('./demoData');
+
+  let added = 0;
+  await new Promise<void>((resolve) => {
+    try {
+      const tx = db.transaction(STORE_NAME, 'readwrite');
+      const store = tx.objectStore(STORE_NAME);
+      const req = store.getAll();
+
+      req.onsuccess = () => {
+        const existing: LookbookEntry[] = req.result || [];
+        const existingIds = new Set(existing.map((e) => e.id));
+
+        for (const sample of DEMO_SAMPLE_LOOKS) {
+          if (!existingIds.has(sample.id)) {
+            store.put(sample);
+            added++;
+          }
+        }
+      };
+
+      tx.oncomplete = () => resolve();
+      tx.onerror = () => resolve();
+      tx.onabort = () => resolve();
+    } catch {
+      resolve();
+    }
+  });
+
+  return added;
+}
+
+if (typeof window !== 'undefined') {
+  (window as any).seedVietmixDemo = seedDemoOutfitsIfRequested;
 }
