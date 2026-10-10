@@ -53,3 +53,5 @@ reports/
 public/reports/
 public/review_*.html
 
+
+.vercel

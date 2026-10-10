@@ -58,7 +58,7 @@ export function generateShareCaption({
       : "⚡ Phong cách: Đột phá hiện đại";
 
   const lines: string[] = [
-    `👘 ${title}`,
+    `🪷 ${title}`,
     levelTag,
     `📍 Bối cảnh: ${sceneName} • ${itemCount} món trang phục`,
   ];

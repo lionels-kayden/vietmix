@@ -92,9 +92,16 @@ export default function DressUpPage() {
             <span aria-hidden="true">←</span>
             <span>Trang chủ</span>
           </Link>
-          <h1 className="font-serif text-lg md:text-xl font-bold text-[var(--red-lacquer)] tracking-tight">
-            Việt phục Remix
-          </h1>
+          <div className="flex items-center gap-2">
+            <img
+              src="/avatar.png"
+              alt="Logo Việt phục Remix"
+              className="w-6 h-6 rounded-full border border-amber-500/40 object-cover"
+            />
+            <h1 className="font-serif text-lg md:text-xl font-bold text-[var(--red-lacquer)] tracking-tight">
+              Việt phục Remix
+            </h1>
+          </div>
           <div className="w-[80px]" aria-hidden="true" />
         </div>
       </header>
