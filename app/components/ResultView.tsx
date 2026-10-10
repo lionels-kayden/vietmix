@@ -11,8 +11,9 @@ import { evaluate } from "@/lib/rules";
 import { getMatchingPreset } from "@/lib/outfit";
 import { remixLevel } from "@/lib/remix";
 import { exportOutfitImage, getOutfitCardBlob } from "@/lib/exportCanvas";
-import { saveToLookbook, getLookbook, deleteFromLookbook, LookbookEntry } from "@/lib/lookbook";
+import { saveToLookbook, saveLegacyLookbookSync, blobToDataUrl, LookbookEntry } from "@/lib/lookbook";
 import { ShareModal } from "./ShareModal";
+import { LookbookModal } from "./LookbookModal";
 import { generateShareCaption, shareOutfitFile } from "@/lib/share";
 import { generateShareUrl } from "@/lib/qr";
 
@@ -24,6 +25,7 @@ export interface ResultViewProps {
   onSaveLookbook?: () => void;
   onDownload?: () => void;
   onShare?: () => void;
+  onReWear?: (entry: LookbookEntry) => void;
   className?: string;
 }
 
@@ -35,6 +37,7 @@ export function ResultView({
   onSaveLookbook,
   onDownload,
   onShare,
+  onReWear,
   className = "",
 }: ResultViewProps) {
   const [isExporting, setIsExporting] = useState(false);
@@ -42,7 +45,6 @@ export function ResultView({
   const [toastMessage, setToastMessage] = useState<string | null>(null);
   const [showLookbookModal, setShowLookbookModal] = useState(false);
   const [showShareModal, setShowShareModal] = useState(false);
-  const [savedEntries, setSavedEntries] = useState<LookbookEntry[]>([]);
 
   const currentScene = getScene(sceneId) || getAllScenes()[0];
   const outfit = { gender, itemIds };
@@ -226,29 +228,54 @@ export function ResultView({
       onSaveLookbook();
       return;
     }
+    showToast("✓ Đã lưu trang phục vào Tủ đồ Lookbook!");
     const level = remixLevel(outfit);
-    const entry = saveToLookbook({
+
+    // Save lightweight entry immediately so modal has data without delay
+    const syncId = `lookbook_${Date.now()}_${Math.random().toString(36).substring(2, 7)}`;
+    const syncTimestamp = Date.now();
+    const syncEntry: LookbookEntry = {
+      id: syncId,
+      timestamp: syncTimestamp,
       gender,
       itemIds,
       sceneId,
       summary: summaryText,
       remixLevel: level,
-    });
-    if (entry) {
-      showToast("✓ Đã lưu trang phục vào Tủ đồ Lookbook!");
-    } else {
-      showToast("⚠️ Bộ nhớ đã đầy hoặc bị chặn lưu trữ.");
-    }
+      title: outfitTitle,
+    };
+    saveLegacyLookbookSync(syncEntry);
+
+    (async () => {
+      let dataUrl: string | undefined = undefined;
+      try {
+        if (preparedFile) {
+          dataUrl = await blobToDataUrl(preparedFile);
+        } else {
+          const blob = await getOutfitCardBlob({
+            gender,
+            itemIds,
+            sceneId,
+            summaryText,
+            title: outfitTitle,
+          });
+          if (blob) {
+            dataUrl = await blobToDataUrl(blob);
+          }
+        }
+      } catch {
+        // continue
+      }
+
+      await saveToLookbook({
+        ...syncEntry,
+        imageData: dataUrl,
+      });
+    })();
   };
 
   const handleOpenLookbook = () => {
-    setSavedEntries(getLookbook());
     setShowLookbookModal(true);
-  };
-
-  const handleDeleteEntry = (id: string) => {
-    deleteFromLookbook(id);
-    setSavedEntries(getLookbook());
   };
 
   const showToast = (msg: string) => {
@@ -431,89 +458,17 @@ export function ResultView({
       </section>
 
       {/* Lookbook Saved Outfits Modal */}
-      {showLookbookModal && (
-        <div
-          data-testid="lookbook-modal-backdrop"
-          className="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm flex items-center justify-center p-4 animate-in fade-in"
-        >
-          <div
-            role="dialog"
-            aria-modal="true"
-            aria-labelledby="lookbook-modal-title"
-            data-testid="lookbook-modal"
-            className="w-full max-w-xl max-h-[85vh] bg-white rounded-2xl border border-[var(--border-paper)] shadow-2xl p-5 md:p-6 flex flex-col gap-4 overflow-hidden"
-          >
-            <div className="flex items-center justify-between border-b border-[var(--border-paper)] pb-3">
-              <div className="flex items-center gap-2">
-                <span className="text-xl">📖</span>
-                <h3 id="lookbook-modal-title" className="font-serif font-bold text-base md:text-lg text-[var(--red-lacquer)]">
-                  Tủ Đồ Cá Nhân (Lookbook)
-                </h3>
-              </div>
-              <button
-                type="button"
-                onClick={() => setShowLookbookModal(false)}
-                data-testid="btn-close-lookbook"
-                className="text-sm font-semibold text-[var(--ink-muted)] hover:text-[var(--ink-text)] px-3 py-1.5 rounded-lg border border-[var(--border-paper)]"
-              >
-                Đóng
-              </button>
-            </div>
-
-            <div className="flex-1 overflow-y-auto space-y-3 pr-1">
-              {savedEntries.length === 0 ? (
-                <div data-testid="lookbook-empty" className="text-center py-8 text-sm text-[var(--ink-muted)] italic">
-                  Chưa có bộ trang phục nào trong tủ đồ cá nhân.
-                </div>
-              ) : (
-                savedEntries.map((entry) => (
-                  <div
-                    key={entry.id}
-                    data-testid={`lookbook-item-${entry.id}`}
-                    className="p-3.5 rounded-xl border border-[var(--border-paper)] bg-[var(--bg-cream)]/50 flex items-start justify-between gap-3"
-                  >
-                    <div className="space-y-1 flex-1">
-                      <div className="flex items-center gap-2">
-                        <span className="font-bold text-xs capitalize text-[var(--red-lacquer)]">
-                          {entry.gender === "male" ? "Nam" : "Nữ"}
-                        </span>
-                        <span className="text-[10px] bg-white px-2 py-0.5 rounded border border-[var(--border-paper)]">
-                          Cảnh: {entry.sceneId}
-                        </span>
-                        <span className="text-[10px] bg-indigo-50 text-indigo-800 px-2 py-0.5 rounded font-semibold">
-                          Mốc {entry.remixLevel}
-                        </span>
-                      </div>
-                      <p className="text-xs text-[var(--ink-text)] line-clamp-2">
-                        {entry.summary}
-                      </p>
-                      <div className="text-[10px] text-[var(--ink-muted)]">
-                        {new Date(entry.timestamp).toLocaleDateString("vi-VN", {
-                          hour: "2-digit",
-                          minute: "2-digit",
-                          day: "2-digit",
-                          month: "2-digit",
-                          year: "numeric",
-                        })}
-                      </div>
-                    </div>
-
-                    <button
-                      type="button"
-                      onClick={() => handleDeleteEntry(entry.id)}
-                      data-testid={`btn-delete-${entry.id}`}
-                      className="text-xs text-red-600 hover:text-red-800 underline px-2 py-1 shrink-0"
-                      aria-label="Xóa bộ đồ khỏi tủ đồ"
-                    >
-                      Xóa
-                    </button>
-                  </div>
-                ))
-              )}
-            </div>
-          </div>
-        </div>
-      )}
+      <LookbookModal
+        isOpen={showLookbookModal}
+        onClose={() => setShowLookbookModal(false)}
+        onReWear={(entry) => {
+          if (onReWear) {
+            onReWear(entry);
+          } else {
+            onEdit();
+          }
+        }}
+      />
 
       {/* Share Modal */}
       <ShareModal

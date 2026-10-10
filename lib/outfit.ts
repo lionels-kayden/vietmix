@@ -13,7 +13,8 @@ export type OutfitAction =
   | { type: 'REMOVE_ITEM'; itemId: string }
   | { type: 'CLEAR_OUTFIT' }
   | { type: 'APPLY_PRESET'; itemIds: string[] }
-  | { type: 'SELECT_SCENE'; sceneId: string };
+  | { type: 'SELECT_SCENE'; sceneId: string }
+  | { type: 'SET_OUTFIT'; gender: Gender; itemIds: string[]; sceneId?: string };
 
 export function createInitialOutfit(
   gender: Gender | null = null,
@@ -171,6 +172,23 @@ export function applyOutfitAction(
         ...state,
         sceneId: action.sceneId,
       };
+
+    case 'SET_OUTFIT': {
+      const validIds: string[] = [];
+      const seenSlots = new Set<Slot>();
+      for (const id of action.itemIds) {
+        const item = itemLookup(id);
+        if (item && item.gender === action.gender && !seenSlots.has(item.slot)) {
+          validIds.push(item.id);
+          seenSlots.add(item.slot);
+        }
+      }
+      return {
+        gender: action.gender,
+        itemIds: validIds,
+        sceneId: action.sceneId || state.sceneId || 'tet',
+      };
+    }
 
     default:
       return state;

@@ -18,6 +18,8 @@ import { RemixSlider } from "@/app/components/RemixSlider";
 import { SceneCapBadge } from "@/app/components/SceneCapBadge";
 import { StoryCard } from "@/app/components/StoryCard";
 import { ResultView } from "@/app/components/ResultView";
+import { LookbookModal } from "@/app/components/LookbookModal";
+import { LookbookEntry } from "@/lib/lookbook";
 import { BlockFeedbackModal } from "@/app/components/BlockFeedbackModal";
 import { getItemStory } from "@/lib/stories";
 
@@ -27,7 +29,10 @@ export default function DressUpPage() {
     createInitialOutfit()
   );
 
-  // Check for shared outfit query parameters on initial mount
+  const [showAlbum, setShowAlbum] = useState(false);
+  const [albumToast, setAlbumToast] = useState<string | null>(null);
+
+  // Check for shared outfit query parameters or album trigger on initial mount
   useEffect(() => {
     if (typeof window === "undefined") return;
     try {
@@ -35,6 +40,11 @@ export default function DressUpPage() {
       const g = params.get("gender");
       const itemsParam = params.get("items");
       const s = params.get("scene");
+      const albumParam = params.get("album") || params.get("view");
+
+      if (albumParam === "true" || albumParam === "album") {
+        setShowAlbum(true);
+      }
 
       if (g === "male" || g === "female") {
         dispatch({ type: "SELECT_GENDER", gender: g as Gender });
@@ -60,6 +70,19 @@ export default function DressUpPage() {
 
   const [isConfirmed, setIsConfirmed] = useState(false);
   const [blockViolations, setBlockViolations] = useState<RuleHit[]>([]);
+
+  const handleReWearOutfit = (entry: LookbookEntry) => {
+    dispatch({
+      type: "SET_OUTFIT",
+      gender: entry.gender,
+      itemIds: entry.itemIds,
+      sceneId: entry.sceneId,
+    });
+    setIsConfirmed(false);
+    setShowAlbum(false);
+    setAlbumToast(`✓ Đã mặc lại bộ trang phục! Bạn có thể chỉnh sửa tự do.`);
+    setTimeout(() => setAlbumToast(null), 3500);
+  };
 
   const handleConfirmOutfit = () => {
     if (!gender) return;
@@ -102,7 +125,16 @@ export default function DressUpPage() {
               Việt phục Remix
             </h1>
           </div>
-          <div className="w-[80px]" aria-hidden="true" />
+          <button
+            type="button"
+            onClick={() => setShowAlbum(true)}
+            data-testid="btn-open-album-header"
+            className="inline-flex items-center gap-1.5 text-xs md:text-sm font-semibold text-[var(--indigo-deep)] hover:text-[var(--red-lacquer)] px-3 py-1.5 rounded-xl border border-[var(--border-paper)] bg-white shadow-xs transition-all cursor-pointer min-h-[44px] focus-visible:outline focus-visible:outline-2 focus-visible:outline-[var(--indigo-deep)]"
+            aria-label="Mở Album Lookbook"
+          >
+            <span aria-hidden="true">📖</span>
+            <span>Album</span>
+          </button>
         </div>
       </header>
 
@@ -171,6 +203,7 @@ export default function DressUpPage() {
             itemIds={outfitState.itemIds}
             sceneId={activeSceneId}
             onEdit={() => setIsConfirmed(false)}
+            onReWear={handleReWearOutfit}
           />
         ) : (
           /* Step 2: Dressing Screen */
@@ -336,7 +369,25 @@ export default function DressUpPage() {
           blockHits={blockViolations}
           onClose={() => setBlockViolations([])}
         />
+
+        {/* Global Lookbook Album Modal */}
+        <LookbookModal
+          isOpen={showAlbum}
+          onClose={() => setShowAlbum(false)}
+          onReWear={handleReWearOutfit}
+        />
       </main>
+
+      {/* Album Re-wear Toast */}
+      {albumToast && (
+        <div
+          data-testid="dressup-toast"
+          role="status"
+          className="fixed top-5 left-1/2 -translate-x-1/2 z-50 bg-zinc-900 text-white px-4 py-2.5 rounded-full text-xs md:text-sm font-semibold shadow-lg animate-in fade-in"
+        >
+          {albumToast}
+        </div>
+      )}
     </div>
   );
 }

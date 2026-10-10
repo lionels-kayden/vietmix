@@ -349,3 +349,15 @@ export async function getOutfitCardBlob(
     canvas.toBlob((blob) => resolve(blob), 'image/png');
   });
 }
+
+export async function getOutfitCardDataUrl(
+  options: ComposeOutfitOptions
+): Promise<string | null> {
+  const canvas = await composeOutfitCanvas(options);
+  if (!canvas) return null;
+  try {
+    return canvas.toDataURL('image/png');
+  } catch {
+    return null;
+  }
+}

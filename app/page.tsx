@@ -128,6 +128,12 @@ export default function Home() {
               Không gian
             </a>
             <Link
+              href="/lookbook"
+              className="text-xs md:text-sm font-medium text-[var(--ink-muted)] hover:text-[var(--ink-text)] transition-colors hidden sm:inline"
+            >
+              Album Lookbook
+            </Link>
+            <Link
               href="/dress-up"
               className="inline-flex items-center justify-center min-h-[42px] px-5 py-2 text-xs md:text-sm font-semibold text-white bg-[var(--red-lacquer)] hover:bg-[var(--red-lacquer-hover)] rounded-xl shadow-sm transition-all focus-visible:outline focus-visible:outline-2 focus-visible:outline-[var(--red-lacquer)]"
             >
