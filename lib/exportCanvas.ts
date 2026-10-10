@@ -1,6 +1,6 @@
 import { Gender, Item, Slot } from './types';
 import { getItem, getScene } from './data';
-import { getFitEntry, getFitLayerStyle, FitEntry } from './fit';
+import { getFitEntry, FitEntry } from './fit';
 import { generateShareUrl, generateQrDataUrl } from './qr';
 
 export interface ComposeOutfitOptions {
@@ -11,15 +11,20 @@ export interface ComposeOutfitOptions {
   title?: string;
   fitData?: unknown;
   imageLoader?: (src: string) => Promise<HTMLImageElement | null>;
+  strict?: boolean;
 }
 
 const CANVAS_WIDTH = 1080;
 const CANVAS_HEIGHT = 1350;
 
-// Ordered slots
+// Ordered slots from bottom to top
 const LAYER_ORDER: Slot[] = ['shoes', 'bottom', 'top', 'neck', 'head'];
 
-function defaultLoadImage(src: string): Promise<HTMLImageElement | null> {
+/**
+ * Loads an HTML Image with a robust 4000ms timeout for cold-cache and mobile networks.
+ * Attempts asynchronous decode() when available.
+ */
+export function defaultLoadImage(src: string, timeoutMs = 4000): Promise<HTMLImageElement | null> {
   return new Promise((resolve) => {
     if (typeof window === 'undefined') {
       resolve(null);
@@ -28,20 +33,68 @@ function defaultLoadImage(src: string): Promise<HTMLImageElement | null> {
     const img = new Image();
     img.crossOrigin = 'anonymous';
 
-    // Safe fallback timeout for jsdom or network failure
+    let resolved = false;
     const timer = setTimeout(() => {
-      resolve(null);
-    }, 150);
+      if (!resolved) {
+        resolved = true;
+        resolve(null);
+      }
+    }, timeoutMs);
 
     const onDone = (res: HTMLImageElement | null) => {
-      clearTimeout(timer);
-      resolve(res);
+      if (!resolved) {
+        resolved = true;
+        clearTimeout(timer);
+        resolve(res);
+      }
     };
 
-    img.onload = () => onDone(img);
+    img.onload = () => {
+      if (typeof img.decode === 'function') {
+        img.decode()
+          .then(() => onDone(img))
+          .catch(() => onDone(img)); // fallback to loaded img even if decode promise rejects
+      } else {
+        onDone(img);
+      }
+    };
     img.onerror = () => onDone(null);
     img.src = src;
   });
+}
+
+/**
+ * Draws an image with object-cover aspect fill behavior, matching CSS object-cover.
+ */
+function drawImageCover(
+  ctx: CanvasRenderingContext2D,
+  img: HTMLImageElement,
+  dx: number,
+  dy: number,
+  dWidth: number,
+  dHeight: number
+) {
+  const imgW = img.naturalWidth || img.width || dWidth;
+  const imgH = img.naturalHeight || img.height || dHeight;
+  const imgRatio = imgW / imgH;
+  const targetRatio = dWidth / dHeight;
+
+  let sx = 0;
+  let sy = 0;
+  let sWidth = imgW;
+  let sHeight = imgH;
+
+  if (imgRatio > targetRatio) {
+    // Source is wider than destination: crop sides
+    sWidth = imgH * targetRatio;
+    sx = (imgW - sWidth) / 2;
+  } else {
+    // Source is taller than destination: crop top/bottom
+    sHeight = imgW / targetRatio;
+    sy = (imgH - sHeight) / 2;
+  }
+
+  ctx.drawImage(img, sx, sy, sWidth, sHeight, dx, dy, dWidth, dHeight);
 }
 
 export async function composeOutfitCanvas(
@@ -63,34 +116,10 @@ export async function composeOutfitCanvas(
     title = 'VIỆT PHỤC REMIX',
     fitData,
     imageLoader = defaultLoadImage,
+    strict = false,
   } = options;
 
-  // 1. Draw Background Scene (full-bleed or top background)
-  ctx.fillStyle = '#FAF7F0';
-  ctx.fillRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
-
-  const sceneSrc = `/assets/scenes/${sceneId}.jpg`;
-  const sceneImg = await imageLoader(sceneSrc);
-  if (sceneImg) {
-    // Draw scene covering full canvas
-    ctx.drawImage(sceneImg, 0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
-  }
-
-  // 2. Character composite at 85% scale centered at bottom
-  // Character frame: 85% width = 918, 85% height = 1147, bottom-anchored
-  const charW = Math.round(CANVAS_WIDTH * 0.85);
-  const charH = Math.round(CANVAS_HEIGHT * 0.85);
-  const charX = Math.round((CANVAS_WIDTH - charW) / 2);
-  const charY = CANVAS_HEIGHT - charH;
-
-  // Load and draw Base Character
-  const baseSrc = `/assets/${gender}/${gender}_base.png`;
-  const baseImg = await imageLoader(baseSrc);
-  if (baseImg) {
-    ctx.drawImage(baseImg, charX, charY, charW, charH);
-  }
-
-  // Resolve equipped items by slot
+  // 1. Resolve equipped items by slot and prepare all image URLs
   const equippedBySlot: Partial<Record<Slot, Item>> = {};
   for (const id of itemIds) {
     const item = getItem(id);
@@ -99,7 +128,10 @@ export async function composeOutfitCanvas(
     }
   }
 
-  // Draw garment layers in order: shoes, bottom, top, neck, head
+  const sceneSrc = `/assets/scenes/${sceneId}.jpg`;
+  const baseSrc = `/assets/${gender}/${gender}_base.png`;
+
+  const garmentSources: { slot: Slot; src: string; item: Item }[] = [];
   for (const slot of LAYER_ORDER) {
     const item = equippedBySlot[slot];
     if (!item) continue;
@@ -113,14 +145,66 @@ export async function composeOutfitCanvas(
         itemSrc = `/assets/female/F_B_TOP_ao_giao_linh.png`;
       }
     }
-    const garmentImg = await imageLoader(itemSrc);
+    garmentSources.push({ slot, src: itemSrc, item });
+  }
+
+  // QR Code URL (synced with actual outfit configuration)
+  const qrShareUrl = generateShareUrl({ gender, itemIds, sceneId });
+  const qrDataUrl = await generateQrDataUrl(qrShareUrl, { size: 160 });
+
+  // 2. Preload ALL images in parallel (drastically faster than serial awaits)
+  const [sceneImg, baseImg, qrImg, ...garmentImgs] = await Promise.all([
+    imageLoader(sceneSrc),
+    imageLoader(baseSrc),
+    imageLoader(qrDataUrl),
+    ...garmentSources.map((g) => imageLoader(g.src)),
+  ]);
+
+  // Strict check: In browser environment, fail if essential layers are missing
+  if (strict && typeof window !== 'undefined') {
+    if (!baseImg) {
+      console.error(`composeOutfitCanvas: Missing base character image: ${baseSrc}`);
+      return null;
+    }
+    for (let i = 0; i < garmentSources.length; i++) {
+      if (!garmentImgs[i]) {
+        console.error(`composeOutfitCanvas: Missing equipped garment: ${garmentSources[i].src}`);
+        return null;
+      }
+    }
+  }
+
+  // 3. Draw Background Scene (full-bleed object-cover)
+  ctx.fillStyle = '#FAF7F0';
+  ctx.fillRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
+
+  if (sceneImg) {
+    drawImageCover(ctx, sceneImg, 0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
+  }
+
+  // 4. Character Composite (Audit S08 Fix: Exact 9:16 aspect ratio preservation)
+  // Character height in postcard: 1200px.
+  // 9:16 aspect ratio: width = 1200 * (9 / 16) = 675px.
+  // Centered horizontally, anchored to bottom.
+  const charH = 1200;
+  const charW = Math.round(charH * (9 / 16)); // exactly 675px
+  const charX = Math.round((CANVAS_WIDTH - charW) / 2);
+  const charY = CANVAS_HEIGHT - charH;
+
+  // Draw Base Character
+  if (baseImg) {
+    ctx.drawImage(baseImg, charX, charY, charW, charH);
+  }
+
+  // Draw Garment Layers with exact fit mapping (Audit S08)
+  for (let i = 0; i < garmentSources.length; i++) {
+    const { item } = garmentSources[i];
+    const garmentImg = garmentImgs[i];
     if (!garmentImg) continue;
 
     const fit: FitEntry = getFitEntry(item.id, fitData);
-    const fitStyle = getFitLayerStyle(fit);
-
-    // Apply fit offsets
     const scale = fit.scale ?? 1;
+    // Map logical 1080x1920 coordinates into charW x charH canvas space
     const offsetX = (fit.x / 1080) * charW;
     const offsetY = (fit.y / 1920) * charH;
 
@@ -131,13 +215,12 @@ export async function composeOutfitCanvas(
     ctx.restore();
   }
 
-  // 3. Cultural Information Card Overlay at the bottom
+  // 5. Cultural Information Card Overlay at the bottom
   const cardMargin = 40;
   const cardW = CANVAS_WIDTH - cardMargin * 2;
   const cardH = 220;
   const cardY = CANVAS_HEIGHT - cardH - cardMargin;
 
-  // Draw semi-transparent paper backdrop with rounded corners
   ctx.save();
   ctx.fillStyle = 'rgba(250, 247, 240, 0.94)';
   ctx.strokeStyle = '#DED3C4';
@@ -171,10 +254,6 @@ export async function composeOutfitCanvas(
   ctx.fillText(`Bối cảnh: ${sceneName}`, cardMargin + 32, cardY + 84);
 
   // QR Code on right side of card
-  const qrShareUrl = generateShareUrl({ gender, itemIds, sceneId });
-  const qrDataUrl = await generateQrDataUrl(qrShareUrl, { size: 160 });
-  const qrImg = await imageLoader(qrDataUrl);
-
   const qrSize = 130;
   const qrX = cardMargin + cardW - qrSize - 32;
   const qrY = cardY + 24;
@@ -267,6 +346,6 @@ export async function getOutfitCardBlob(
   const canvas = await composeOutfitCanvas(options);
   if (!canvas) return null;
   return new Promise<Blob | null>((resolve) => {
-    canvas.toBlob((blob) => resolve(blob), "image/png");
+    canvas.toBlob((blob) => resolve(blob), 'image/png');
   });
 }

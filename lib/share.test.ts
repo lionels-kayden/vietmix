@@ -279,4 +279,86 @@ describe("Phase 8 - lib/share.ts Sharing Module", () => {
       expect(writeTextMock).toHaveBeenCalled();
     });
   });
+
+  describe("Audit S02 + S03 + S09: shareOutfitFile and canShareFile", () => {
+    it("canShareFile validates actual File object", async () => {
+      const { canShareFile } = await import("./share");
+      const canShareMock = vi.fn().mockReturnValue(true);
+      Object.defineProperty(navigator, "canShare", {
+        value: canShareMock,
+        configurable: true,
+        writable: true,
+      });
+      Object.defineProperty(navigator, "share", {
+        value: vi.fn(),
+        configurable: true,
+        writable: true,
+      });
+
+      const file = new File(["test-content"], "outfit.png", { type: "image/png" });
+      const result = canShareFile(file);
+      expect(result).toBe(true);
+      expect(canShareMock).toHaveBeenCalledWith({ files: [file] });
+    });
+
+    it("shareOutfitFile constructs payload with files and text but STRICTLY NO url key", async () => {
+      const { shareOutfitFile } = await import("./share");
+      const shareMock = vi.fn().mockResolvedValue(undefined);
+      Object.defineProperty(navigator, "canShare", {
+        value: vi.fn().mockReturnValue(true),
+        configurable: true,
+        writable: true,
+      });
+      Object.defineProperty(navigator, "share", {
+        value: shareMock,
+        configurable: true,
+        writable: true,
+      });
+
+      const file = new File(["png-bytes"], "viet-phuc.png", { type: "image/png" });
+      const result = await shareOutfitFile({
+        file,
+        title: "Việt Phục Remix",
+        text: "Lời bình văn hóa #VietPhuc",
+      });
+
+      expect(result.status).toBe("handed-off");
+      expect(result.success).toBe(true);
+      expect(shareMock).toHaveBeenCalled();
+
+      // Verify the payload passed to navigator.share:
+      const payload = shareMock.mock.calls[0][0];
+      expect(payload).toHaveProperty("files");
+      expect(payload.files).toEqual([file]);
+      expect(payload).toHaveProperty("text", "Lời bình văn hóa #VietPhuc");
+      expect(payload).toHaveProperty("title", "Việt Phục Remix");
+      // CRITICAL AUDIT CRITERION: Payload must NOT have 'url' key!
+      expect(payload).not.toHaveProperty("url");
+    });
+
+    it("shareOutfitFile returns cancelled without falling back when user aborts", async () => {
+      const { shareOutfitFile } = await import("./share");
+      const abortError = new Error("Abort");
+      abortError.name = "AbortError";
+      const shareMock = vi.fn().mockRejectedValue(abortError);
+
+      Object.defineProperty(navigator, "canShare", {
+        value: vi.fn().mockReturnValue(true),
+        configurable: true,
+        writable: true,
+      });
+      Object.defineProperty(navigator, "share", {
+        value: shareMock,
+        configurable: true,
+        writable: true,
+      });
+
+      const file = new File(["png-bytes"], "viet-phuc.png", { type: "image/png" });
+      const result = await shareOutfitFile({ file });
+
+      expect(result.status).toBe("cancelled");
+      expect(result.success).toBe(false);
+      expect(result.error).toContain("đã đóng");
+    });
+  });
 });

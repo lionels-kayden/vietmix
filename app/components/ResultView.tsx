@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { Gender, Item } from "@/lib/types";
 import { getItem, getScene, getAllScenes, getPreset, presetsByGender } from "@/lib/data";
 import { CharacterCanvas } from "./CharacterCanvas";
@@ -13,7 +13,8 @@ import { remixLevel } from "@/lib/remix";
 import { exportOutfitImage, getOutfitCardBlob } from "@/lib/exportCanvas";
 import { saveToLookbook, getLookbook, deleteFromLookbook, LookbookEntry } from "@/lib/lookbook";
 import { ShareModal } from "./ShareModal";
-import { generateShareCaption, shareOutfit, copyToClipboard } from "@/lib/share";
+import { generateShareCaption, shareOutfitFile } from "@/lib/share";
+import { generateShareUrl } from "@/lib/qr";
 
 export interface ResultViewProps {
   gender: Gender;
@@ -37,6 +38,7 @@ export function ResultView({
   className = "",
 }: ResultViewProps) {
   const [isExporting, setIsExporting] = useState(false);
+  const [isSharing, setIsSharing] = useState(false);
   const [toastMessage, setToastMessage] = useState<string | null>(null);
   const [showLookbookModal, setShowLookbookModal] = useState(false);
   const [showShareModal, setShowShareModal] = useState(false);
@@ -53,8 +55,10 @@ export function ResultView({
   const outfitTitle = matchingPreset?.name_vi || "Việt Phục Remix";
   const currentRemixLevel = remixLevel(outfit);
 
-  const shareUrl = typeof window !== "undefined" ? window.location.href : "https://vietmix.vercel.app";
-  // User request: "kèm ảnh png cùng hagtag kh cần link" -> includeUrl: false
+  // Audit S07: Ensure shareUrl always contains full outfit parameters (gender, items, scene)
+  const shareUrl = generateShareUrl({ gender, itemIds, sceneId });
+
+  // Cultural caption without link (user request & S02)
   const shareCaption = generateShareCaption({
     outfitTitle,
     remixLevel: currentRemixLevel,
@@ -64,11 +68,16 @@ export function ResultView({
     includeUrl: false,
   });
 
-  const [cachedBlob, setCachedBlob] = useState<Blob | null>(null);
+  // Audit S05 + S06: Pre-generate ready File in background with lifecycle management
+  const [preparedFile, setPreparedFile] = useState<File | null>(null);
+  const [isPreparingFile, setIsPreparingFile] = useState(false);
+  const currentBlobUrlRef = useRef<string | null>(null);
 
-  // Pre-generate image blob in background so navigator.share triggers instantly without delay
   useEffect(() => {
     let isMounted = true;
+    setPreparedFile(null);
+    setIsPreparingFile(true);
+
     getOutfitCardBlob({
       gender,
       itemIds,
@@ -77,14 +86,31 @@ export function ResultView({
       title: outfitTitle,
     })
       .then((blob) => {
-        if (isMounted && blob) {
-          setCachedBlob(blob);
+        if (isMounted) {
+          if (blob) {
+            const file = new File(
+              [blob],
+              `viet-phuc-remix-${gender}-${Date.now()}.png`,
+              { type: "image/png" }
+            );
+            setPreparedFile(file);
+          }
+          setIsPreparingFile(false);
         }
       })
-      .catch(() => {});
+      .catch((err) => {
+        if (isMounted) {
+          console.error("Failed to prepare outfit card:", err);
+          setIsPreparingFile(false);
+        }
+      });
 
     return () => {
       isMounted = false;
+      if (currentBlobUrlRef.current) {
+        URL.revokeObjectURL(currentBlobUrlRef.current);
+        currentBlobUrlRef.current = null;
+      }
     };
   }, [gender, itemIds, sceneId, summaryText, outfitTitle]);
 
@@ -96,43 +122,54 @@ export function ResultView({
     setShowShareModal(true);
   };
 
+  // Audit S02 + S03 + S05: Native File Share directly using prepared File
   const handleNativeShare = async () => {
-    setIsExporting(true);
+    if (isSharing) return;
+    setIsSharing(true);
+
     try {
-      let blob = cachedBlob;
-      if (!blob) {
-        blob = await getOutfitCardBlob({
+      let file = preparedFile;
+      if (!file) {
+        // Fallback: If clicked before background prep completed
+        const blob = await getOutfitCardBlob({
           gender,
           itemIds,
           sceneId,
           summaryText,
           title: outfitTitle,
         });
+        if (blob) {
+          file = new File([blob], `viet-phuc-remix-${gender}-${Date.now()}.png`, {
+            type: "image/png",
+          });
+          setPreparedFile(file);
+        }
       }
 
-      const res = await shareOutfit({
+      if (!file) {
+        showToast("⚠️ Không thể tạo ảnh thẻ. Vui lòng thử lại!");
+        return;
+      }
+
+      const res = await shareOutfitFile({
+        file,
         title: outfitTitle,
         text: shareCaption,
-        url: "",
-        imageBlob: blob || undefined,
-        fileName: `viet-phuc-remix-${Date.now()}.png`,
       });
-      if (res.success) {
-        if (res.method === "clipboard") {
-          showToast("✓ Đã sao chép hashtag & lời bình vào khay nhớ tạm!");
-        } else {
-          showToast("✓ Đã mở bảng chia sẻ thành công!");
-        }
-        setShowShareModal(false);
+
+      if (res.status === "handed-off") {
+        showToast("✓ Đã mở bảng chia sẻ thành công!");
+      } else if (res.status === "cancelled") {
+        // User dismissed share sheet - keep modal open, do not treat as error
+      } else if (res.status === "unsupported") {
+        showToast("Thiết bị chưa hỗ trợ chia sẻ tệp trực tiếp. Bạn có thể bấm 'Tải ảnh thẻ'!");
       } else if (res.error) {
-        if (!res.error.includes("hủy")) {
-          showToast(res.error);
-        }
+        showToast(`⚠️ ${res.error}`);
       }
     } catch {
-      showToast("⚠️ Không thể hoàn tất chia sẻ.");
+      showToast("⚠️ Không thể mở bảng chia sẻ.");
     } finally {
-      setIsExporting(false);
+      setIsSharing(false);
     }
   };
 
@@ -144,6 +181,7 @@ export function ResultView({
     })
     .filter((entry): entry is { item: Item; story: import("@/lib/types").ItemStory } => entry !== null);
 
+  // Audit S06 + S10: Single download handler using prepared File without duplicate re-render or duplicate copy
   const handleDownloadImage = async () => {
     if (onDownload) {
       onDownload();
@@ -151,19 +189,30 @@ export function ResultView({
     }
     setIsExporting(true);
     try {
-      const ok = await exportOutfitImage({
-        gender,
-        itemIds,
-        sceneId,
-        summaryText,
-        title: matchingPreset?.name_vi || "VIỆT PHỤC REMIX",
-      });
-      if (ok) {
-        // Automatically copy hashtags to clipboard so user can paste into social media
-        await copyToClipboard(shareCaption);
-        showToast("✓ Đã tải ảnh PNG & sao chép hashtag vào bộ nhớ tạm!");
+      if (preparedFile) {
+        // Instantly download existing prepared File
+        const blobUrl = URL.createObjectURL(preparedFile);
+        const link = document.createElement("a");
+        link.href = blobUrl;
+        link.download = preparedFile.name;
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+        setTimeout(() => URL.revokeObjectURL(blobUrl), 1500);
+        showToast("✓ Đang tải ảnh thẻ PNG về máy!");
       } else {
-        showToast("⚠️ Không thể tải ảnh trực tiếp.");
+        const ok = await exportOutfitImage({
+          gender,
+          itemIds,
+          sceneId,
+          summaryText,
+          title: matchingPreset?.name_vi || "VIỆT PHỤC REMIX",
+        });
+        if (ok) {
+          showToast("✓ Đang tải ảnh thẻ PNG về máy!");
+        } else {
+          showToast("⚠️ Không thể tải ảnh trực tiếp.");
+        }
       }
     } catch {
       showToast("⚠️ Đã xảy ra lỗi khi tạo ảnh.");
@@ -204,7 +253,7 @@ export function ResultView({
 
   const showToast = (msg: string) => {
     setToastMessage(msg);
-    setTimeout(() => setToastMessage(null), 3000);
+    setTimeout(() => setToastMessage(null), 3500);
   };
 
   return (
@@ -478,6 +527,8 @@ export function ResultView({
         sceneId={sceneId}
         onNativeShare={handleNativeShare}
         onDownloadImage={handleDownloadImage}
+        isPreparingImage={isPreparingFile}
+        isSharing={isSharing}
       />
     </div>
   );

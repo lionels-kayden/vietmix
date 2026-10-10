@@ -18,6 +18,8 @@ export interface ShareModalProps {
   sceneId?: string;
   onNativeShare?: () => void;
   onDownloadImage?: () => void;
+  isPreparingImage?: boolean;
+  isSharing?: boolean;
 }
 
 export function ShareModal({
@@ -31,6 +33,8 @@ export function ShareModal({
   sceneId,
   onNativeShare,
   onDownloadImage,
+  isPreparingImage = false,
+  isSharing = false,
 }: ShareModalProps) {
   const [copied, setCopied] = useState(false);
   const [qrCodeUrl, setQrCodeUrl] = useState<string | null>(null);
@@ -52,7 +56,7 @@ export function ShareModal({
     return () => window.removeEventListener("keydown", handleKeyDown);
   }, [isOpen, onClose]);
 
-  // Reset copy state and generate QR code when opened
+  // Reset copy state and generate QR code for the specific outfit URL
   useEffect(() => {
     if (isOpen) {
       setCopied(false);
@@ -191,28 +195,32 @@ export function ShareModal({
           📱 Quét mã QR ở góc ảnh bằng camera để mở & thử đúng bộ đồ này
         </p>
 
-        {/* Primary Action Button 1: Native Share Sheet (Jumps up on phone and laptop) */}
+        {/* Primary Action Button: Native Share File (Audit S01 + S05) */}
         {onNativeShare && (
           <button
             type="button"
             onClick={onNativeShare}
+            disabled={isPreparingImage || isSharing}
             data-testid="btn-native-share"
-            className="min-h-[48px] w-full px-4 py-2.5 rounded-xl bg-[var(--red-lacquer)] text-white font-bold text-xs sm:text-sm hover:opacity-90 shadow-md transition-all flex items-center justify-center gap-2 cursor-pointer focus-visible:outline focus-visible:outline-2 focus-visible:outline-[var(--red-lacquer)]"
+            className="min-h-[48px] w-full px-4 py-2.5 rounded-xl bg-[var(--red-lacquer)] text-white font-bold text-xs sm:text-sm hover:opacity-90 disabled:opacity-60 shadow-md transition-all flex items-center justify-center gap-2 cursor-pointer focus-visible:outline focus-visible:outline-2 focus-visible:outline-[var(--red-lacquer)]"
           >
             <span className="text-base" aria-hidden="true">📲</span>
-            <span>Chia sẻ ngay (Tự nhảy bảng chia sẻ)</span>
+            <span>
+              {isSharing
+                ? "Đang mở bảng chia sẻ..."
+                : isPreparingImage
+                ? "Đang chuẩn bị ảnh thẻ..."
+                : "Chia sẻ ảnh ngay (Bảng chia sẻ hệ thống)"}
+            </span>
           </button>
         )}
 
-        {/* Action Buttons Row 2: Download PNG with QR & Copy Hashtags */}
+        {/* Action Buttons Row 2: Download PNG with QR & Copy Hashtags (Audit S10 separation) */}
         <div className="grid grid-cols-2 gap-2.5">
           {onDownloadImage && (
             <button
               type="button"
-              onClick={() => {
-                onDownloadImage();
-                handleCopyCaption();
-              }}
+              onClick={onDownloadImage}
               data-testid="btn-download-share-card"
               className="min-h-[44px] px-3 py-2 rounded-xl border border-zinc-300 bg-white text-zinc-800 font-semibold text-xs sm:text-sm hover:bg-zinc-50 shadow-xs transition-all flex items-center justify-center gap-1.5 cursor-pointer"
             >
@@ -232,13 +240,13 @@ export function ShareModal({
           </button>
         </div>
 
-        {/* Direct Social Links Section */}
+        {/* Direct Social Links Section (Audit S01: Genuine link sharing without hijacking) */}
         <div className="flex flex-col gap-2 pt-1 border-t border-[var(--border-paper)]">
           <div className="flex items-center justify-between">
             <p className="text-xs font-semibold text-zinc-600 uppercase tracking-wider">
-              Chia sẻ lên mạng xã hội
+              Chia sẻ liên kết lên mạng xã hội
             </p>
-            <span className="text-[10px] text-zinc-500">Tự mở bảng chia sẻ kèm ảnh</span>
+            <span className="text-[10px] text-zinc-500">Mở bài đăng kèm link bộ đồ</span>
           </div>
 
           <div className="grid grid-cols-3 gap-2">
@@ -246,17 +254,8 @@ export function ShareModal({
               href={fbUrl}
               target="_blank"
               rel="noopener noreferrer"
-              onClick={(e) => {
-                if (onNativeShare) {
-                  e.preventDefault();
-                  onNativeShare();
-                } else {
-                  if (onDownloadImage) onDownloadImage();
-                  handleCopyCaption();
-                }
-              }}
               data-testid="share-link-facebook"
-              aria-label="Chia sẻ lên Facebook"
+              aria-label="Chia sẻ liên kết lên Facebook"
               className="min-h-[44px] flex flex-col items-center justify-center gap-1 p-2 rounded-xl border border-blue-200 bg-blue-50/70 text-blue-800 hover:bg-blue-100 font-semibold text-xs transition-colors cursor-pointer focus-visible:outline focus-visible:outline-2 focus-visible:outline-blue-600"
             >
               <span className="text-base" aria-hidden="true">📘</span>
@@ -267,17 +266,8 @@ export function ShareModal({
               href={threadsUrl}
               target="_blank"
               rel="noopener noreferrer"
-              onClick={(e) => {
-                if (onNativeShare) {
-                  e.preventDefault();
-                  onNativeShare();
-                } else {
-                  if (onDownloadImage) onDownloadImage();
-                  handleCopyCaption();
-                }
-              }}
               data-testid="share-link-threads"
-              aria-label="Chia sẻ lên Threads"
+              aria-label="Chia sẻ liên kết lên Threads"
               className="min-h-[44px] flex flex-col items-center justify-center gap-1 p-2 rounded-xl border border-zinc-300 bg-zinc-50 text-zinc-900 hover:bg-zinc-100 font-semibold text-xs transition-colors cursor-pointer focus-visible:outline focus-visible:outline-2 focus-visible:outline-black"
             >
               <span className="text-base" aria-hidden="true">🧵</span>
@@ -288,17 +278,8 @@ export function ShareModal({
               href={zaloUrl}
               target="_blank"
               rel="noopener noreferrer"
-              onClick={(e) => {
-                if (onNativeShare) {
-                  e.preventDefault();
-                  onNativeShare();
-                } else {
-                  if (onDownloadImage) onDownloadImage();
-                  handleCopyCaption();
-                }
-              }}
               data-testid="share-link-zalo"
-              aria-label="Chia sẻ qua Zalo"
+              aria-label="Chia sẻ liên kết qua Zalo"
               className="min-h-[44px] flex flex-col items-center justify-center gap-1 p-2 rounded-xl border border-sky-200 bg-sky-50 text-sky-800 hover:bg-sky-100 font-semibold text-xs transition-colors cursor-pointer focus-visible:outline focus-visible:outline-2 focus-visible:outline-sky-600"
             >
               <span className="text-base" aria-hidden="true">💬</span>
@@ -311,7 +292,7 @@ export function ShareModal({
         <div className="bg-amber-50/90 border border-amber-200/90 rounded-xl p-3 text-xs text-amber-900 flex items-start gap-2">
           <span className="text-sm mt-0.5" aria-hidden="true">💡</span>
           <p className="text-amber-800 leading-relaxed">
-            <span className="font-semibold">Đăng lên Facebook, Instagram hoặc TikTok:</span> Bấm <span className="font-bold text-[var(--red-lacquer)]">Tải ảnh thẻ</span> để lưu ảnh kèm mã QR, sau đó dán hashtag đã sao chép vào bài đăng nhé!
+            <span className="font-semibold">Đăng lên Facebook, Instagram hoặc TikTok:</span> Bấm <span className="font-bold text-[var(--red-lacquer)]">Tải ảnh thẻ</span> để lưu ảnh thẻ PNG kèm mã QR, sau đó dán hashtag đã sao chép vào bài đăng nhé!
           </p>
         </div>
       </div>

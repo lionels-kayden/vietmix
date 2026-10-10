@@ -1,9 +1,9 @@
 /**
- * Sharing module for Viet phuc Remix (Phase 8: Full Sharing).
- * Supports 3-tier sharing:
- * 1. Native Web Share API with PNG image file (mobile/modern browsers).
- * 2. Native Web Share API with text & URL link.
- * 3. Platform intent links (Facebook, Threads, Zalo) and Clipboard fallback.
+ * Sharing module for Viet Phuc Remix (Phase 8 & Audit S01-S03, S09).
+ * Provides clear separation between:
+ * 1. File-only native sharing (PNG card image with hashtags, NO URL in payload).
+ * 2. Link native sharing (URL + text intent).
+ * 3. Platform intent links (Facebook, Threads, Zalo) and Clipboard utilities.
  */
 
 export interface ShareCaptionOptions {
@@ -17,6 +17,27 @@ export interface ShareCaptionOptions {
   includeUrl?: boolean;
 }
 
+export type SocialPlatform = "facebook" | "threads" | "zalo";
+
+export type ShareFileStatus = "handed-off" | "cancelled" | "unsupported" | "failed";
+
+export interface ShareFileResult {
+  status: ShareFileStatus;
+  success: boolean;
+  error?: string;
+}
+
+export type ShareLinkStatus = "handed-off" | "cancelled" | "unsupported" | "failed";
+
+export interface ShareLinkResult {
+  status: ShareLinkStatus;
+  success: boolean;
+  error?: string;
+}
+
+/**
+ * Legacy interface for backward compatibility with existing tests
+ */
 export interface ShareOutfitOptions {
   title: string;
   text: string;
@@ -32,8 +53,6 @@ export interface ShareResult {
   success: boolean;
   error?: string;
 }
-
-export type SocialPlatform = "facebook" | "threads" | "zalo";
 
 /**
  * Generates an engaging Vietnamese cultural caption with hashtags for social sharing.
@@ -89,16 +108,14 @@ export function getPlatformShareUrl(
 
   switch (platform) {
     case "facebook":
-      // Facebook Sharer URL specification
       return `https://www.facebook.com/sharer/sharer.php?u=${encodedUrl}`;
 
-    case "threads":
-      // Threads Web Intent specification
+    case "threads": {
       const threadsText = text ? (url ? `${text}\n${url}` : text) : url;
       return `https://threads.net/intent/post?text=${encodeURIComponent(threadsText)}`;
+    }
 
     case "zalo":
-      // Zalo Web Share link specification
       return `https://sp.zalo.me/share_inline?link=${encodedUrl}`;
 
     default:
@@ -107,10 +124,30 @@ export function getPlatformShareUrl(
 }
 
 /**
- * Checks if the browser supports sharing files via Web Share API.
+ * Tests if the browser can share a specific File via navigator.canShare (Audit S09).
+ */
+export function canShareFile(file: File): boolean {
+  if (
+    typeof navigator === "undefined" ||
+    typeof navigator.canShare !== "function"
+  ) {
+    return false;
+  }
+  try {
+    return navigator.canShare({ files: [file] });
+  } catch {
+    return false;
+  }
+}
+
+/**
+ * General probe if browser supports any file sharing.
  */
 export function canShareFiles(): boolean {
-  if (typeof navigator === "undefined" || typeof navigator.canShare !== "function") {
+  if (
+    typeof navigator === "undefined" ||
+    typeof navigator.canShare !== "function"
+  ) {
     return false;
   }
   if (typeof File === "undefined") {
@@ -121,6 +158,97 @@ export function canShareFiles(): boolean {
     return navigator.canShare({ files: [testFile] });
   } catch {
     return false;
+  }
+}
+
+/**
+ * Primary Native File Share (Audit S02 + S03).
+ * Shares ONLY the file (+ optional title/text).
+ * CRITICAL: NEVER includes the 'url' key so the browser doesn't inject the website URL into the share sheet!
+ * Does NOT fallback to link/clipboard on failure; returns typed status so caller decides UI behavior.
+ */
+export async function shareOutfitFile(options: {
+  file: File;
+  title?: string;
+  text?: string;
+}): Promise<ShareFileResult> {
+  const { file, title, text } = options;
+
+  if (!canShareFile(file)) {
+    return {
+      status: "unsupported",
+      success: false,
+      error: "Trình duyệt không hỗ trợ chia sẻ tệp trực tiếp.",
+    };
+  }
+
+  // Construct payload with NO 'url' key
+  const shareData: ShareData = {
+    files: [file],
+  };
+  if (title) shareData.title = title;
+  if (text) shareData.text = text;
+
+  try {
+    await navigator.share(shareData);
+    return {
+      status: "handed-off",
+      success: true,
+    };
+  } catch (err: unknown) {
+    if (err instanceof Error && err.name === "AbortError") {
+      return {
+        status: "cancelled",
+        success: false,
+        error: "Người dùng đã đóng bảng chia sẻ.",
+      };
+    }
+    return {
+      status: "failed",
+      success: false,
+      error: err instanceof Error ? err.message : "Chia sẻ tệp không thành công.",
+    };
+  }
+}
+
+/**
+ * Dedicated Native Link Share (Audit S01 + S02 separation).
+ * Specifically for sharing URL links.
+ */
+export async function shareOutfitLink(options: {
+  title: string;
+  text?: string;
+  url: string;
+}): Promise<ShareLinkResult> {
+  const { title, text, url } = options;
+
+  if (typeof navigator === "undefined" || typeof navigator.share !== "function") {
+    return {
+      status: "unsupported",
+      success: false,
+      error: "Trình duyệt không hỗ trợ chia sẻ liên kết.",
+    };
+  }
+
+  try {
+    await navigator.share({ title, text, url });
+    return {
+      status: "handed-off",
+      success: true,
+    };
+  } catch (err: unknown) {
+    if (err instanceof Error && err.name === "AbortError") {
+      return {
+        status: "cancelled",
+        success: false,
+        error: "Người dùng đã đóng bảng chia sẻ.",
+      };
+    }
+    return {
+      status: "failed",
+      success: false,
+      error: err instanceof Error ? err.message : "Chia sẻ liên kết không thành công.",
+    };
   }
 }
 
@@ -159,10 +287,7 @@ export async function copyToClipboard(text: string): Promise<boolean> {
 }
 
 /**
- * Multi-tier sharing dispatcher:
- * 1. Web Share API with image file
- * 2. Web Share API with text & URL
- * 3. Clipboard copy
+ * Legacy multi-tier dispatcher for backward compatibility with existing tests.
  */
 export async function shareOutfit({
   title,
@@ -171,55 +296,39 @@ export async function shareOutfit({
   imageBlob,
   fileName = "viet-phuc-remix.png",
 }: ShareOutfitOptions): Promise<ShareResult> {
-  // Tier 1: Try Web Share with image file
-  if (
-    imageBlob &&
-    canShareFiles() &&
-    typeof navigator !== "undefined" &&
-    navigator.share
-  ) {
-    try {
-      const file = new File([imageBlob], fileName, {
-        type: imageBlob.type || "image/png",
-      });
-      await navigator.share({
-        title,
-        text,
-        url,
-        files: [file],
-      });
+  // Tier 1: Try Web Share with image file if blob is provided
+  if (imageBlob) {
+    const file = new File([imageBlob], fileName, {
+      type: imageBlob.type || "image/png",
+    });
+    const fileResult = await shareOutfitFile({ file, title, text });
+    if (fileResult.success) {
       return { method: "native-file", success: true };
-    } catch (err: unknown) {
-      // If user cancelled, don't fall back to clipboard
-      if (err instanceof Error && err.name === "AbortError") {
-        return { method: "native-file", success: false, error: "Người dùng đã hủy chia sẻ." };
-      }
-      // If file sharing failed due to NotSupportedError, proceed to Tier 2
     }
+    if (fileResult.status === "cancelled") {
+      return { method: "native-file", success: false, error: "Người dùng đã hủy chia sẻ." };
+    }
+    // Only proceed to Tier 2 if specifically requested with a non-empty URL
   }
 
-  // Tier 2: Try Web Share with text & link
-  if (typeof navigator !== "undefined" && navigator.share) {
-    try {
-      await navigator.share({
-        title,
-        text,
-        url,
-      });
+  // Tier 2: Try Web Share with link if URL is non-empty
+  if (url && typeof navigator !== "undefined" && typeof navigator.share === "function") {
+    const linkResult = await shareOutfitLink({ title, text, url });
+    if (linkResult.success) {
       return { method: "native-link", success: true };
-    } catch (err: unknown) {
-      if (err instanceof Error && err.name === "AbortError") {
-        return { method: "native-link", success: false, error: "Người dùng đã hủy chia sẻ." };
-      }
-      // Proceed to Tier 3 fallback
+    }
+    if (linkResult.status === "cancelled") {
+      return { method: "native-link", success: false, error: "Người dùng đã hủy chia sẻ." };
     }
   }
 
   // Tier 3: Clipboard Fallback
-  const contentToCopy = text ? `${text}\n${url}` : url;
-  const copied = await copyToClipboard(contentToCopy);
-  if (copied) {
-    return { method: "clipboard", success: true };
+  const contentToCopy = text ? (url ? `${text}\n${url}` : text) : url;
+  if (contentToCopy) {
+    const copied = await copyToClipboard(contentToCopy);
+    if (copied) {
+      return { method: "clipboard", success: true };
+    }
   }
 
   return {
